@@ -1,0 +1,31 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+parts:
+  - caption: Introduction
+    chapters:
+    - file: intro/workshop-protocols.md
+    - file: intro/other-resources.md
+    - file: intro/getting-started-with-qiime2.md
+      sections:
+      - file: intro/deploying.md
+      - file: intro/archives.md
+      - file: intro/plugins-and-actions.md
+      - file: intro/types.md
+      - file: intro/q2view.md
+      - file: intro/importing.md
+  - caption: Hands-on tutorial
+    chapters:
+    - file: handson/data-study-metadata.md
+    - file: handson/import-denoise-summarize.md
+    - file: handson/filtering.md
+    - file: handson/phylogeny-taxonomy.md
+    - file: handson/core-metrics.md
+    - file: handson/longitudinal-differtial-abundance.md
+    - file: handson/q2FMT-ideas.md
+  - caption: Appendices
+    chapters:
+    - file: appendices/convert-and-import-artifacts.ipynb
+    - file: appendices/sample-and-patient-metadata.ipynb

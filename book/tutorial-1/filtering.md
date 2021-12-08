@@ -15,7 +15,7 @@ kernelspec:
 
 # Filtering feature tables (currently includes additional content)
  
-We'll next obtain a much larger feature table representing all of the samples included in the ({cite:t}`liao2021`) dataset. These would take too much time to denoise in this course, so we'll start with the feature table and sequences provided by the authors and filter to samples that we'll use for our analyses. If you'd like to perform other experiments with this feature table, you can do that using the full feature table or a subset that you define by filtering. 
+We'll next obtain a much larger feature table representing all of the samples included in the ({cite:t}`liao-data-2021`) dataset. These would take too much time to denoise in this course, so we'll start with the feature table and sequences provided by the authors and filter to samples that we'll use for our analyses. If you'd like to perform other experiments with this feature table, you can do that using the full feature table or a subset that you define by filtering. 
  
 ```{usage-selector}
 ```
@@ -130,7 +130,7 @@ sample_metadata = use.init_metadata('sample-metadata', metadata_factory)
 ```
 
 ```{usage}
-metadata_summ, = use.action(
+use.action(
     use.UsageAction(plugin_id='metadata', action_id='tabulate'),
     use.UsageInputs(input=sample_metadata),
     use.UsageOutputNames(visualization='metadata_summ')
@@ -140,14 +140,13 @@ metadata_summ, = use.action(
 ## Generate summaries of full table and sequence data
 
 ```{usage}
-
-feature_table_summ, = use.action(
+use.action(
     use.UsageAction(plugin_id='feature_table', action_id='summarize'),
     use.UsageInputs(table=feature_table, sample_metadata=sample_metadata),
     use.UsageOutputNames(visualization='table'),
 )
 
-rep_seqs_summ = use.action(
+use.action(
     use.UsageAction(plugin_id='feature_table', action_id='tabulate_seqs'),
     use.UsageInputs(data=feature_sequences),
     use.UsageOutputNames(visualization='rep_seqs'),
@@ -157,7 +156,6 @@ rep_seqs_summ = use.action(
 ## Filter the feature table to the autoFMT study samples
 
 ```{usage}
-
 autofmt_table, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_samples'),
     use.UsageInputs(table=feature_table, metadata=sample_metadata, 
@@ -165,7 +163,7 @@ autofmt_table, = use.action(
     use.UsageOutputNames(filtered_table='autofmt_table')
 )
 
-autofmt_table_summ, = use.action(
+use.action(
     use.UsageAction(plugin_id='feature_table', action_id='summarize'),
     use.UsageInputs(table=autofmt_table, sample_metadata=sample_metadata),
     use.UsageOutputNames(visualization='autofmt_table_summ'),
@@ -213,7 +211,6 @@ filtered_sequences_1, = use.action(
 ## Taxonomy assignment
 
 ```{usage}
-
 def classifier_factory():
     from urllib import request
     from qiime2 import Artifact
@@ -227,7 +224,6 @@ classifier = use.init_artifact('gg-13-8-99-515-806-nb-classifier', classifier_fa
 ```
 
 ```{usage}
-
 taxonomy, = use.action(
     use.UsageAction(plugin_id='feature_classifier', action_id='classify_sklearn'),
     use.UsageInputs(classifier=classifier, reads=filtered_sequences_1),
@@ -248,7 +244,6 @@ use.action(
 Filter features with uninformative taxonomic annotations (they might be human reads, but note that there are also more specific tools for human read filtering). 
 
 ```{usage}
-
 filtered_table_4, = use.action(
     use.UsageAction(plugin_id='taxa', action_id='filter_table'),
     use.UsageInputs(table=filtered_table_3, taxonomy=taxonomy, include='p__'),
@@ -265,7 +260,6 @@ filtered_sequences_2, = use.action(
 ## Phylogenetic tree construction
 
 ```{usage}
-
 _, _, _, rooted_tree = use.action(
     use.UsageAction(plugin_id='phylogeny', action_id='align_to_tree_mafft_fasttree'),
     use.UsageInputs(sequences=filtered_sequences_2),
@@ -278,7 +272,6 @@ _, _, _, rooted_tree = use.action(
 ## Diversity analyses
 
 ```{usage}
-
 core_metrics_results = use.action(
     use.UsageAction(plugin_id='diversity', action_id='core_metrics_phylogenetic'),
     use.UsageInputs(phylogeny=rooted_tree, table=filtered_table_4,
@@ -304,28 +297,31 @@ core_metrics_results = use.action(
 ```
 
 ```{usage}
-
-uu_umap = use.action(
+uu_umap, = use.action(
     use.UsageAction(plugin_id='diversity', action_id='umap'),
     use.UsageInputs(distance_matrix=core_metrics_results.unweighted_unifrac_distance_matrix),
     use.UsageOutputNames(umap='uu_umap')
 )
 
-wu_umap = use.action(
+wu_umap, = use.action(
     use.UsageAction(plugin_id='diversity', action_id='umap'),
     use.UsageInputs(distance_matrix=core_metrics_results.weighted_unifrac_distance_matrix),
     use.UsageOutputNames(umap='wu_umap')
 )
 
-uu_umap_emperor_w_time = use.action(
+use.action(
     use.UsageAction(plugin_id='emperor', action_id='plot'),
     use.UsageInputs(pcoa=uu_umap, metadata=sample_metadata, custom_axes=['week-relative-to-hct']),
     use.UsageOutputNames(visualization='uu_umap_emperor_w_time')
 )
-```
 
-````
-uu_pcoa_emperor_w_time = use.action(
+use.action(
+    use.UsageAction(plugin_id='emperor', action_id='plot'),
+    use.UsageInputs(pcoa=wu_umap, metadata=sample_metadata, custom_axes=['week-relative-to-hct']),
+    use.UsageOutputNames(visualization='wu_umap_emperor_w_time')
+)
+
+use.action(
     use.UsageAction(plugin_id='emperor', action_id='plot'),
     use.UsageInputs(pcoa=core_metrics_results.unweighted_unifrac_pcoa_results, 
                     metadata=sample_metadata,
@@ -333,14 +329,7 @@ uu_pcoa_emperor_w_time = use.action(
     use.UsageOutputNames(visualization='uu_pcoa_emperor_w_time')
 )
 
-
-wu_umap_emperor_w_time = use.action(
-    use.UsageAction(plugin_id='emperor', action_id='plot'),
-    use.UsageInputs(pcoa=wu_umap, metadata=sample_metadata, custom_axes=['week-relative-to-hct']),
-    use.UsageOutputNames(visualization='wu_umap_emperor_w_time')
-)
-
-wu_pcoa_emperor_w_time = use.action(
+use.action(
     use.UsageAction(plugin_id='emperor', action_id='plot'),
     use.UsageInputs(pcoa=core_metrics_results.weighted_unifrac_pcoa_results, 
                     metadata=sample_metadata,
@@ -351,7 +340,6 @@ wu_pcoa_emperor_w_time = use.action(
 
 ## Taxonomy barplots and differential abundance testing
 ```{usage}
-
 filtered_table_for_da, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_samples'),
     use.UsageInputs(table=filtered_table_4, min_frequency=10000),
@@ -359,7 +347,7 @@ filtered_table_for_da, = use.action(
     )
 ```
 
-```
+```{usage}
 use.action(
     use.UsageAction(plugin_id='taxa', action_id='barplot'),
     use.UsageInputs(table=filtered_table_4, taxonomy=taxonomy,
@@ -370,16 +358,36 @@ use.action(
 
 ## Longitudinal analysis
 
-### Volatility
-
 TODO: Add evenness, faith PD, umap vectors, pcoa vectors to metadata for use with volability plots. 
 
 ```{usage}
+genus_table, = use.action(
+    use.UsageAction(plugin_id='taxa', action_id='collapse'),
+    use.UsageInputs(table=filtered_table_4, taxonomy=taxonomy, level=6),
+    use.UsageOutputNames(collapsed_table='genus_table')
+)
 
+filtered_genus_table, = use.action(
+    use.UsageAction(plugin_id='feature_table', action_id='filter_features_conditionally'),
+    use.UsageInputs(table=genus_table, prevalence=0.1, abundance=0.01),
+    use.UsageOutputNames(filtered_table='filtered_genus_table')
+)
+
+genus_rf_table, = use.action(
+    use.UsageAction(plugin_id='feature_table', action_id='relative_frequency'),
+    use.UsageInputs(table=filtered_genus_table),
+    use.UsageOutputNames(relative_frequency_table='genus_rf_table')
+)
+```
+
+### Volatility
+
+```{usage}
 use.action(
     use.UsageAction(plugin_id='longitudinal', action_id='volatility'),
-    use.UsageInputs(table=filtered_table_4, state_column='week-relative-to-hct',
-                    individual_id_column='PatientID', default_group_column='autoFmtGroup'),
+    use.UsageInputs(table=genus_rf_table, state_column='week-relative-to-hct',
+                    metadata=sample_metadata, individual_id_column='PatientID',
+                    default_group_column='autoFmtGroup'),
     use.UsageOutputNames(visualization='volatility_plot_by_week'),
 )
 ```
@@ -387,19 +395,6 @@ use.action(
 ### Feature volatility
 
 ```{usage}
-
-genus_table = use.action(
-    use.UsageAction(plugin_id='taxa', action_id='collapse'),
-    use.UsageInputs(table=filtered_table_4, taxonomy=taxonomy, level=6),
-    use.UsaeOutputNames(collapsed_table='genus_table')
-)
-
-filtered_genus_table = use.action(
-    use.UsageAction(plugin_id='feature_table', action_id='filter_features_conditionally'),
-    use.UsageInputs(table=genus_table, prevalence=0.1, abundance=0.01),
-    use.UsageOutputNames(filtered_table='filtered_genus_table')
-)
-
 _, _, genus_volatility_plot, _, _ = use.action(
     use.UsageAction(plugin_id='longitudinal', action_id='feature_volatility'),
     use.UsageInputs(table=filtered_genus_table, metadata=sample_metadata, 
@@ -411,4 +406,3 @@ _, _, genus_volatility_plot, _, _ = use.action(
                          sample_estimator='sample_estimator')
 )
 ```
-````

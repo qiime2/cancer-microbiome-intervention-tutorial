@@ -18,13 +18,13 @@ parts:
       - file: intro/importing.md
   - caption: Hands-on tutorial
     chapters:
-    - file: handson/data-study-metadata.md
-    - file: handson/import-denoise-summarize.md
-    - file: handson/filtering.md
-    - file: handson/phylogeny-taxonomy.md
-    - file: handson/core-metrics.md
-    - file: handson/longitudinal-differtial-abundance.md
-    - file: handson/q2FMT-ideas.md
+    - file: tutorial-1/data-study-metadata.md
+    - file: tutorial-1/import-denoise-summarize.md
+    - file: tutorial-1/filtering.md
+    - file: tutorial-1/phylogeny-taxonomy.md
+    - file: tutorial-1/core-metrics.md
+    - file: tutorial-1/longitudinal-differtial-abundance.md
+    - file: tutorial-1/q2FMT-ideas.md
   - caption: Appendices
     chapters:
     - file: appendices/convert-and-import-artifacts.ipynb

@@ -41,10 +41,10 @@ QIIME 2 Usage API enabled JupyterBooks allow for the development of JupyterBooks
             config                    :   {'html_baseurl': 'http://localhost:8000'}
             ```
 
-5. Clean up remnants from previous builds; build the book; and initiate http server to host the book content:
+5. Build the book and initiate http server to host the book content:
 
     ```{code-block}
-    jupyter-book clean book && jupyter-book build book && cd book/_build/html/ && python -m http.server && cd -
+    jupyter-book build book && cd book/_build/html/ && python -m http.server && cd -
     ```
 
 6. Open http://localhost:8000 in your web browser.

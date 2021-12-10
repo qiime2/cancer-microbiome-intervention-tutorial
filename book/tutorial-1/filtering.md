@@ -61,7 +61,9 @@ feature_sequences = use.init_artifact(
 Finally, download the metadata. 
 
 ```{usage}
-def metadata_factory():
+def partial_metadata_factory():
+    ## This function is identical to the filter.md metadata_factory function - should
+    ## be able to call that once issue#1 is addressed. 
     import tempfile
     import requests
     import pandas as pd
@@ -126,7 +128,46 @@ def metadata_factory():
 
     return qiime2.Metadata(sample_metadata)
 
-sample_metadata = use.init_metadata('sample-metadata', metadata_factory)
+def fmt_metadata_factory():
+    # obtain the metadata that we've been using so far
+    sample_metadata = partial_metadata_factory().to_dataframe()
+
+    # obtain the autoFMT-specific metadata
+    import tempfile
+    import requests
+    import pandas as pd
+    import numpy as np
+
+    import qiime2
+    
+    fmt_metadata_url = 'https://www.dropbox.com/s/lc67zkze7i3eljp/tblautofmt.csv?dl=1'
+    data = requests.get(fmt_metadata_url)
+    with tempfile.NamedTemporaryFile() as f:
+        f.write(data.content)
+        f.flush()
+        fmt_metadata = pd.read_csv(f.name)
+    fmt_metadata = fmt_metadata.set_index('PatientID')
+
+    # join the two metadata collections, dropping duplicate columns
+    sample_metadata = sample_metadata.join(fmt_metadata.drop(['autoFmtPatientId'], axis=1), on='PatientID')
+
+    # drop all samples not related to the autoFMT study
+    #sample_metadata = sample_metadata.dropna(subset=['autoFmtGroup'])
+
+    # Create new column relating all samples to day relative to FMT treatment.
+    # For patients in the "control" group, this will be the day they were 
+    # assigned to that group, which is when they would have received the FMT 
+    # (or one to two days before that) if they had been assigned to the 
+    # "treatment" group. 
+
+    fmt_day = sample_metadata['FMTDayRelativeToNearestHCT'].fillna(
+                sample_metadata['RandomizationDayRelativeToNearestHCT'])
+    day_relative_to_fmt = sample_metadata['DayRelativeToNearestHCT'] - fmt_day
+    sample_metadata.insert(0, 'day-relative-to-fmt', day_relative_to_fmt, True)
+
+    return qiime2.Metadata(sample_metadata)
+
+sample_metadata = use.init_metadata('sample_metadata', fmt_metadata_factory)
 ```
 
 ```{usage}
@@ -308,23 +349,41 @@ wu_umap, = use.action(
     use.UsageInputs(distance_matrix=core_metrics_results.weighted_unifrac_distance_matrix),
     use.UsageOutputNames(umap='wu_umap')
 )
+```
 
+TODO: Add evenness, faith PD, umap vectors, pcoa vectors to metadata for use with volability plots. 
+
+```{usage}
+uu_umap_as_metadata = use.view_as_metadata('uu_umap_as_metadata', uu_umap)
+
+expanded_sample_metadata = use.merge_metadata('expanded_sample_metadata', 
+                                              sample_metadata, 
+                                              uu_umap_as_metadata)
+```
+
+% faith_pd_as_metadata, = use.view_as_metadata('faith_pd_as_metadata', core_metrics_results.faith_pd_vector)
+% evenness_as_metadata, = use.view_as_metadata('evenness_as_metadata', core_metrics_results.evenness_vector)
+% shannon_as_metadata, = use.view_as_metadata('shannon_as_metadata', core_metrics_results.shannon_vector)
+
+% faith_pd_as_metadata, evenness_as_metadata, shannon_as_metadata)
+
+```{usage}
 use.action(
     use.UsageAction(plugin_id='emperor', action_id='plot'),
-    use.UsageInputs(pcoa=uu_umap, metadata=sample_metadata, custom_axes=['week-relative-to-hct']),
+    use.UsageInputs(pcoa=uu_umap, metadata=expanded_sample_metadata, custom_axes=['week-relative-to-hct']),
     use.UsageOutputNames(visualization='uu_umap_emperor_w_time')
 )
 
 use.action(
     use.UsageAction(plugin_id='emperor', action_id='plot'),
-    use.UsageInputs(pcoa=wu_umap, metadata=sample_metadata, custom_axes=['week-relative-to-hct']),
+    use.UsageInputs(pcoa=wu_umap, metadata=expanded_sample_metadata, custom_axes=['week-relative-to-hct']),
     use.UsageOutputNames(visualization='wu_umap_emperor_w_time')
 )
 
 use.action(
     use.UsageAction(plugin_id='emperor', action_id='plot'),
     use.UsageInputs(pcoa=core_metrics_results.unweighted_unifrac_pcoa_results, 
-                    metadata=sample_metadata,
+                    metadata=expanded_sample_metadata,
                     custom_axes=['week-relative-to-hct']),
     use.UsageOutputNames(visualization='uu_pcoa_emperor_w_time')
 )
@@ -332,7 +391,7 @@ use.action(
 use.action(
     use.UsageAction(plugin_id='emperor', action_id='plot'),
     use.UsageInputs(pcoa=core_metrics_results.weighted_unifrac_pcoa_results, 
-                    metadata=sample_metadata,
+                    metadata=expanded_sample_metadata,
                     custom_axes=['week-relative-to-hct']),
     use.UsageOutputNames(visualization='wu_pcoa_emperor_w_time')
 )
@@ -351,14 +410,13 @@ filtered_table_for_da, = use.action(
 use.action(
     use.UsageAction(plugin_id='taxa', action_id='barplot'),
     use.UsageInputs(table=filtered_table_4, taxonomy=taxonomy,
-                    metadata=sample_metadata),
+                    metadata=expanded_sample_metadata),
     use.UsageOutputNames(visualization='taxa_bar_plots'),
 )
 ```
 
 ## Longitudinal analysis
 
-TODO: Add evenness, faith PD, umap vectors, pcoa vectors to metadata for use with volability plots. 
 
 ```{usage}
 genus_table, = use.action(
@@ -386,7 +444,17 @@ genus_rf_table, = use.action(
 use.action(
     use.UsageAction(plugin_id='longitudinal', action_id='volatility'),
     use.UsageInputs(table=genus_rf_table, state_column='week-relative-to-hct',
-                    metadata=sample_metadata, individual_id_column='PatientID',
+                    metadata=expanded_sample_metadata, individual_id_column='PatientID',
+                    default_group_column='autoFmtGroup'),
+    use.UsageOutputNames(visualization='volatility_plot_by_week'),
+)
+```
+
+```{usage}
+use.action(
+    use.UsageAction(plugin_id='longitudinal', action_id='volatility'),
+    use.UsageInputs(table=genus_rf_table, state_column='day-relative-to-fmt',
+                    metadata=expanded_sample_metadata, individual_id_column='PatientID',
                     default_group_column='autoFmtGroup'),
     use.UsageOutputNames(visualization='volatility_plot_by_week'),
 )
@@ -395,10 +463,23 @@ use.action(
 ### Feature volatility
 
 ```{usage}
-_, _, genus_volatility_plot, _, _ = use.action(
+ use.action(
     use.UsageAction(plugin_id='longitudinal', action_id='feature_volatility'),
-    use.UsageInputs(table=filtered_genus_table, metadata=sample_metadata, 
+    use.UsageInputs(table=filtered_genus_table, metadata=expanded_sample_metadata, 
                     state_column='week-relative-to-hct', individual_id_column='PatientID'),
+    use.UsageOutputNames(filtered_table='important_genera_table', 
+                         feature_importance='genus_importances',
+                         volatility_plot='genus_volatility_plot',
+                         accuracy_results='accuracy_results',
+                         sample_estimator='sample_estimator')
+)
+```
+
+```{usage}
+ use.action(
+    use.UsageAction(plugin_id='longitudinal', action_id='feature_volatility'),
+    use.UsageInputs(table=filtered_genus_table, metadata=expanded_sample_metadata, 
+                    state_column='day-relative-to-fmt', individual_id_column='PatientID'),
     use.UsageOutputNames(filtered_table='important_genera_table', 
                          feature_importance='genus_importances',
                          volatility_plot='genus_volatility_plot',

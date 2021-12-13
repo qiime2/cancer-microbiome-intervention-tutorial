@@ -24,7 +24,6 @@ jobs:
         flake8
 
   doc-build:
-      needs: build-and-test
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v2

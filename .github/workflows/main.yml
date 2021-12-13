@@ -51,11 +51,11 @@ jobs:
           conda activate ./test-env
           pip install -U "jupyter-book>=0.7.0b"
 
-      - name: build docs
-        run: conda run -p ./test-env jb build docs/
+      - name: build book
+        run: conda run -p ./test-env jb build book/
 
-      - name: save built doc
+      - name: save built book
         uses: actions/upload-artifact@v2
         with:
-          name: docs
-          path: docs/_build/html
+          name: book
+          path: book/_build/html

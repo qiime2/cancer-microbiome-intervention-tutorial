@@ -19,6 +19,8 @@ jobs:
 
     - name: lint
       run: |
+        pip install -q https://github.com/qiime2/q2lint/archive/master.zip
+        q2lint
         pip install -q flake8
         flake8
 
@@ -46,13 +48,13 @@ jobs:
           -c conda-forge \
           -c bioconda \
           -c defaults \
-          --override-channels sphinx=4.3.1 pip
+          --override-channels sphinx pip
 
     - name: install pip dependencies
       shell: bash -l {0}
       run: |
         conda activate ./test-env
-        pip install -U "jupyter-book>=0.7.0b"
+        pip install -U "jupyter-book"
         pip install git+https://github.com/qiime2/sphinx-ext-qiime2
 
     - name: build book

@@ -50,6 +50,7 @@ jobs:
         run: |
           conda activate ./test-env
           pip install -U "jupyter-book>=0.7.0b"
+          pip install git+https://github.com/qiime2/sphinx-ext-qiime2
 
       - name: build book
         run: conda run -p ./test-env jb build book/

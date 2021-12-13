@@ -27,6 +27,7 @@ jobs:
         flake8
 
   doc-build:
+    needs: lint
     runs-on: ubuntu-latest
     steps:
     - name: checkout source

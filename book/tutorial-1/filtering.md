@@ -75,7 +75,7 @@ def partial_metadata_factory():
     data = requests.get(sample_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)
-        sample_metadata = pd.read_csv(f.name, index_col='SampleID')    
+        sample_metadata = pd.read_csv(f.name, index_col='SampleID', sep='\t')    
     patient_sample_counts = sample_metadata['PatientID'].value_counts()
     sample_metadata['patient-sample-counts'] = \
         patient_sample_counts[sample_metadata['PatientID']].values
@@ -85,7 +85,7 @@ def partial_metadata_factory():
     data = requests.get(transplant_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)
-        transplant_metadata = pd.read_csv(f.name)
+        transplant_metadata = pd.read_csv(f.name, sep='\t')
     # If a patient received multiple HCTs, keep data only on the most recent.
     # This is useful for simplifying downstream workflows. 
     transplant_metadata = transplant_metadata.sort_values('TimepointOfTransplant')
@@ -145,7 +145,7 @@ def fmt_metadata_factory():
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)
         f.flush()
-        fmt_metadata = pd.read_csv(f.name)
+        fmt_metadata = pd.read_csv(f.name, sep='\t')
     fmt_metadata = fmt_metadata.set_index('PatientID')
 
     # join the two metadata collections, dropping duplicate columns

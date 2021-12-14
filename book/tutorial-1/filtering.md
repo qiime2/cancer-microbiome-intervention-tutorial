@@ -25,7 +25,7 @@ We'll next obtain a much larger feature table representing all of the samples in
 First, download the full feature table. 
 
 ```{usage}
-feature_table_url = 'https://qiime2-data.s3.us-west-2.amazonaws.com/2022.2/tutorials/liao/full-feature-table.qza'
+feature_table_url = 'https://data.qiime2.org/2022.2/tutorials/liao/full-feature-table.qza'
 
 def artifact_from_url(url):
     def factory():
@@ -51,7 +51,7 @@ feature_table = use.init_artifact(
 Next, download the ASV sequences. 
 
 ```{usage}
-seqs_url = 'https://qiime2-data.s3.us-west-2.amazonaws.com/2022.2/tutorials/liao/rep-seqs.qza'
+seqs_url = 'https://data.qiime2.org/2022.2/tutorials/liao/rep-seqs.qza'
 
 feature_sequences = use.init_artifact(
     'rep-seqs',
@@ -71,7 +71,7 @@ def partial_metadata_factory():
 
     import qiime2
 
-    sample_metadata_url = 'https://qiime2-data.s3.us-west-2.amazonaws.com/2022.2/tutorials/liao/sample-metadata.tsv'
+    sample_metadata_url = 'https://data.qiime2.org/2022.2/tutorials/liao/sample-metadata.tsv'
     data = requests.get(sample_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)
@@ -81,7 +81,7 @@ def partial_metadata_factory():
         patient_sample_counts[sample_metadata['PatientID']].values
 
 
-    transplant_metadata_url = 'https://qiime2-data.s3.us-west-2.amazonaws.com/2022.2/tutorials/liao/transplant-metadata.tsv'
+    transplant_metadata_url = 'https://data.qiime2.org/2022.2/tutorials/liao/transplant-metadata.tsv'
     data = requests.get(transplant_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)
@@ -140,7 +140,7 @@ def fmt_metadata_factory():
 
     import qiime2
     
-    fmt_metadata_url = 'https://qiime2-data.s3.us-west-2.amazonaws.com/2022.2/tutorials/liao/fmt-metadata.tsv'
+    fmt_metadata_url = 'https://data.qiime2.org/2022.2/tutorials/liao/fmt-metadata.tsv'
     data = requests.get(fmt_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)

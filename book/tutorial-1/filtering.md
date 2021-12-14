@@ -25,7 +25,7 @@ We'll next obtain a much larger feature table representing all of the samples in
 First, download the full feature table. 
 
 ```{usage}
-feature_table_url = 'https://www.dropbox.com/s/6k4lefll507r56x/table.qza?dl=1'
+feature_table_url = 'https://data.qiime2.org/2022.2/tutorials/liao/full-feature-table.qza'
 
 def artifact_from_url(url):
     def factory():
@@ -51,7 +51,7 @@ feature_table = use.init_artifact(
 Next, download the ASV sequences. 
 
 ```{usage}
-seqs_url = 'https://www.dropbox.com/s/f8xe9h1b2puo2nn/rep-seqs.qza?dl=1' 
+seqs_url = 'https://data.qiime2.org/2022.2/tutorials/liao/rep-seqs.qza'
 
 feature_sequences = use.init_artifact(
     'rep-seqs',
@@ -71,21 +71,21 @@ def partial_metadata_factory():
 
     import qiime2
 
-    sample_metadata_url = 'https://www.dropbox.com/s/jouupm7o737pzxs/tblASVsamples.csv?dl=1'
+    sample_metadata_url = 'https://data.qiime2.org/2022.2/tutorials/liao/sample-metadata.tsv'
     data = requests.get(sample_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)
-        sample_metadata = pd.read_csv(f.name, index_col='SampleID')    
+        sample_metadata = pd.read_csv(f.name, index_col='SampleID', sep='\t')    
     patient_sample_counts = sample_metadata['PatientID'].value_counts()
     sample_metadata['patient-sample-counts'] = \
         patient_sample_counts[sample_metadata['PatientID']].values
 
 
-    transplant_metadata_url = 'https://www.dropbox.com/s/5jicj5mqaqc4ig9/tblhctmeta.csv?dl=1'
+    transplant_metadata_url = 'https://data.qiime2.org/2022.2/tutorials/liao/transplant-metadata.tsv'
     data = requests.get(transplant_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)
-        transplant_metadata = pd.read_csv(f.name)
+        transplant_metadata = pd.read_csv(f.name, sep='\t')
     # If a patient received multiple HCTs, keep data only on the most recent.
     # This is useful for simplifying downstream workflows. 
     transplant_metadata = transplant_metadata.sort_values('TimepointOfTransplant')
@@ -140,12 +140,12 @@ def fmt_metadata_factory():
 
     import qiime2
     
-    fmt_metadata_url = 'https://www.dropbox.com/s/lc67zkze7i3eljp/tblautofmt.csv?dl=1'
+    fmt_metadata_url = 'https://data.qiime2.org/2022.2/tutorials/liao/fmt-metadata.tsv'
     data = requests.get(fmt_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)
         f.flush()
-        fmt_metadata = pd.read_csv(f.name)
+        fmt_metadata = pd.read_csv(f.name, sep='\t')
     fmt_metadata = fmt_metadata.set_index('PatientID')
 
     # join the two metadata collections, dropping duplicate columns

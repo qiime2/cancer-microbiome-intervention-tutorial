@@ -13,9 +13,6 @@ kernelspec:
   name: python3
 ---
 
-```{usage-selector}
-```
-
 ```{usage-scope}
 ---
 name: tutorial
@@ -23,6 +20,9 @@ name: tutorial
 ```
 
 # Core metrics
+
+```{usage-selector}
+```
 
 ## Diversity analyses
 

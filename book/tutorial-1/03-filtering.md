@@ -13,9 +13,6 @@ kernelspec:
   name: python3
 ---
 
-```{usage-selector}
-```
-
 ```{usage-scope}
 ---
 name: tutorial
@@ -23,6 +20,9 @@ name: tutorial
 ```
 
 # Filtering feature tables
+
+```{usage-selector}
+```
 
 We'll next obtain a much larger feature table representing all of the samples included in the ({cite:t}`liao-data-2021`) dataset. These would take too much time to denoise in this course, so we'll start with the feature table and sequences provided by the authors and filter to samples that we'll use for our analyses. If you'd like to perform other experiments with this feature table, you can do that using the full feature table or a subset that you define by filtering.
 

@@ -24,7 +24,6 @@ name: tutorial
 
 # Building a phylogenetic tree and taxonomic annotation
 
-
 ## Taxonomy assignment
 
 ```{usage}

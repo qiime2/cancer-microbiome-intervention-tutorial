@@ -14,15 +14,15 @@ kernelspec:
 ---
 
 # Filtering feature tables (currently includes additional content)
- 
-We'll next obtain a much larger feature table representing all of the samples included in the ({cite:t}`liao-data-2021`) dataset. These would take too much time to denoise in this course, so we'll start with the feature table and sequences provided by the authors and filter to samples that we'll use for our analyses. If you'd like to perform other experiments with this feature table, you can do that using the full feature table or a subset that you define by filtering. 
- 
+
+We'll next obtain a much larger feature table representing all of the samples included in the ({cite:t}`liao-data-2021`) dataset. These would take too much time to denoise in this course, so we'll start with the feature table and sequences provided by the authors and filter to samples that we'll use for our analyses. If you'd like to perform other experiments with this feature table, you can do that using the full feature table or a subset that you define by filtering.
+
 ```{usage-selector}
 ```
 
 ## Access the data
 
-First, download the full feature table. 
+First, download the full feature table.
 
 ```{usage}
 feature_table_url = 'https://data.qiime2.org/2022.2/tutorials/liao/full-feature-table.qza'
@@ -44,11 +44,11 @@ def artifact_from_url(url):
     return factory
 
 feature_table = use.init_artifact(
-        'feature-table', 
+        'feature-table',
         artifact_from_url(feature_table_url))
 ```
 
-Next, download the ASV sequences. 
+Next, download the ASV sequences.
 
 ```{usage}
 seqs_url = 'https://data.qiime2.org/2022.2/tutorials/liao/rep-seqs.qza'
@@ -58,12 +58,12 @@ feature_sequences = use.init_artifact(
     artifact_from_url(seqs_url))
 ```
 
-Finally, download the metadata. 
+Finally, download the metadata.
 
 ```{usage}
 def partial_metadata_factory():
     ## This function is identical to the filter.md metadata_factory function - should
-    ## be able to call that once issue#1 is addressed. 
+    ## be able to call that once issue#1 is addressed.
     import tempfile
     import requests
     import pandas as pd
@@ -75,7 +75,7 @@ def partial_metadata_factory():
     data = requests.get(sample_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)
-        sample_metadata = pd.read_csv(f.name, index_col='SampleID', sep='\t')    
+        sample_metadata = pd.read_csv(f.name, index_col='SampleID', sep='\t')
     patient_sample_counts = sample_metadata['PatientID'].value_counts()
     sample_metadata['patient-sample-counts'] = \
         patient_sample_counts[sample_metadata['PatientID']].values
@@ -87,7 +87,7 @@ def partial_metadata_factory():
         f.write(data.content)
         transplant_metadata = pd.read_csv(f.name, sep='\t')
     # If a patient received multiple HCTs, keep data only on the most recent.
-    # This is useful for simplifying downstream workflows. 
+    # This is useful for simplifying downstream workflows.
     transplant_metadata = transplant_metadata.sort_values('TimepointOfTransplant')
     most_recent_transplant_metadata = transplant_metadata.drop_duplicates(subset=['PatientID'], keep='last')
     most_recent_transplant_metadata = most_recent_transplant_metadata.set_index('PatientID')
@@ -109,20 +109,20 @@ def partial_metadata_factory():
     sample_metadata = sample_metadata.join(most_recent_transplant_metadata, on='PatientID')
 
     # this selects the patients who were randomized to receive autoFMT or not
-    # TODO: it's probably better to do this with QIIME 2 so users can see it - otherwise there's not 
+    # TODO: it's probably better to do this with QIIME 2 so users can see it - otherwise there's not
     # much point in starting with the full feature table
     #pd_metadata_samples = pd_metadata_samples[pd_metadata_samples['autoFmtGroup'].notna()]
 
     sample_metadata['categorical-time-relative-to-hct'] = \
-        pd.cut(sample_metadata['DayRelativeToNearestHCT'], 
+        pd.cut(sample_metadata['DayRelativeToNearestHCT'],
                [-1000, -1, 5, 1000],
                labels=['pre', 'peri', 'post'])
-    
+
     sample_metadata['week-relative-to-hct'] = \
-        pd.cut(sample_metadata['DayRelativeToNearestHCT'], 
-               [-1000, -14, -7, 0, 7, 14, 21, 28, 35, 42, 1000], 
+        pd.cut(sample_metadata['DayRelativeToNearestHCT'],
+               [-1000, -14, -7, 0, 7, 14, 21, 28, 35, 42, 1000],
                labels=[-3, -2, -1, 0, 1, 2, 3, 4, 5, 6])
-    
+
     sample_metadata = sample_metadata.astype({'categorical-time-relative-to-hct': object,
                                               'week-relative-to-hct': float})
 
@@ -139,7 +139,7 @@ def fmt_metadata_factory():
     import numpy as np
 
     import qiime2
-    
+
     fmt_metadata_url = 'https://data.qiime2.org/2022.2/tutorials/liao/fmt-metadata.tsv'
     data = requests.get(fmt_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
@@ -155,10 +155,10 @@ def fmt_metadata_factory():
     #sample_metadata = sample_metadata.dropna(subset=['autoFmtGroup'])
 
     # Create new column relating all samples to day relative to FMT treatment.
-    # For patients in the "control" group, this will be the day they were 
-    # assigned to that group, which is when they would have received the FMT 
-    # (or one to two days before that) if they had been assigned to the 
-    # "treatment" group. 
+    # For patients in the "control" group, this will be the day they were
+    # assigned to that group, which is when they would have received the FMT
+    # (or one to two days before that) if they had been assigned to the
+    # "treatment" group.
 
     fmt_day = sample_metadata['FMTDayRelativeToNearestHCT'].fillna(
                 sample_metadata['RandomizationDayRelativeToNearestHCT'])
@@ -199,7 +199,7 @@ use.action(
 ```{usage}
 autofmt_table, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_samples'),
-    use.UsageInputs(table=feature_table, metadata=sample_metadata, 
+    use.UsageInputs(table=feature_table, metadata=sample_metadata,
                     where="autoFmtGroup IS NOT NULL"),
     use.UsageOutputNames(filtered_table='autofmt_table')
 )
@@ -225,7 +225,7 @@ filtered_table_1, = use.action(
 ```{usage}
 filtered_table_2, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_samples'),
-    use.UsageInputs(table=filtered_table_1, metadata=sample_metadata, 
+    use.UsageInputs(table=filtered_table_1, metadata=sample_metadata,
                     where="DayRelativeToNearestHCT BETWEEN -10 AND 70"),
     use.UsageOutputNames(filtered_table='filtered_table_2')
 )
@@ -249,7 +249,7 @@ filtered_sequences_1, = use.action(
     )
 ```
 
-## Taxonomy assignment
+## 04 - Taxonomy assignment
 
 ```{usage}
 def classifier_factory():
@@ -280,9 +280,9 @@ use.action(
 )
 ```
 
-## More filtering! 
+## More filtering!
 
-Filter features with uninformative taxonomic annotations (they might be human reads, but note that there are also more specific tools for human read filtering). 
+Filter features with uninformative taxonomic annotations (they might be human reads, but note that there are also more specific tools for human read filtering).
 
 ```{usage}
 filtered_table_4, = use.action(
@@ -310,7 +310,7 @@ _, _, _, rooted_tree = use.action(
 )
 ```
 
-## Diversity analyses
+## 05 - Diversity analyses
 
 ```{usage}
 core_metrics_results = use.action(
@@ -358,8 +358,8 @@ evenness_as_metadata = use.view_as_metadata('evenness_as_metadata', core_metrics
 shannon_as_metadata = use.view_as_metadata('shannon_as_metadata', core_metrics_results.shannon_vector)
 
 
-expanded_sample_metadata = use.merge_metadata('expanded_sample_metadata', 
-                                              sample_metadata, 
+expanded_sample_metadata = use.merge_metadata('expanded_sample_metadata',
+                                              sample_metadata,
                                               uu_umap_as_metadata,
                                               faith_pd_as_metadata,
                                               evenness_as_metadata,
@@ -389,7 +389,7 @@ use.action(
 
 use.action(
     use.UsageAction(plugin_id='emperor', action_id='plot'),
-    use.UsageInputs(pcoa=core_metrics_results.unweighted_unifrac_pcoa_results, 
+    use.UsageInputs(pcoa=core_metrics_results.unweighted_unifrac_pcoa_results,
                     metadata=expanded_sample_metadata,
                     custom_axes=['week-relative-to-hct']),
     use.UsageOutputNames(visualization='uu_pcoa_emperor_w_time')
@@ -397,17 +397,17 @@ use.action(
 
 use.action(
     use.UsageAction(plugin_id='emperor', action_id='plot'),
-    use.UsageInputs(pcoa=core_metrics_results.weighted_unifrac_pcoa_results, 
+    use.UsageInputs(pcoa=core_metrics_results.weighted_unifrac_pcoa_results,
                     metadata=expanded_sample_metadata,
                     custom_axes=['week-relative-to-hct']),
     use.UsageOutputNames(visualization='wu_pcoa_emperor_w_time')
 )
 ```
 
-## Taxonomy barplots and differential abundance testing
+## 06 - Taxonomy barplots and differential abundance testing
 
-Filter the feature table to only the ids that were retained for core metrics 
-analysis. This can be achieved using the combined metadata. 
+Filter the feature table to only the ids that were retained for core metrics
+analysis. This can be achieved using the combined metadata.
 
 ```{usage}
 filtered_table_5, = use.action(
@@ -476,9 +476,9 @@ use.action(
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='longitudinal', action_id='feature_volatility'),
-    use.UsageInputs(table=filtered_genus_table, metadata=expanded_sample_metadata, 
+    use.UsageInputs(table=filtered_genus_table, metadata=expanded_sample_metadata,
                     state_column='week-relative-to-hct', individual_id_column='PatientID'),
-    use.UsageOutputNames(filtered_table='important_genera_table_1', 
+    use.UsageOutputNames(filtered_table='important_genera_table_1',
                          feature_importance='genus_importances_1',
                          volatility_plot='genus_volatility_plot_1',
                          accuracy_results='accuracy_results_1',
@@ -489,9 +489,9 @@ use.action(
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='longitudinal', action_id='feature_volatility'),
-    use.UsageInputs(table=filtered_genus_table, metadata=expanded_sample_metadata, 
+    use.UsageInputs(table=filtered_genus_table, metadata=expanded_sample_metadata,
                     state_column='day-relative-to-fmt', individual_id_column='PatientID'),
-    use.UsageOutputNames(filtered_table='important_genera_table_2', 
+    use.UsageOutputNames(filtered_table='important_genera_table_2',
                          feature_importance='genus_importances_2',
                          volatility_plot='genus_volatility_plot_2',
                          accuracy_results='accuracy_results_2',

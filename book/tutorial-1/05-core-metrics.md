@@ -1,10 +1,10 @@
+# Core metrics
+
 ```{usage-scope}
 ---
 name: tutorial
 ---
 ```
-
-# Core metrics
 
 ```{usage-selector}
 ```

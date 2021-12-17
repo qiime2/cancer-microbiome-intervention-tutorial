@@ -1,17 +1,17 @@
+# Longitudinal microbiome analysis and differential abundance testing
+
 ```{usage-scope}
 ---
 name: tutorial
 ---
 ```
 
-# Longitudinal microbiome analysis and differential abundance testing
-
 ```{usage-selector}
 ```
 
 ## Taxonomy barplots and differential abundance testing
 
-Filter the feature table to only the ids that were retained for core metrics
+Filter the feature table to only the IDs that were retained for core metrics
 analysis. This can be achieved using the combined metadata.
 
 ```{usage}

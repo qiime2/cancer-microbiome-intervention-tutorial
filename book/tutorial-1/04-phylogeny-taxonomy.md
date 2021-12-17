@@ -1,10 +1,10 @@
+# Building a phylogenetic tree and taxonomic annotation
+
 ```{usage-scope}
 ---
 name: tutorial
 ---
 ```
-
-# Building a phylogenetic tree and taxonomic annotation
 
 ```{usage-selector}
 ```
@@ -40,9 +40,11 @@ use.action(
 )
 ```
 
-## More filtering!
+## More filtering
 
-Filter features with uninformative taxonomic annotations (they might be human reads, but note that there are also more specific tools for human read filtering).
+Filter features with uninformative taxonomic annotations (they might be human
+reads, but note that there are also more specific tools for human read
+filtering).
 
 ```{usage}
 filtered_table_4, = use.action(

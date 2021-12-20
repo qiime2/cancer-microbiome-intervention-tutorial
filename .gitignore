@@ -140,3 +140,6 @@ book/_build/
 
 # data store
 book/appendices/figshare_5271128/
+
+# VS Code
+.vscode/

@@ -92,7 +92,7 @@ Because installation instructions for QIIME 2 will change slightly between
 versions, these instructions are better suited for the QIIME 2 site than for
 a book. To get the latest installation instructions, see the [QIIME 2
 installation instructions web
-page](https://docs.qiime2.org/2020.8/install/native/). If you have trouble
+page](https://docs.qiime2.org/2021.11/install/native/). If you have trouble
 installing QIIME 2, or have questions related to where or how to deploy QIIME 2,
 post to the [QIIME 2 Forum](https://forum.qiime2.org).
 

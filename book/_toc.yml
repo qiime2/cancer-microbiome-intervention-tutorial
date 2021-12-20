@@ -30,4 +30,3 @@ parts:
     - file: appendices/convert-and-import-artifacts.ipynb
     - file: appendices/sample-and-patient-metadata.ipynb
     - file: appendices/microbiome-methods.md
-    - file: appendices/glossary.md

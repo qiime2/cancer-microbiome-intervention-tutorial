@@ -29,3 +29,6 @@ parts:
     chapters:
     - file: appendices/convert-and-import-artifacts.ipynb
     - file: appendices/sample-and-patient-metadata.ipynb
+    - file: appendices/glossary.md
+    - file: appendices/microbiome-methods.md
+    - file: appendices/q2-origin-story.md

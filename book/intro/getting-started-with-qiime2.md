@@ -13,7 +13,9 @@ kernelspec:
   name: calysto_bash
 ---
 
-(getting-started)=
 # Getting started with using QIIME 2
 
-This chapter will briefly introduce a few concepts that you should understand as you start using QIIME 2. This chapter is purposefully brief so you can get to the fun stuff soon. After reading this chapter you'll understand some key QIIME 2 terminology that will be used throughout this book.
+This chapter will briefly introduce a few concepts that you should understand as
+you start using QIIME 2. This chapter is purposefully brief so you can get to
+the fun stuff soon. After reading this chapter you'll understand some key QIIME
+2 terminology that will be used throughout this book.

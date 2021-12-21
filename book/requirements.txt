@@ -1,4 +1,5 @@
 jupyter-book
 matplotlib
 numpy
+git+https://github.com/qiime2/sphinx-ext-qiime2
 calysto-bash

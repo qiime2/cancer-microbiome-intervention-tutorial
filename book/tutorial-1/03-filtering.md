@@ -219,10 +219,12 @@ autofmt_table, = use.action(
                     where="autoFmtGroup IS NOT NULL"),
     use.UsageOutputNames(filtered_table='autofmt_table')
 )
+```
 
 We can now summarize the feature table again to observe how it changed as a 
 result of this filtering.
 
+```{usage}
 use.action(
     use.UsageAction(plugin_id='feature_table', action_id='summarize'),
     use.UsageInputs(table=autofmt_table, sample_metadata=sample_metadata),
@@ -230,8 +232,7 @@ use.action(
 )
 ```
 
-```{admonition} How many samples and features are in this feature table after 
-filtering? How does that compare to the feature table prior to filtering?
+```{admonition} How many samples and features are in this feature table after filtering? How does that compare to the feature table prior to filtering?
 :class: question, dropdown
 TODO: Fill this in!
 ```
@@ -240,7 +241,8 @@ TODO: Fill this in!
 
 Before we proceed with the analysis, we'll apply a few more filtering steps. 
 First, we'll drop samples that are not included in the metadata. 
-TODO: Is this step still needed? I think the autoFmtGroup filter will achieve 
+
+**TODO**: Is this step still needed? I think the autoFmtGroup filter will achieve 
 the same outcome.
 
 ```{usage}
@@ -285,14 +287,14 @@ We can then generate and review another feature table summary.
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='feature_table', action_id='summarize'),
-    use.UsageInputs(table=autofmt_table, sample_metadata=sample_metadata),
-    use.UsageOutputNames(visualization='autofmt_table_summ'),
+    use.UsageInputs(table=filtered_table_3, sample_metadata=sample_metadata),
+    use.UsageOutputNames(visualization='filtered_table_3_summ'),
 )
 ```
 
-```{admonition} How many samples and features are in the feature table after 
-this latest filtering? How does that compare to the prior feature tables?
+```{admonition} How many samples and features are in the feature table after  this latest filtering? How does that compare to the prior feature tables?
 :class: question, dropdown
+
 TODO: Fill this in!
 ```
 

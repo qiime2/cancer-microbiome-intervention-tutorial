@@ -51,7 +51,7 @@ jobs:
       shell: bash -l {0}
       run: |
         conda activate ./test-env
-        pip install -r requirements.txt
+        pip install -r book/requirements.txt
 
     - name: build book
       run: conda run -p ./test-env jb build book/

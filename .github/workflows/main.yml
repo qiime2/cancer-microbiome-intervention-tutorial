@@ -55,7 +55,7 @@ jobs:
 
     - name: build book
       env:
-        Q2DOC_HTML_BASEURL: https://gregcaporaso.github.io/2022.1-faes-tutorial
+        Q2DOC_HTML_BASEURL: https://gregcaporaso.github.io/2022.1-faes-tutorial/
       run: conda run -p ./test-env jb build book/
 
     - name: deploy to github pages

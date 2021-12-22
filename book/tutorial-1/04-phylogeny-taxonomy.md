@@ -108,14 +108,35 @@ filtered_table_4, = use.action(
 )
 ```
 
-After filtering ASVs that were not assigned a phylum, you can remove these from
-your collection of ASV sequences by filtering to only the features that are 
-contained in the feature table.
+You may have noticed when looking at feature table summaries earlier that some
+of the samples contained very few ASV sequences. These often represent samples
+which didn't amplify or sequence well, and when we start visualizing our data
+low numbers of sequences can cause misleading results, because the the 
+observed composition of the sample may not be reflective of the sample's 
+actual composition. For this reason it can be helpful to exclude samples with
+low ASV sequence counts from our samples. Here, we'll filter out samples from
+which we have obtained fewer than 10,000 sequences. 
+
+**TODO** discuss the 10k threshold. 
+
+```{usage}
+filtered_table_5, = use.action(
+    use.UsageAction(plugin_id='feature_table', action_id='filter_samples'),
+    use.UsageInputs(table=filtered_table_4, min_frequency=10000),
+    use.UsageOutputNames(filtered_table='filtered_table_5')
+    )
+```
+
+After filtering ASVs that were not assigned a phylum, and filtering samples 
+with low ASV sequence counts, we can remove ASV sequences that are no longer
+represented in our table from the collection of ASV sequences by filtering to
+only the features that are contained in the feature table. This step isn't
+required, but can help to speed up some downstream steps.
 
 ```{usage}
 filtered_sequences_2, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_seqs'),
-    use.UsageInputs(data=feature_sequences, table=filtered_table_4),
+    use.UsageInputs(data=feature_sequences, table=filtered_table_5),
     use.UsageOutputNames(filtered_data='filtered_sequences_2')
     )
 ```
@@ -126,12 +147,25 @@ filtered_sequences_2, = use.action(
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='feature_table', action_id='summarize'),
-    use.UsageInputs(table=filtered_table_4, sample_metadata=sample_metadata),
-    use.UsageOutputNames(visualization='filtered_table_4_summ'),
+    use.UsageInputs(table=filtered_table_5, sample_metadata=sample_metadata),
+    use.UsageOutputNames(visualization='filtered_table_5_summ'),
 )
 ```
-
 ````
+
+## Generate taxonomic barplots
+
+We'll now get one of our first views of our microbiome sample compositions
+using a taxonomic barplot. This can be generated with the following command.
+
+```{usage}
+use.action(
+    use.UsageAction(plugin_id='taxa', action_id='barplot'),
+    use.UsageInputs(table=filtered_table_5, taxonomy=taxonomy,
+                    metadata=sample_metadata),
+    use.UsageOutputNames(visualization='taxa_bar_plots_1'),
+)
+```
 
 ## Phylogenetic tree construction
 

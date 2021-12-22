@@ -28,7 +28,7 @@ retaining as many of the samples as possible, we'll set our sampling depth to
 ```{usage}
 core_metrics_results = use.action(
     use.UsageAction(plugin_id='diversity', action_id='core_metrics_phylogenetic'),
-    use.UsageInputs(phylogeny=rooted_tree, table=filtered_table_4,
+    use.UsageInputs(phylogeny=rooted_tree, table=filtered_table_5,
                     sampling_depth=10000, metadata=sample_metadata),
     use.UsageOutputNames(rarefied_table='rarefied_table',
                             faith_pd_vector='faith_pd_vector',
@@ -116,6 +116,18 @@ use.action(
 )
 ```
 
+To see how this information can be used, let's generate another version of our
+taxonomy barplots that includes these new metadata values.
+
+```{usage}
+use.action(
+    use.UsageAction(plugin_id='taxa', action_id='barplot'),
+    use.UsageInputs(table=filtered_table_5, taxonomy=taxonomy,
+                    metadata=expanded_sample_metadata),
+    use.UsageOutputNames(visualization='taxa_bar_plots_2'),
+)
+```
+
 We'll start by integrating these values as metadata in our ordination plots. 
 We'll also customize these plots in another way: in addition to plotting the 
 ordination axes, we'll add an explicit time axis to these plots. This is often
@@ -125,13 +137,15 @@ We'll add an axis for `week-relative-to-hct`.
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='emperor', action_id='plot'),
-    use.UsageInputs(pcoa=uu_umap, metadata=expanded_sample_metadata, custom_axes=['week-relative-to-hct']),
+    use.UsageInputs(pcoa=uu_umap, metadata=expanded_sample_metadata, 
+                    custom_axes=['week-relative-to-hct']),
     use.UsageOutputNames(visualization='uu_umap_emperor_w_time')
 )
 
 use.action(
     use.UsageAction(plugin_id='emperor', action_id='plot'),
-    use.UsageInputs(pcoa=wu_umap, metadata=expanded_sample_metadata, custom_axes=['week-relative-to-hct']),
+    use.UsageInputs(pcoa=wu_umap, metadata=expanded_sample_metadata,
+                    custom_axes=['week-relative-to-hct']),
     use.UsageOutputNames(visualization='wu_umap_emperor_w_time')
 )
 

@@ -54,10 +54,13 @@ jobs:
         pip install -r book/requirements.txt
 
     - name: build book
+      env:
+        Q2DOC_HTML_BASEURL: https://gregcaporaso.github.io/2022.1-faes-tutorial
       run: conda run -p ./test-env jb build book/
 
-    - name: save built book
-      uses: actions/upload-artifact@v2
+    - name: deploy to github pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: ${{ github.ref == 'refs/heads/main' }}
       with:
-        name: book
-        path: book/_build/html
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: book/_build/html

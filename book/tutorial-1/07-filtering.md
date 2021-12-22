@@ -115,8 +115,9 @@ def partial_metadata_factory():
                [-1000, -14, -7, 0, 7, 14, 21, 28, 35, 42, 1000],
                labels=[-3, -2, -1, 0, 1, 2, 3, 4, 5, 6])
 
-    sample_metadata = sample_metadata.astype({'categorical-time-relative-to-hct': object,
-                                              'week-relative-to-hct': float})
+    sample_metadata = sample_metadata.astype(
+            {'categorical-time-relative-to-hct': object,
+             'week-relative-to-hct': float})
 
     return qiime2.Metadata(sample_metadata)
 
@@ -152,6 +153,20 @@ def fmt_metadata_factory():
                 sample_metadata['RandomizationDayRelativeToNearestHCT'])
     day_relative_to_fmt = sample_metadata['DayRelativeToNearestHCT'] - fmt_day
     sample_metadata.insert(0, 'day-relative-to-fmt', day_relative_to_fmt, True)
+
+    sample_metadata['week-relative-to-fmt'] = \
+        pd.cut(sample_metadata['day-relative-to-fmt'],
+               [-1000, -14, -7, 0, 7, 14, 21, 28, 35, 42, 1000],
+               labels=[-3, -2, -1, 0, 1, 2, 3, 4, 5, 6])
+    
+    sample_metadata['categorical-time-relative-to-fmt'] = \
+        pd.cut(sample_metadata['day-relative-to-fmt'],
+               [-1000, -1, 5, 1000],
+               labels=['pre', 'peri', 'post'])
+    
+    sample_metadata = sample_metadata.astype(
+            {'categorical-time-relative-to-fmt': object,
+             'week-relative-to-fmt': float})
 
     return qiime2.Metadata(sample_metadata)
 

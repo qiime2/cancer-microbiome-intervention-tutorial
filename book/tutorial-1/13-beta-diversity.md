@@ -122,3 +122,7 @@ You have now generated ordination plots all combinations of two different
 diversity metrics (weighted and unweighted UniFrac) and two different 
 ordination techniques (PCoA and umap). View these plots and consider what is 
 similar and different about each. 
+
+**TODO** link out to beta-group-significance examples and beta-correlation 
+examples. Those may not be possible to apply in a meaningful way with these 
+data.

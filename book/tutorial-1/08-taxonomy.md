@@ -31,9 +31,9 @@ for, it's also straight-forward to train your own taxonomy classifiers. This is
 covered in the QIIME 2 documentation 
 [here](https://docs.qiime2.org/2021.11/tutorials/feature-classifier/).
 
-The [RESCRIPt QIIME 2 plugin](https://journals.plos.org/ploscompbiol/article/authors?id=10.1371/journal.pcbi.1009581)
-provides functionality that can help you create your own taxonomy reference 
-resources.
+The [RESCRIPt QIIME 2 plugin](https://journals.plos.org/ploscompbiol/article/authors?id=10.1371/journal.pcbi.1009581) 
+{cite:p}`robeson-rescript-2021` provides functionality that can help you create
+your own taxonomy reference resources.
 ```
 
 First, obtain the taxonomic classifier. 
@@ -71,6 +71,14 @@ use.action(
     use.UsageInputs(input=taxonomy_as_md),
     use.UsageOutputNames(visualization='taxonomy'),
 )
+```
+
+```{tip}
+Environment-aware taxonomy classifiers can help you obtain higher resolution
+taxonomic assignments (for example, species-level where only genus-level
+assignments were previously obtainable). To learn more, see the q2-clawback
+QIIME 2 plugin](https://library.qiime2.org/plugins/q2-clawback/7/)
+{cite:p}`kaehler-clawback-2019`.
 ```
 
 ## More filtering
@@ -145,7 +153,7 @@ filtered_sequences_2, = use.action(
 use.action(
     use.UsageAction(plugin_id='feature_table', action_id='summarize'),
     use.UsageInputs(table=filtered_table_5, sample_metadata=sample_metadata),
-    use.UsageOutputNames(visualization='filtered_table_5_summ'),
+    use.UsageOutputNames(visualization='filtered_table_5_summ_exercise'),
 )
 ```
 ````

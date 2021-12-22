@@ -20,10 +20,10 @@ this time combining over ten different actions into a single action.
 phylogenetic tree, and your sample metadata as input. It additionally requires
 that you provide the sampling depth that this analysis will be performed at. 
 Determining what value to provide for this parameter is often one of the most
-confusing steps of an analysis for users, and we therefore will devote 
-considerable time to discussing this in the lectures. In the interest of 
-retaining as many of the samples as possible, we'll set our sampling depth to
-10,000 for this analysis. 
+confusing steps of an analysis for users, and we therefore have devoted 
+time to discussing this in the lectures and in the previous chapter. In the 
+interest of retaining as many of the samples as possible, we'll set our
+sampling depth to 10,000 for this analysis. 
 
 ```{usage}
 core_metrics_results = use.action(

@@ -1,4 +1,4 @@
-# Citations
+# List of works cited
 
 ```{bibliography}
 ```

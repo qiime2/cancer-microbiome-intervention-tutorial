@@ -1,13 +1,5 @@
 # Building a phylogenetic tree and taxonomic annotation
 
-In this chapter we'll perform annotation of the features that were observed in
-this study. This annotation will take two forms. We'll first apply taxonomic 
-classification of the sequences. This allows us to assess what organisms are 
-represented by the ASV sequences that we observed in this study. Then, we'll 
-build a phylogenetic tree from the seqeunces. This will provide information
-that we'll use later to approximately quantify the evolutionary relationships 
-between the feature sequences that we observed.
-
 ```{usage-scope}
 ---
 name: tutorial
@@ -16,6 +8,11 @@ name: tutorial
 
 ```{usage-selector}
 ```
+
+In this chapter we'll perform annotation of the features that were observed in
+this study by performing taxonomic classification of the sequences. This allows
+us to assess what organisms are represented by the ASV sequences that we
+observed in this study.
 
 ## Taxonomy assignment
 
@@ -153,7 +150,7 @@ use.action(
 ```
 ````
 
-## Generate taxonomic barplots
+## Generate taxonomic composition barplots
 
 We'll now get one of our first views of our microbiome sample compositions
 using a taxonomic barplot. This can be generated with the following command.
@@ -167,32 +164,4 @@ use.action(
 )
 ```
 
-## Phylogenetic tree construction
-
-Next, we'll build a phylogenetic tree from our ASV sequences. This will be
-achieved using the `q2-phylogeny` plugin's `align_to_tree_mafft_fasttree`
-action. This action is a pipeline in QIIME 2, which means that it strings
-together multiple simpler operations that are often performed together to 
-reduce the number of steps that users have to take. Pipelines are used in the 
-same way as other actions.
-
-This particular pipeline performs four distinct steps steps:
-    1. perform a multiple sequence alignment using mafft;
-    2. filter highly variable positions from the alignment (these positions tend to introduce noise into the phylogenetic tree);
-    3. build an unrooted phylogenetic tree;
-    4. add a root to the unrooted tree. 
-
-The final unrooted phylogenetic tree will be used for analyses that we perform
-next - specifically for computing phylogenetically aware diversity metrics. 
-While output artifacts will be available for each of these steps, we'll only 
-use the rooted phylogenetic tree later. 
-
-```{usage}
-_, _, _, rooted_tree = use.action(
-    use.UsageAction(plugin_id='phylogeny', action_id='align_to_tree_mafft_fasttree'),
-    use.UsageInputs(sequences=filtered_sequences_2),
-    use.UsageOutputNames(alignment='aligned_rep_seqs',
-                         masked_alignment='masked_aligned_rep_seqs',
-                         tree='unrooted_tree', rooted_tree='rooted_tree'),
-)
-```
+**TODO** plug the q2-krona plugin

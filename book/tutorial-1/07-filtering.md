@@ -196,7 +196,7 @@ use.action(
 
 ```{admonition} Which column or columns in the metadata could be used to identify samples that were included in the autoFMT study? 
 :class: question, dropdown
-Several columns contain this information, including autoFmtGroup, TODO: Fill this in!
+Several columns contain this information, including autoFmtGroup, **TODO**: Fill this in!
 ```
 
 
@@ -234,7 +234,7 @@ use.action(
 
 ```{admonition} How many samples and features are in this feature table after filtering? How does that compare to the feature table prior to filtering?
 :class: question, dropdown
-TODO: Fill this in!
+**TODO**: Fill this in!
 ```
 
 ## Perform additional filtering steps on feature table
@@ -295,7 +295,7 @@ use.action(
 ```{admonition} How many samples and features are in the feature table after  this latest filtering? How does that compare to the prior feature tables?
 :class: question, dropdown
 
-TODO: Fill this in!
+**TODO**: Fill this in!
 ```
 
 ## Filter features from sequence data to reduce runtime of feature annotation

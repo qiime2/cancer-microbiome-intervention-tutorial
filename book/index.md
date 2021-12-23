@@ -57,6 +57,6 @@ The QIIME 2 project is funded in part by:
 * [QIIME 2 YouTube channel](https://youtube.com/qiime2)
 * [Documentation](https://docs.qiime2.org)
 * [Library](https://library.qiime2.org)
-* [Project website](https://qiime2.org)
+* [Project homepage](https://qiime2.org)
 * [@qiime2 on Twitter](https://twitter.com/qiime2) (project announcements)
 * What else?

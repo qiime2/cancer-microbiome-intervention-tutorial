@@ -10,20 +10,20 @@ name: tutorial
 ```
 
 The next step that we'll work through is computing a series of common diversity
-metrics on our feature table. We'll do this using the `q2-diversity` plugin's 
-`core-metrics-phylogenetic` action. This action is another QIIME 2 pipeline, 
-this time combining over ten different actions into a single action. 
+metrics on our feature table. We'll do this using the `q2-diversity` plugin's
+`core-metrics-phylogenetic` action. This action is another QIIME 2 pipeline,
+this time combining over ten different actions into a single action.
 
 ## Core phylogenetic diversity metrics
 
 `core-metrics-phylogenetic` requires your feature table, your rooted
 phylogenetic tree, and your sample metadata as input. It additionally requires
-that you provide the sampling depth that this analysis will be performed at. 
+that you provide the sampling depth that this analysis will be performed at.
 Determining what value to provide for this parameter is often one of the most
-confusing steps of an analysis for users, and we therefore have devoted 
-time to discussing this in the lectures and in the previous chapter. In the 
+confusing steps of an analysis for users, and we therefore have devoted
+time to discussing this in the lectures and in the previous chapter. In the
 interest of retaining as many of the samples as possible, we'll set our
-sampling depth to 10,000 for this analysis. 
+sampling depth to 10,000 for this analysis.
 
 ```{usage}
 core_metrics_results = use.action(
@@ -50,10 +50,10 @@ core_metrics_results = use.action(
 )
 ```
 
-As you can see, this command generates many outputs including both QIIME 2 
-artifacts and visualizations. Most of the outputs are data that we'll 
-subsequently explore, but you can take a look at the visualizations that are 
-generated now. These are PCoA plots generated for four diversity metrics: 
-Jaccard, Bray-Curtis, unweighted UniFrac, and weighted UniFrac. Take a quick 
-look, but we're next going to apply a few steps to make these plots more 
-useful soon. 
+As you can see, this command generates many outputs including both QIIME 2
+artifacts and visualizations. Most of the outputs are data that we'll
+subsequently explore, but you can take a look at the visualizations that are
+generated now. These are PCoA plots generated for four diversity metrics:
+Jaccard, Bray-Curtis, unweighted UniFrac, and weighted UniFrac. Take a quick
+look, but we're next going to apply a few steps to make these plots more
+useful soon.

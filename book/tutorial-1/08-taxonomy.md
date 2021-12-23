@@ -18,25 +18,25 @@ observed in this study.
 
 We'll start with taxonomic classification. In this step we'll use a pre-trained
 Naive Bayes taxonomic classifier. This particular classifier was trained on the
-Greengenes 13-8 database, where sequences were trimmed to represent only the 
-region between the 515F / 806R primers. 
+Greengenes 13-8 database, where sequences were trimmed to represent only the
+region between the 515F / 806R primers.
 
-You can download pre-trained classifiers from the QIIME 2 documentation 
-[Data Resources](https://docs.qiime2.org/2021.11/data-resources/) page. 
+You can download pre-trained classifiers from the QIIME 2 documentation
+[Data Resources](https://docs.qiime2.org/2021.11/data-resources/) page.
 
 ```{tip}
-If you don't find a relevant classifier for your analysis, or you prefer to use 
-a  reference database that we currently do not provide taxonomy classifiers 
-for, it's also straight-forward to train your own taxonomy classifiers. This is 
-covered in the QIIME 2 documentation 
+If you don't find a relevant classifier for your analysis, or you prefer to use
+a  reference database that we currently do not provide taxonomy classifiers
+for, it's also straight-forward to train your own taxonomy classifiers. This is
+covered in the QIIME 2 documentation
 [here](https://docs.qiime2.org/2021.11/tutorials/feature-classifier/).
 
-The [RESCRIPt QIIME 2 plugin](https://journals.plos.org/ploscompbiol/article/authors?id=10.1371/journal.pcbi.1009581) 
+The [RESCRIPt QIIME 2 plugin](https://journals.plos.org/ploscompbiol/article/authors?id=10.1371/journal.pcbi.1009581)
 {cite:p}`robeson-rescript-2021` provides functionality that can help you create
 your own taxonomy reference resources.
 ```
 
-First, obtain the taxonomic classifier. 
+First, obtain the taxonomic classifier.
 
 ```{usage}
 def classifier_factory():
@@ -83,27 +83,27 @@ QIIME 2 plugin](https://library.qiime2.org/plugins/q2-clawback/7/)
 
 ## More filtering
 
-Taxonomic annotations provide useful information that can also be used in 
-quality filtering of our data. A common step in 16S analysis is to remove 
-sequences from an analysis that aren't assigned to a phylum. In a human 
+Taxonomic annotations provide useful information that can also be used in
+quality filtering of our data. A common step in 16S analysis is to remove
+sequences from an analysis that aren't assigned to a phylum. In a human
 microbiome study such as this, these may for example represent reads of human
-genome sequence that were unintentionally sequences. 
+genome sequence that were unintentionally sequences.
 
 ````{margin}
 ```{note}
-If you need to filter human genome reads from your sequence data, for example 
+If you need to filter human genome reads from your sequence data, for example
 before depositing sequences into a public repository, you should use a filter
 that specifically detects and removes human reads. This can be acheived in QIIME 2 using
-the [`q2-quality-control` plugin's `exclude-seqs` action](https://docs.qiime2.org/2021.11/plugins/available/quality-control/exclude-seqs/). 
+the [`q2-quality-control` plugin's `exclude-seqs` action](https://docs.qiime2.org/2021.11/plugins/available/quality-control/exclude-seqs/).
 ```
 ````
 
 This filtering can be applied as follows by providing the feature table and the
-taxonomic annotations that were just created. The `include` parameter here 
-specifies that an annotation must contain the text `p__`, which in the 
-Greengenes taxonomy is the prefix for all phylum-level taxonomy assignments. 
-Taxonomic labels that don't contain `p__` therefore don't have an assigned 
-phylum. 
+taxonomic annotations that were just created. The `include` parameter here
+specifies that an annotation must contain the text `p__`, which in the
+Greengenes taxonomy is the prefix for all phylum-level taxonomy assignments.
+Taxonomic labels that don't contain `p__` therefore don't have an assigned
+phylum.
 
 ```{usage}
 filtered_table_4, = use.action(
@@ -116,13 +116,13 @@ filtered_table_4, = use.action(
 You may have noticed when looking at feature table summaries earlier that some
 of the samples contained very few ASV sequences. These often represent samples
 which didn't amplify or sequence well, and when we start visualizing our data
-low numbers of sequences can cause misleading results, because the the 
-observed composition of the sample may not be reflective of the sample's 
+low numbers of sequences can cause misleading results, because the the
+observed composition of the sample may not be reflective of the sample's
 actual composition. For this reason it can be helpful to exclude samples with
 low ASV sequence counts from our samples. Here, we'll filter out samples from
-which we have obtained fewer than 10,000 sequences. 
+which we have obtained fewer than 10,000 sequences.
 
-**TODO** discuss the 10k threshold. 
+**TODO** discuss the 10k threshold.
 
 ```{usage}
 filtered_table_5, = use.action(
@@ -132,7 +132,7 @@ filtered_table_5, = use.action(
     )
 ```
 
-After filtering ASVs that were not assigned a phylum, and filtering samples 
+After filtering ASVs that were not assigned a phylum, and filtering samples
 with low ASV sequence counts, we can remove ASV sequences that are no longer
 represented in our table from the collection of ASV sequences by filtering to
 only the features that are contained in the feature table. This step isn't
@@ -146,7 +146,8 @@ filtered_sequences_2, = use.action(
     )
 ```
 
-````{admonition} Try summarizing the feature table that was created by this round of filtering. Expand this box if you need help. 
+````{admonition} Try summarizing the feature table that was created by this
+round of filtering. Expand this box if you need help.
 :class: question, dropdown
 
 ```{usage}

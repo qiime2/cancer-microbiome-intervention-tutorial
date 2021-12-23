@@ -1,7 +1,7 @@
 # Identifying an even sampling depth for use in diversity metrics
 
-As we begin performing more analyses of the samples in our faeture table, an 
-important parameter that needs to be define is the even sampling (i.e. 
+As we begin performing more analyses of the samples in our faeture table, an
+important parameter that needs to be define is the even sampling (i.e.
 rarefaction) depth that diversity metrics need to be computed at. Because most
 diversity metrics are sensitive to different sampling depths across different
 samples, it is common to randomly subsample the counts from each sample to a
@@ -9,8 +9,8 @@ specific value. For example, if you define your sampling depth as 500 sequences
 per sample, the counts in each sample will be subsampled without replacement so
 that each sample in the resulting table has a total count of 500. If the total
 count for any sample(s) are smaller than this value, those samples will be
-dropped from the downstream analyses. Choosing this value is tricky. We 
-recommend making your choice by reviewing the information presented in the 
+dropped from the downstream analyses. Choosing this value is tricky. We
+recommend making your choice by reviewing the information presented in the
 feature table summary file. Choose a value that is as high as possible (so you
 retain more sequences per sample) while excluding as few samples as possible.
 
@@ -38,9 +38,9 @@ use.action(
 
 ## Alpha rarefaction plots
 
-After choosing an even sampling depth, it's also helpful to see if your 
+After choosing an even sampling depth, it's also helpful to see if your
 diversity metrics appear to have stabilizes at that depth of coverage. You can
-do this for alpha diversity using an alpha rarefaction plot. 
+do this for alpha diversity using an alpha rarefaction plot.
 
 ```{usage}
 use.action(
@@ -64,4 +64,4 @@ use.action(
     use.UsageOutputNames(visualization='braycurtis_rarefaction_plot'))
 ```
 
-**TODO**: Should we plug q2-srs? has anyone used this yet? 
+**TODO**: Should we plug q2-srs? has anyone used this yet?

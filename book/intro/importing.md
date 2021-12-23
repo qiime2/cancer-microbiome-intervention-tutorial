@@ -137,6 +137,8 @@ type of data.
 ```
 ````
 
+**TODO**: Get this figure working.
+
 ```{figure} ./images/importing-1.png
 ---
 name: importing-1
@@ -144,6 +146,25 @@ name: importing-1
 Flowchart illustrating initial decisions made during importing. Pointers such as "See Importing SampleData" reference other sections of this chapter or book.
 %  Image source: https://lucid.app/lucidchart/invitations/accept/eac23170-0ca3-496a-9ac1-19e098bb6300
 ```
+
+## Summary
+
+QIIME 2 is more explicit about the meaning and format of data than most
+bioinformatics tools, and as a result we've had to invent some language to
+describe these things. This creates a bit of a circular dependency when you're
+just getting started: experience with QIIME 2 helps you to understand how to
+import data, but you have to import data to get experience with QIIME 2. As you
+gain experience with QIIME 2, you'll learn its language of semantic types and
+you'll be less dependent on the flow charts and other information in this
+chapter. You'll probably still refer back to importing documentation from time
+to time though - I certainly do.
+
+**TODO** I think the remainder of this content should be removed. While the
+start is useful (particularly since it's what we're working with in the
+tutorial) the section overall is incomplete. It's also more of reference
+material than "Getting Started" material. I moved the summary that
+was is at the end of this document in q2book to above this note so that it is
+retained if we chop the rest for now.
 
 ### Discussion and instructions for importing specific data
 
@@ -280,14 +301,4 @@ in this filename are:
 
 #### Importing `SampleData`
 
-## Summary
 
-QIIME 2 is more explicit about the meaning and format of data than most
-bioinformatics tools, and as a result we've had to invent some language to
-describe these things. This creates a bit of a circular dependency when you're
-just getting started: experience with QIIME 2 helps you to understand how to
-import data, but you have to import data to get experience with QIIME 2. As you
-gain experience with QIIME 2, you'll learn its language of semantic types and
-you'll be less dependent on the flow charts and other information in this
-chapter. You'll probably still refer back to importing documentation from time
-to time though - I certainly do.

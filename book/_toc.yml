@@ -4,18 +4,15 @@
 format: jb-book
 root: index
 parts:
-  - caption: Introduction
+  - caption: Getting started with QIIME 2
     chapters:
-    - file: intro/workshop-protocols.md
-    - file: intro/other-resources.md
-    - file: intro/getting-started-with-qiime2.md
-      sections:
-      - file: intro/deploying.md
-      - file: intro/archives.md
-      - file: intro/plugins-and-actions.md
-      - file: intro/types.md
-      - file: intro/q2view.md
-      - file: intro/importing.md
+    - file: intro/index.md
+    - file: intro/deploying.md
+    - file: intro/archives.md
+    - file: intro/plugins-and-actions.md
+    - file: intro/types.md
+    - file: intro/q2view.md
+    - file: intro/importing.md
   - caption: Hands-on tutorial
     chapters:
     - file: tutorial-1/03-study-background.md

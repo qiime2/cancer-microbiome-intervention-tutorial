@@ -1,1 +1,0 @@
-# Understanding the study, the data, and the metadata

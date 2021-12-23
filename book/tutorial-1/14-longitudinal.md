@@ -1,4 +1,4 @@
-# Longitudinal microbiome analysis and differential abundance testing
+# Longitudinal microbiome analysis
 
 ```{usage-scope}
 ---
@@ -9,30 +9,21 @@ name: tutorial
 ```{usage-selector}
 ```
 
-## Taxonomy barplots and differential abundance testing
+In this section of the tutorial we'll perform several analyses using QIIME 2's
+q2-longitudinal plugin. These will allow us to track microbiome changes
+across time on a per-subject basis - something that was harder to do in the
+ordination plots that we viewed earlier in this tutorial.
 
-Filter the feature table to only the IDs that were retained for core metrics
-analysis. This can be achieved using the combined metadata.
+## Preparing our feature table for longitudinal analysis
 
-```{usage}
-filtered_table_5, = use.action(
-    use.UsageAction(plugin_id='feature_table', action_id='filter_samples'),
-    use.UsageInputs(table=filtered_table_4, metadata=expanded_sample_metadata),
-    use.UsageOutputNames(filtered_table='filtered_table_5')
-    )
-```
+Before applying these analyses, we're going to perform some additional
+operations on the feature table that will make these analyses run quicker and
+make the results more interpretable.
 
-```{usage}
-use.action(
-    use.UsageAction(plugin_id='taxa', action_id='barplot'),
-    use.UsageInputs(table=filtered_table_5, taxonomy=taxonomy,
-                    metadata=expanded_sample_metadata),
-    use.UsageOutputNames(visualization='taxa_bar_plots'),
-)
-```
-
-## Longitudinal analysis
-
+First, we're going to use the taxonomic information that we generated earlier
+to redefine our features as microbial genera. To do this, we group (or
+collapse) ASV features based on their taxonomic assignments through the genus
+level. This is achieved using the `q2-taxa` plugin's `collapse` action.
 
 ```{usage}
 genus_table, = use.action(
@@ -40,13 +31,29 @@ genus_table, = use.action(
     use.UsageInputs(table=filtered_table_5, taxonomy=taxonomy, level=6),
     use.UsageOutputNames(collapsed_table='genus_table')
 )
+```
 
+Then, to focus on the genera that are likely to display the most interesting
+patterns over time, we will perform even more filtering. This time we'll
+apply prevalence and abudnance based filtering. Specifically, we'll require
+that a genera's overall abundance is at least 1%, and that a genera is present
+in at least 10% of the samples. This is fairly stringent filtering, and in your
+own analyses (when you have more time to allow analyses to run and to explore
+the results) you may want to experiment with relaxed settings of these
+parameters.
+
+```{usage}
 filtered_genus_table, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_features_conditionally'),
     use.UsageInputs(table=genus_table, prevalence=0.1, abundance=0.01),
     use.UsageOutputNames(filtered_table='filtered_genus_table')
 )
+```
 
+Finally, we'll convert the counts in our feature table to relative frequencies.
+This is required for some of the analyses that we're about to perform.
+
+```{usage}
 genus_rf_table, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='relative_frequency'),
     use.UsageInputs(table=filtered_genus_table),
@@ -54,7 +61,11 @@ genus_rf_table, = use.action(
 )
 ```
 
-### Volatility
+## Volatility plots
+
+The first plots we'll generate are control charts that are referred to as
+called volatility plots. We'll generate these using two different time
+variables. First, we'll plot based on  `week-relative-to-hct`.
 
 ```{usage}
 use.action(
@@ -66,6 +77,8 @@ use.action(
 )
 ```
 
+Next, we'll plot based on `day-relative-to-fmt`.
+
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='longitudinal', action_id='volatility'),
@@ -76,7 +89,15 @@ use.action(
 )
 ```
 
-### Feature volatility
+## Feature volatility
+
+The next plots we'll generate result will come from a QIIME 2 pipeline called
+`feature-volatility`. These use supervised regression to identify features
+that are most associated with changes over time, and add plotting of those
+features to a volatility control chart.
+
+Again, we'll generate the same plots but using two different time variables on
+the x-axes. First, we'll plot based on  `week-relative-to-hct`.
 
 ```{usage}
 use.action(
@@ -90,6 +111,8 @@ use.action(
                          sample_estimator='sample_estimator_1')
 )
 ```
+
+Next, we'll plot based on `day-relative-to-fmt`.
 
 ```{usage}
 use.action(

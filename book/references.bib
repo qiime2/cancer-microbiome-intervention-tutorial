@@ -121,3 +121,170 @@
   year     =  2019,
   language = "en"
 }
+
+
+@ARTICLE{bokulich-q2long-2018,
+  title    = "q2-longitudinal: Longitudinal and {Paired-Sample} Analyses of
+              Microbiome Data",
+  author   = "Bokulich, Nicholas A and Dillon, Matthew R and Zhang, Yilong and
+              Rideout, Jai Ram and Bolyen, Evan and Li, Huilin and Albert, Paul
+              S and Caporaso, J Gregory",
+  abstract = "Studies of host-associated and environmental microbiomes often
+              incorporate longitudinal sampling or paired samples in their
+              experimental design. Longitudinal sampling provides valuable
+              information about temporal trends and subject/population
+              heterogeneity, offering advantages over cross-sectional and
+              pre-post study designs. To support the needs of microbiome
+              researchers performing longitudinal studies, we developed
+              q2-longitudinal, a software plugin for the QIIME 2 microbiome
+              analysis platform (https://qiime2.org). The q2-longitudinal
+              plugin incorporates multiple methods for analysis of longitudinal
+              and paired-sample data, including interactive plotting, linear
+              mixed-effects models, paired differences and distances, microbial
+              interdependence testing, first differencing, longitudinal feature
+              selection, and volatility analyses. The q2-longitudinal package
+              (https://github.com/qiime2/q2-longitudinal) is open-source
+              software released under a 3-clause Berkeley Software Distribution
+              (BSD) license and is freely available, including for commercial
+              use. IMPORTANCE Longitudinal sampling provides valuable
+              information about temporal trends and subject/population
+              heterogeneity. We describe q2-longitudinal, a software plugin for
+              longitudinal analysis of microbiome data sets in QIIME 2. The
+              availability of longitudinal statistics and visualizations in the
+              QIIME 2 framework will make the analysis of longitudinal data
+              more accessible to microbiome researchers.",
+  journal  = "mSystems",
+  volume   =  3,
+  number   =  6,
+  month    =  nov,
+  year     =  2018,
+  keywords = "bioinformatics; linear mixed effects; longitudinal analysis;
+              microbiome",
+  language = "en"
+}
+
+
+@ARTICLE{robeson-rescript-2021,
+  title    = "{RESCRIPt}: Reproducible sequence taxonomy reference database
+              management",
+  author   = "Robeson, 2nd, Michael S and O'Rourke, Devon R and Kaehler,
+              Benjamin D and Ziemski, Michal and Dillon, Matthew R and Foster,
+              Jeffrey T and Bokulich, Nicholas A",
+  abstract = "Nucleotide sequence and taxonomy reference databases are critical
+              resources for widespread applications including marker-gene and
+              metagenome sequencing for microbiome analysis, diet
+              metabarcoding, and environmental DNA (eDNA) surveys. Reproducibly
+              generating, managing, using, and evaluating nucleotide sequence
+              and taxonomy reference databases creates a significant bottleneck
+              for researchers aiming to generate custom sequence databases.
+              Furthermore, database composition drastically influences results,
+              and lack of standardization limits cross-study comparisons. To
+              address these challenges, we developed RESCRIPt, a Python 3
+              software package and QIIME 2 plugin for reproducible generation
+              and management of reference sequence taxonomy databases,
+              including dedicated functions that streamline creating databases
+              from popular sources, and functions for evaluating, comparing,
+              and interactively exploring qualitative and quantitative
+              characteristics across reference databases. To highlight the
+              breadth and capabilities of RESCRIPt, we provide several examples
+              for working with popular databases for microbiome profiling
+              (SILVA, Greengenes, NCBI-RefSeq, GTDB), eDNA and diet
+              metabarcoding surveys (BOLD, GenBank), as well as for genome
+              comparison. We show that bigger is not always better, and
+              reference databases with standardized taxonomies and those that
+              focus on type strains have quantitative advantages, though may
+              not be appropriate for all use cases. Most databases appear to
+              benefit from some curation (quality filtering), though sequence
+              clustering appears detrimental to database quality. Finally, we
+              demonstrate the breadth and extensibility of RESCRIPt for
+              reproducible workflows with a comparison of global hepatitis
+              genomes. RESCRIPt provides tools to democratize the process of
+              reference database acquisition and management, enabling
+              researchers to reproducibly and transparently create reference
+              materials for diverse research applications. RESCRIPt is released
+              under a permissive BSD-3 license at
+              https://github.com/bokulich-lab/RESCRIPt.",
+  journal  = "PLoS Comput. Biol.",
+  volume   =  17,
+  number   =  11,
+  pages    = "e1009581",
+  month    =  nov,
+  year     =  2021,
+  language = "en"
+}
+
+
+@ARTICLE{armstrong-umap-2021,
+  title    = "Uniform Manifold Approximation and Projection ({UMAP}) Reveals
+              Composite Patterns and Resolves Visualization Artifacts in
+              Microbiome Data",
+  author   = "Armstrong, George and Martino, Cameron and Rahman, Gibraan and
+              Gonzalez, Antonio and V{\'a}zquez-Baeza, Yoshiki and Mishne, Gal
+              and Knight, Rob",
+  abstract = "Microbiome data are sparse and high dimensional, so effective
+              visualization of these data requires dimensionality reduction. To
+              date, the most commonly used method for dimensionality reduction
+              in the microbiome is calculation of between-sample microbial
+              differences (beta diversity), followed by principal-coordinate
+              analysis (PCoA). Uniform Manifold Approximation and Projection
+              (UMAP) is an alternative method that can reduce the
+              dimensionality of beta diversity distance matrices. Here, we
+              demonstrate the benefits and limitations of using UMAP for
+              dimensionality reduction on microbiome data. Using real data, we
+              demonstrate that UMAP can improve the representation of clusters,
+              especially when the clusters are composed of multiple subgroups.
+              Additionally, we show that UMAP provides improved correlation of
+              biological variation along a gradient with a reduced number of
+              coordinates of the resulting embedding. Finally, we provide
+              parameter recommendations that emphasize the preservation of
+              global geometry. We therefore conclude that UMAP should be
+              routinely used as a complementary visualization method for
+              microbiome beta diversity studies. IMPORTANCE UMAP provides an
+              additional method to visualize microbiome data. The method is
+              extensible to any beta diversity metric used with PCoA, and our
+              results demonstrate that UMAP can indeed improve visualization
+              quality and correspondence with biological and technical
+              variables of interest. The software to perform this analysis is
+              available under an open-source license and can be obtained at
+              https://github.com/knightlab-analyses/umap-microbiome-benchmarking;
+              additionally, we have provided a QIIME 2 plugin for UMAP at
+              https://github.com/biocore/q2-umap.",
+  journal  = "mSystems",
+  volume   =  6,
+  number   =  5,
+  pages    = "e0069121",
+  month    =  oct,
+  year     =  2021,
+  keywords = "beta diversity; dimensionality reduction",
+  language = "en"
+}
+
+
+@ARTICLE{kaehler-clawback-2019,
+  title    = "Species abundance information improves sequence taxonomy
+              classification accuracy",
+  author   = "Kaehler, Benjamin D and Bokulich, Nicholas A and McDonald, Daniel
+              and Knight, Rob and Caporaso, J Gregory and Huttley, Gavin A",
+  abstract = "Popular naive Bayes taxonomic classifiers for amplicon sequences
+              assume that all species in the reference database are equally
+              likely to be observed. We demonstrate that classification
+              accuracy degrades linearly with the degree to which that
+              assumption is violated, and in practice it is always violated. By
+              incorporating environment-specific taxonomic abundance
+              information, we demonstrate a significant increase in the
+              species-level classification accuracy across common sample types.
+              At the species level, overall average error rates decline from
+              25\% to 14\%, which is favourably comparable to the error rates
+              that existing classifiers achieve at the genus level (16\%). Our
+              findings indicate that for most practical purposes, the
+              assumption that reference species are equally likely to be
+              observed is untenable. q2-clawback provides a straightforward
+              alternative for samples from common environments.",
+  journal  = "Nat. Commun.",
+  volume   =  10,
+  number   =  1,
+  pages    = "4643",
+  month    =  oct,
+  year     =  2019,
+  language = "en"
+}

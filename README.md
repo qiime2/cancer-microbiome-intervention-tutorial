@@ -19,52 +19,43 @@ JupyterBooks that can illustrate QIIME 2 workflows as steps in different QIIME
 Usage API enabled JupyterBooks, and since this is first of these, it also
 illustrates how to build your own QIIME 2 Usage API enabled JupyterBook.
 
-### Building this (or your own) Jupyter Book on your own computer
+### Building this Jupyter Book on your own computer
 
-1. Install QIIME 2 following the instructions in the QIIME 2 documentation
-   [here](https://docs.qiime2.org/2021.11/install/native/).
+1. Install the most recent development version of QIIME 2.
+   1. macOS
+      ```{code-block}
+      wget https://raw.githubusercontent.com/qiime2/environment-files/master/latest/staging/qiime2-latest-py38-osx-conda.yml
+      conda env create -n 2022-faes-jb --file qiime2-latest-py38-osx-conda.yml
+      conda activate 2022-faes-jb
+      ```
+   1. Linux
+      ```{code-block}
+      wget https://raw.githubusercontent.com/qiime2/environment-files/master/latest/staging/qiime2-latest-py38-linux-conda.yml
+      conda env create -n 2022-faes-jb --file qiime2-latest-py38-linux-conda.yml
+      conda activate 2022-faes-jb
+      ```
 
-2. Install JupyterBook following the instructions in the JupyterBook
-   documentation [here](https://jupyterbook.org/start/overview.html).
+1. Obtain JupyterBook content by cloning this repository and changing into the
+   new directory that is created:
+   ```{code-block}
+   git clone git@github.com:gregcaporaso/2022.1-faes-tutorial.git
+   cd 2022.1-faes-tutorial
+   ```
 
-3. Install the most recent development version of the QIIME 2 Sphinx extension
-   (q2doc) in developer mode:
+1. Install additional dependencies:
+   ```{code-block}
+   pip install -r book/requirements.txt
+   ```
 
-    ```{code-block}
-    git clone git@github.com:qiime2/sphinx-ext-qiime2.git
-    pip install -e .
-    ```
-
-4. Obtain **or** create JupyterBook content:
-    1. To build this JupyterBook on your computer, clone this repository and
-       change into the new directory that is created:
-        ```{code-block}
-        git clone git@github.com:gregcaporaso/2022.1-faes-tutorial.git
-        cd 2022.1-faes-tutorial
-        ```
-    2. Alternatively, to create your own JupyterBook:
-        1. Start by [creating a template
-           JupyterBook](https://jupyterbook.org/start/create.html):
-            ```{code-block}
-            jupyter-book create book/
-            ```
-        2. Edit `book/_config.yml`, adding the following to the bottom of the
-           document:
-            ```{code-block}
-            sphinx:
-            extra_extensions          :   ["q2doc.usage"]
-            config                    :   {'html_baseurl': 'http://localhost:8000'}
-            ```
-
-5. Build the book and initiate http server to host the book content:
+1. Build the book and initiate http server to host the book content:
 
     ```{code-block}
     jupyter-book build book && cd book/_build/html/ && python -m http.server && cd -
     ```
 
-6. Open `http://localhost:8000` in your web browser.
+1. Open `http://localhost:8000` in your web browser.
 
-7. Read and enjoy. 📚 ☕
+1. Read and enjoy. 📚 ☕
 
 ### Local Linting
 

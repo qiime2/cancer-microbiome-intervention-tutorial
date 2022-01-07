@@ -4,6 +4,7 @@
 title: QIIME 2 FAES Workshop Tutorial, January 2022
 author: The QIIME 2 Developers
 logo: logo.png
+copyright: 2022
 
 # See https://jupyterbook.org/content/execute.html
 execute:

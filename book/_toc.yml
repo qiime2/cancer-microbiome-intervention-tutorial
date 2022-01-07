@@ -13,22 +13,24 @@ parts:
     - file: intro/types.md
     - file: intro/q2view.md
     - file: intro/importing.md
-  - caption: Hands-on tutorial
+  - caption: Upstream tutorial
     chapters:
-    - file: tutorial-1/03-study-background.md
-    - file: tutorial-1/04-metadata.md
-    - file: tutorial-1/05-importing.md
-    - file: tutorial-1/06-denoising.md
-    - file: tutorial-1/07-filtering.md
-    - file: tutorial-1/08-taxonomy.md
-    - file: tutorial-1/09-phylogeny.md
-    - file: tutorial-1/10-even-sampling.md
-    - file: tutorial-1/11-core-metrics.md
-    - file: tutorial-1/12-alpha-diversity.md
-    - file: tutorial-1/13-beta-diversity.md
-    - file: tutorial-1/14-longitudinal.md
-    - file: tutorial-1/15-differential-abundance.md
-    - file: tutorial-1/16-q2FMT-ideas.md
+    - file: tutorial-upstream/010-study-background.md
+    - file: tutorial-upstream/020-metadata.md
+    - file: tutorial-upstream/030-importing.md
+    - file: tutorial-upstream/040-denoising.md
+  - caption: Downstream tutorial
+    chapters:
+    - file: tutorial-downstream/010-filtering.md
+    - file: tutorial-downstream/020-taxonomy.md
+    - file: tutorial-downstream/030-phylogeny.md
+    - file: tutorial-downstream/040-even-sampling.md
+    - file: tutorial-downstream/050-core-metrics.md
+    - file: tutorial-downstream/060-alpha-diversity.md
+    - file: tutorial-downstream/070-beta-diversity.md
+    - file: tutorial-downstream/080-longitudinal.md
+    - file: tutorial-downstream/090-differential-abundance.md
+    - file: tutorial-downstream/100-q2FMT-ideas.md
   - caption: Appendices
     chapters:
     - file: appendices/convert-and-import-artifacts.ipynb

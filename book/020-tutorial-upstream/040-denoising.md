@@ -10,7 +10,8 @@ name: tutorial
 ```
 
 Quality drops below 30 at position 223 in the forward reads and 231 in the
-reverse reads. Since first base of the reverse reads is slightly lower than
+reverse reads. **TODO: Those settings result in >99% of sequences being
+filtered - why?** Since first base of the reverse reads is slightly lower than
 those that follow, we'll trim that first base. This is probably unnecessary,
 but is useful here for illustrating how this works.
 
@@ -18,8 +19,8 @@ but is useful here for illustrating how this works.
 asv_sequences_0, feature_table_0, dada2_stats = use.action(
     use.UsageAction(plugin_id='dada2', action_id='denoise_paired'),
     use.UsageInputs(demultiplexed_seqs=demultiplexed_sequences,
-                    trim_left_f=0, trunc_len_f=223,
-                    trim_left_r=1, trunc_len_r=231,),
+                    trim_left_f=0, trunc_len_f=200,
+                    trim_left_r=1, trunc_len_r=200,),
     use.UsageOutputNames(representative_sequences='asv_sequences_0',
                         table='feature_table_0',
                         denoising_stats='dada2_stats')

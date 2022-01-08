@@ -8,7 +8,8 @@ copyright: "2022"
 
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: cache
+  # force seems to be necessary for maintaining scope across chapters
+  execute_notebooks: force
   # timeout is per notebook cell
   timeout: 240
   run_in_temp: true

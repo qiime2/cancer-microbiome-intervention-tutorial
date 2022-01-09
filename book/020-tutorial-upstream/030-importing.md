@@ -9,6 +9,14 @@ name: tutorial
 ```{usage-selector}
 ```
 
+In this section of the tutorial, we'll import raw fastq data that is already
+demultiplexed (i.e., separated into per-sample fastq files) into a QIIME 2
+artifact.
+
+## Importing
+
+We'll begin with the data import.
+
 ```{usage}
 def casava_directory_factory():
     import tempfile
@@ -44,6 +52,22 @@ demultiplexed_sequences = use.import_from_format(
     view_type=CasavaOneEightSingleLanePerSampleDirFmt)
 ```
 
+## Generating and viewing a summary of the imported data
+
+After your import is complete, you can generate a summary of the imported
+artifact. This summary contains several important pieces of information.
+
+First, it tells you how many sequences were obtained for each of the samples.
+The  expected number of sequences per sample will vary depending on the
+sequencing technology that was applied and the the number of samples that were
+multiplexed in your run. You should review this, and ensure that you are
+getting the expected number of sequences on average.
+
+Second, this summary provides interactive figures that illustrate sequence
+quality. This will give you an overview of the quality of your sequencing run,
+and you'll need to extract information from these plots to perform quality
+control on the data in the next step of the tutorial.
+
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='demux', action_id='summarize'),
@@ -51,6 +75,8 @@ use.action(
     use.UsageOutputNames(visualization='demultiplexed_sequences_summ'),
 )
 ```
+
+
 
 
 

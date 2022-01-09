@@ -147,3 +147,8 @@ use.action(
     use.UsageOutputNames(visualization='metadata_summ_1')
 )
 ```
+
+Spend a few minutes now exploring the Galaxy environment on your own, and
+exploring the metadata that we'll use in this tutorial. If you have questions
+about how to use Galaxy or QIIME 2 View, this is a great time to ask those
+questions.

@@ -68,7 +68,7 @@ generate another one.
 use.action(
     use.UsageAction(plugin_id='metadata', action_id='tabulate'),
     use.UsageInputs(input=sample_metadata),
-    use.UsageOutputNames(visualization='metadata_summ_2')
+    use.UsageOutputNames(visualization='metadata_summ')
 )
 ```
 ````

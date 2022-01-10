@@ -6,33 +6,33 @@ root: index
 parts:
   - caption: Getting started with QIIME 2
     chapters:
-    - file: intro/index.md
-    - file: intro/deploying.md
-    - file: intro/archives.md
-    - file: intro/plugins-and-actions.md
-    - file: intro/types.md
-    - file: intro/q2view.md
-    - file: intro/importing.md
+    - file: 010-intro/index.md
+    - file: 010-intro/deploying.md
+    - file: 010-intro/archives.md
+    - file: 010-intro/plugins-and-actions.md
+    - file: 010-intro/types.md
+    - file: 010-intro/q2view.md
+    - file: 010-intro/importing.md
   - caption: Upstream tutorial
     chapters:
-    - file: tutorial-upstream/010-study-background.md
-    - file: tutorial-upstream/020-metadata.md
-    - file: tutorial-upstream/030-importing.md
-    - file: tutorial-upstream/040-denoising.md
+    - file: 020-tutorial-upstream/010-study-background.md
+    - file: 020-tutorial-upstream/020-metadata.md
+    - file: 020-tutorial-upstream/030-importing.md
+    - file: 020-tutorial-upstream/040-denoising.md
   - caption: Downstream tutorial
     chapters:
-    - file: tutorial-downstream/010-filtering.md
-    - file: tutorial-downstream/020-taxonomy.md
-    - file: tutorial-downstream/030-phylogeny.md
-    - file: tutorial-downstream/040-even-sampling.md
-    - file: tutorial-downstream/050-core-metrics.md
-    - file: tutorial-downstream/060-alpha-diversity.md
-    - file: tutorial-downstream/070-beta-diversity.md
-    - file: tutorial-downstream/080-longitudinal.md
-    - file: tutorial-downstream/090-differential-abundance.md
-    - file: tutorial-downstream/100-q2FMT-ideas.md
+    - file: 030-tutorial-downstream/010-filtering.md
+    - file: 030-tutorial-downstream/020-taxonomy.md
+    - file: 030-tutorial-downstream/030-phylogeny.md
+    - file: 030-tutorial-downstream/040-even-sampling.md
+    - file: 030-tutorial-downstream/050-core-metrics.md
+    - file: 030-tutorial-downstream/060-alpha-diversity.md
+    - file: 030-tutorial-downstream/070-beta-diversity.md
+    - file: 030-tutorial-downstream/080-longitudinal.md
+    - file: 030-tutorial-downstream/090-differential-abundance.md
+    - file: 030-tutorial-downstream/100-q2FMT-ideas.md
   - caption: Appendices
     chapters:
-    - file: appendices/convert-and-import-artifacts.ipynb
-    - file: appendices/sample-and-patient-metadata.ipynb
-    - file: appendices/citations.md
+    - file: 040-appendices/convert-and-import-artifacts.ipynb
+    - file: 040-appendices/sample-and-patient-metadata.ipynb
+    - file: 040-appendices/citations.md

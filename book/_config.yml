@@ -4,14 +4,11 @@
 title: QIIME 2 FAES Workshop Tutorial, January 2022
 author: The QIIME 2 Developers
 logo: logo.png
-copyright: 2022
+copyright: "2022"
 
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: cache
-  # timeout is per notebook cell
-  timeout: 240
-  run_in_temp: true
+  execute_notebooks: off
 
 # Define the name of the latex output file for PDF builds
 latex:

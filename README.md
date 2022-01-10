@@ -50,7 +50,7 @@ illustrates how to build your own QIIME 2 Usage API enabled JupyterBook.
 1. Build the book and initiate http server to host the book content:
 
     ```{code-block}
-    jupyter-book build book && cd book/_build/html/ && python -m http.server && cd -
+    make
     ```
 
 1. Open `http://localhost:8000` in your web browser.

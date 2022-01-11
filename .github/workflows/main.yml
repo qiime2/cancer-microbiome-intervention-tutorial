@@ -58,9 +58,14 @@ jobs:
         Q2DOC_HTML_BASEURL: https://gregcaporaso.github.io/2022.1-faes-tutorial/
       run: conda run -p ./test-env jb build book/
 
-    - name: deploy to github pages
-      uses: peaceiris/actions-gh-pages@v3
+    - name: deploy to s3
+      uses: jakejarvis/s3-sync-action@master
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: book/_build/html
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: qiime2-workshops
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        SOURCE_DIR: 'book/_build'
+        DEST_DIR: 'faes-jan2022'

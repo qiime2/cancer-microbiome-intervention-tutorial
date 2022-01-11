@@ -55,7 +55,7 @@ jobs:
 
     - name: build book
       env:
-        Q2DOC_HTML_BASEURL: https://gregcaporaso.github.io/2022.1-faes-tutorial/
+        Q2DOC_HTML_BASEURL: https://qiime2-workshops.s3.us-west-2.amazonaws.com/faes-jan2022/
       run: conda run -p ./test-env jb build book/
 
     - name: deploy to s3

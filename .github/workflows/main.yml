@@ -54,6 +54,7 @@ jobs:
         pip install -r book/requirements.txt
 
     - name: build book
+      shell: bash -l {0}
       env:
         Q2DOC_HTML_BASEURL: https://qiime2-workshops.s3.us-west-2.amazonaws.com/faes-jan2022/
       run: |

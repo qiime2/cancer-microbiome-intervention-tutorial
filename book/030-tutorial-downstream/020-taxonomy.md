@@ -81,7 +81,7 @@ QIIME 2 plugin](https://library.qiime2.org/plugins/q2-clawback/7/)
 {cite:p}`kaehler-clawback-2019`.
 ```
 
-## More filtering
+## Filtering filters based on their taxonomy
 
 Taxonomic annotations provide useful information that can also be used in
 quality filtering of our data. A common step in 16S analysis is to remove
@@ -117,6 +117,24 @@ filtered_table_3, = use.action(
 )
 ```
 
+```{tip} Other taxonomy-based filters
+Depending on the reference taxonomy that you're using, it may be useful to
+apply filters excluding other labels. For example, filtering `Eukaryota` is a
+good idea if you're sequencing 16S data and annotating your sequences with
+the Silva database (since eukaryotes contain the 18S rather than 16S variant
+of the small subunit rRNA, you shouldn't expect to observe them in a 16S
+survey). It can also be useful to filter uninformative taxonomic assignments,
+such as `Unassigned` and `Unclassified`.
+
+You can often find helpful tips for your analyses on the QIIME 2 Forum. For
+example, [this forum post](https://forum.qiime2.org/t/phylogenetic-tree-effect-on-downstream-analysis/19127)
+contains example commands for performing these filtering steps. Be sure to
+make use of the (free!) [QIIME 2 Forum](https://forum.qiime2.org) - there are
+loads of valuable information there that can help you improve your analysis.
+```
+
+## Filtering samples with low sequence counts
+
 You may have noticed when looking at feature table summaries earlier that some
 of the samples contained very few ASV sequences. These often represent samples
 which didn't amplify or sequence well, and when we start visualizing our data
@@ -126,7 +144,14 @@ actual composition. For this reason it can be helpful to exclude samples with
 low ASV sequence counts from our samples. Here, we'll filter out samples from
 which we have obtained fewer than 10,000 sequences.
 
-**TODO** discuss the 10k threshold.
+```{note}
+The threshold of 10,000 sequences applied here is not strongly evidence based.
+Rather it's applied based on reviewing summaries of the feature tables that
+have been generated to this point, and selecting a value that retains most of
+the samples. We'll explore this threshold in more detail, including assessing
+whether 10,000 sequences leads to stable summaries of the microbiome samples
+used in this tutorial, later in the workshop.
+```
 
 ```{usage}
 filtered_table_4, = use.action(

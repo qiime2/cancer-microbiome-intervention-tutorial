@@ -58,10 +58,10 @@ List of all contributors and their preferred contact info (GH, email, web, ...)
 
 The QIIME 2 project is funded in part by:
 * The National Cancer Institute:
- * [Informatics Technology for Cancer Reserach](https://itcr.cancer.gov/)
-   (1U24CA248454-01)
- * [The Partnership for Native American Cancer
-    Prevention](https://in.nau.edu/nacp/) (U54CA143925 and U54CA143924)
+  * [Informatics Technology for Cancer Reserach](https://itcr.cancer.gov/)
+    (1U24CA248454-01)
+  * [The Partnership for Native American Cancer
+     Prevention](https://in.nau.edu/nacp/) (U54CA143925 and U54CA143924)
 * Chan-Zuckerberg Initiative Essential Open Source Software for Science
 
 [JupyterBook](https://jupyterbook.org) is funded by the Alfred P. Sloan

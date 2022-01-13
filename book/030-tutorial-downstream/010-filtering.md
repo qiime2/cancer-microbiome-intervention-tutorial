@@ -105,7 +105,6 @@ the subject was in the control group, and no value if the patient was not
 enrolled in this particular study.
 ```
 
-
 ## Filter the feature table to the autoFMT study samples
 
 In this tutorial, we're going to work specifically with samples that were
@@ -147,31 +146,19 @@ filtering? How does that compare to the feature table prior to filtering?
 ## Perform additional filtering steps on feature table
 
 Before we proceed with the analysis, we'll apply a few more filtering steps.
-First, we'll drop samples that are not included in the metadata.
 
-**TODO**: Is this step still needed? I think the autoFmtGroup filter will
-achieve the same outcome.
-
-```{usage}
-filtered_table_1, = use.action(
-    use.UsageAction(plugin_id='feature_table', action_id='filter_samples'),
-    use.UsageInputs(table=autofmt_table, metadata=sample_metadata),
-    use.UsageOutputNames(filtered_table='filtered_table_1')
-    )
-```
-
-Next, we're going to focus in on a specific window of timely - mainly the
+First, we're going to focus in on a specific window of timely - mainly the
 period of ten days prior to the patients cell transplant through seventy days
 following the transplant. Some of the subjects in this study have very long
 term microbiota data, but since many don't it helps to just focus our analysis
 on the temporal range that is most relevant to this analysis.
 
 ```{usage}
-filtered_table_2, = use.action(
+filtered_table_1, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_samples'),
-    use.UsageInputs(table=filtered_table_1, metadata=sample_metadata,
+    use.UsageInputs(table=autofmt_table, metadata=sample_metadata,
                     where="DayRelativeToNearestHCT BETWEEN -10 AND 70"),
-    use.UsageOutputNames(filtered_table='filtered_table_2')
+    use.UsageOutputNames(filtered_table='filtered_table_1')
 )
 ```
 
@@ -182,10 +169,10 @@ isn't necessary to run in your own analyses.
 
 
 ```{usage}
-filtered_table_3, = use.action(
+filtered_table_2, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_features'),
-    use.UsageInputs(table=filtered_table_2, min_samples=2),
-    use.UsageOutputNames(filtered_table='filtered_table_3')
+    use.UsageInputs(table=filtered_table_1, min_samples=2),
+    use.UsageOutputNames(filtered_table='filtered_table_2')
     )
 ```
 
@@ -194,8 +181,8 @@ We can then generate and review another feature table summary.
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='feature_table', action_id='summarize'),
-    use.UsageInputs(table=filtered_table_3, sample_metadata=sample_metadata),
-    use.UsageOutputNames(visualization='filtered_table_3_summ'),
+    use.UsageInputs(table=filtered_table_2, sample_metadata=sample_metadata),
+    use.UsageOutputNames(visualization='filtered_table_2_summ'),
 )
 ```
 
@@ -217,7 +204,7 @@ feature table from our collection of feature sequences.
 ```{usage}
 filtered_sequences_1, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_seqs'),
-    use.UsageInputs(data=feature_sequences, table=filtered_table_3),
+    use.UsageInputs(data=feature_sequences, table=filtered_table_2),
     use.UsageOutputNames(filtered_data='filtered_sequences_1')
     )
 ```

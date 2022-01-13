@@ -109,11 +109,11 @@ feature), as well as annotations containing `Chloroplast` or `Mitochondria`
 (i.e., organelle 16S sequences).
 
 ```{usage}
-filtered_table_4, = use.action(
+filtered_table_3, = use.action(
     use.UsageAction(plugin_id='taxa', action_id='filter_table'),
-    use.UsageInputs(table=filtered_table_3, taxonomy=taxonomy, mode='contains',
+    use.UsageInputs(table=filtered_table_2, taxonomy=taxonomy, mode='contains',
                     include='p__', exclude='p__;,Chloroplast,Mitochondria'),
-    use.UsageOutputNames(filtered_table='filtered_table_4')
+    use.UsageOutputNames(filtered_table='filtered_table_3')
 )
 ```
 
@@ -129,10 +129,10 @@ which we have obtained fewer than 10,000 sequences.
 **TODO** discuss the 10k threshold.
 
 ```{usage}
-filtered_table_5, = use.action(
+filtered_table_4, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_samples'),
-    use.UsageInputs(table=filtered_table_4, min_frequency=10000),
-    use.UsageOutputNames(filtered_table='filtered_table_5')
+    use.UsageInputs(table=filtered_table_3, min_frequency=10000),
+    use.UsageOutputNames(filtered_table='filtered_table_4')
     )
 ```
 
@@ -145,7 +145,7 @@ required, but can help to speed up some downstream steps.
 ```{usage}
 filtered_sequences_2, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_seqs'),
-    use.UsageInputs(data=feature_sequences, table=filtered_table_5),
+    use.UsageInputs(data=feature_sequences, table=filtered_table_4),
     use.UsageOutputNames(filtered_data='filtered_sequences_2')
     )
 ```
@@ -157,8 +157,8 @@ round of filtering. Expand this box if you need help.
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='feature_table', action_id='summarize'),
-    use.UsageInputs(table=filtered_table_5, sample_metadata=sample_metadata),
-    use.UsageOutputNames(visualization='filtered_table_5_summ_exercise'),
+    use.UsageInputs(table=filtered_table_4, sample_metadata=sample_metadata),
+    use.UsageOutputNames(visualization='filtered_table_4_summ_exercise'),
 )
 ```
 ````
@@ -171,7 +171,7 @@ using a taxonomic barplot. This can be generated with the following command.
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='taxa', action_id='barplot'),
-    use.UsageInputs(table=filtered_table_5, taxonomy=taxonomy,
+    use.UsageInputs(table=filtered_table_4, taxonomy=taxonomy,
                     metadata=sample_metadata),
     use.UsageOutputNames(visualization='taxa_bar_plots_1'),
 )

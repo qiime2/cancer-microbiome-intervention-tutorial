@@ -31,8 +31,8 @@ was created.
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='feature_table', action_id='summarize'),
-    use.UsageInputs(table=filtered_table_5, sample_metadata=sample_metadata),
-    use.UsageOutputNames(visualization='filtered_table_5_summ'),
+    use.UsageInputs(table=filtered_table_4, sample_metadata=sample_metadata),
+    use.UsageOutputNames(visualization='filtered_table_4_summ'),
 )
 ```
 
@@ -45,7 +45,7 @@ do this for alpha diversity using an alpha rarefaction plot.
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='diversity', action_id='alpha_rarefaction'),
-    use.UsageInputs(table=filtered_table_5, metrics={'shannon'},
+    use.UsageInputs(table=filtered_table_4, metrics={'shannon'},
                     metadata=sample_metadata, max_depth=33000),
     use.UsageOutputNames(visualization='shannon_rarefaction_plot'))
 ```
@@ -58,7 +58,7 @@ at the depth you have selected.
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='diversity', action_id='beta_rarefaction'),
-    use.UsageInputs(table=filtered_table_5, metric='braycurtis',
+    use.UsageInputs(table=filtered_table_4, metric='braycurtis',
                     clustering_method='nj', sampling_depth=10000,
                     metadata=sample_metadata),
     use.UsageOutputNames(visualization='braycurtis_rarefaction_plot'))

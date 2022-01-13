@@ -5,7 +5,6 @@ We have a lot of exciting things planned for this week!
 * The new QIIME 2 [Galaxy](https://usegalaxy.org/) interface!
 * New tutorial data!
 * Core functionality and the latest plugins and tools!
-* Dozens of new Peanut the Dog references!
 * q2usage-enabled [JupyterBooks](https://jupyterbook.org/intro.html)!
 
 Please review the

@@ -1,4 +1,4 @@
-# Building a phylogenetic tree and taxonomic annotation
+# Taxonomic annotation of observed sequences
 
 ```{usage-scope}
 ---

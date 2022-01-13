@@ -102,13 +102,17 @@ This filtering can be applied as follows by providing the feature table and the
 taxonomic annotations that were just created. The `include` parameter here
 specifies that an annotation must contain the text `p__`, which in the
 Greengenes taxonomy is the prefix for all phylum-level taxonomy assignments.
-Taxonomic labels that don't contain `p__` therefore don't have an assigned
-phylum.
+Taxonomic labels that don't contain `p__` therefore were maximally assigned to
+the domain (i.e., kingdom) level. This will also remove features that are
+annotated with `p__;` (which means that no named phylum was assigned to the
+feature), as well as annotations containing `Chloroplast` or `Mitochondria`
+(i.e., organelle 16S sequences).
 
 ```{usage}
 filtered_table_4, = use.action(
     use.UsageAction(plugin_id='taxa', action_id='filter_table'),
-    use.UsageInputs(table=filtered_table_3, taxonomy=taxonomy, include='p__'),
+    use.UsageInputs(table=filtered_table_3, taxonomy=taxonomy, mode='contains',
+                    include='p__', exclude='p__;,Chloroplast,Mitochondria'),
     use.UsageOutputNames(filtered_table='filtered_table_4')
 )
 ```
@@ -116,7 +120,7 @@ filtered_table_4, = use.action(
 You may have noticed when looking at feature table summaries earlier that some
 of the samples contained very few ASV sequences. These often represent samples
 which didn't amplify or sequence well, and when we start visualizing our data
-low numbers of sequences can cause misleading results, because the the
+low numbers of sequences can cause misleading results, because the
 observed composition of the sample may not be reflective of the sample's
 actual composition. For this reason it can be helpful to exclude samples with
 low ASV sequence counts from our samples. Here, we'll filter out samples from

@@ -74,7 +74,7 @@ taxonomy barplots that includes these new metadata values.
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='taxa', action_id='barplot'),
-    use.UsageInputs(table=filtered_table_5, taxonomy=taxonomy,
+    use.UsageInputs(table=filtered_table_4, taxonomy=taxonomy,
                     metadata=expanded_sample_metadata),
     use.UsageOutputNames(visualization='taxa_bar_plots_2'),
 )

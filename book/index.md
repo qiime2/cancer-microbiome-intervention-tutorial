@@ -5,7 +5,6 @@ We have a lot of exciting things planned for this week!
 * The new QIIME 2 [Galaxy](https://usegalaxy.org/) interface!
 * New tutorial data!
 * Core functionality and the latest plugins and tools!
-* Dozens of new Peanut the Dog references!
 * q2usage-enabled [JupyterBooks](https://jupyterbook.org/intro.html)!
 
 Please review the
@@ -58,11 +57,15 @@ List of all contributors and their preferred contact info (GH, email, web, ...)
 ## Thank you to our funders
 
 The QIIME 2 project is funded in part by:
-* [NCI ITCR](https://itcr.cancer.gov/) (1U24CA248454-01, JGC)
-* Sloan Foundation
-* CZI
-* NACP
-* Other funding sources for Cap Lab and other instructors/teams
+* The National Cancer Institute:
+  * [Informatics Technology for Cancer Reserach](https://itcr.cancer.gov/)
+    (1U24CA248454-01)
+  * [The Partnership for Native American Cancer
+     Prevention](https://in.nau.edu/nacp/) (U54CA143925 and U54CA143924)
+* Chan-Zuckerberg Initiative Essential Open Source Software for Science
+
+[JupyterBook](https://jupyterbook.org) is funded by the Alfred P. Sloan
+Foundation.
 
 ## Other resources for learning QIIME 2
 

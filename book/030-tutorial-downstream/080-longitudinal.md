@@ -28,7 +28,7 @@ level. This is achieved using the `q2-taxa` plugin's `collapse` action.
 ```{usage}
 genus_table, = use.action(
     use.UsageAction(plugin_id='taxa', action_id='collapse'),
-    use.UsageInputs(table=filtered_table_5, taxonomy=taxonomy, level=6),
+    use.UsageInputs(table=filtered_table_4, taxonomy=taxonomy, level=6),
     use.UsageOutputNames(collapsed_table='genus_table')
 )
 ```

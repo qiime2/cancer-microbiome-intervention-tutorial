@@ -28,7 +28,7 @@ sampling depth to 10,000 for this analysis.
 ```{usage}
 core_metrics_results = use.action(
     use.UsageAction(plugin_id='diversity', action_id='core_metrics_phylogenetic'),
-    use.UsageInputs(phylogeny=rooted_tree, table=filtered_table_5,
+    use.UsageInputs(phylogeny=rooted_tree, table=filtered_table_4,
                     sampling_depth=10000, metadata=sample_metadata),
     use.UsageOutputNames(rarefied_table='rarefied_table',
                             faith_pd_vector='faith_pd_vector',

@@ -1,4 +1,4 @@
-# Building a phylogenetic tree and taxonomic annotation
+# Taxonomic annotation of observed sequences
 
 ```{usage-scope}
 ---
@@ -81,7 +81,7 @@ QIIME 2 plugin](https://library.qiime2.org/plugins/q2-clawback/7/)
 {cite:p}`kaehler-clawback-2019`.
 ```
 
-## More filtering
+## Filtering filters based on their taxonomy
 
 Taxonomic annotations provide useful information that can also be used in
 quality filtering of our data. A common step in 16S analysis is to remove
@@ -102,33 +102,62 @@ This filtering can be applied as follows by providing the feature table and the
 taxonomic annotations that were just created. The `include` parameter here
 specifies that an annotation must contain the text `p__`, which in the
 Greengenes taxonomy is the prefix for all phylum-level taxonomy assignments.
-Taxonomic labels that don't contain `p__` therefore don't have an assigned
-phylum.
+Taxonomic labels that don't contain `p__` therefore were maximally assigned to
+the domain (i.e., kingdom) level. This will also remove features that are
+annotated with `p__;` (which means that no named phylum was assigned to the
+feature), as well as annotations containing `Chloroplast` or `Mitochondria`
+(i.e., organelle 16S sequences).
 
 ```{usage}
-filtered_table_4, = use.action(
+filtered_table_3, = use.action(
     use.UsageAction(plugin_id='taxa', action_id='filter_table'),
-    use.UsageInputs(table=filtered_table_3, taxonomy=taxonomy, include='p__'),
-    use.UsageOutputNames(filtered_table='filtered_table_4')
+    use.UsageInputs(table=filtered_table_2, taxonomy=taxonomy, mode='contains',
+                    include='p__', exclude='p__;,Chloroplast,Mitochondria'),
+    use.UsageOutputNames(filtered_table='filtered_table_3')
 )
 ```
+
+```{tip} Other taxonomy-based filters
+Depending on the reference taxonomy that you're using, it may be useful to
+apply filters excluding other labels. For example, filtering `Eukaryota` is a
+good idea if you're sequencing 16S data and annotating your sequences with
+the Silva database (since eukaryotes contain the 18S rather than 16S variant
+of the small subunit rRNA, you shouldn't expect to observe them in a 16S
+survey). It can also be useful to filter uninformative taxonomic assignments,
+such as `Unassigned` and `Unclassified`.
+
+You can often find helpful tips for your analyses on the QIIME 2 Forum. For
+example, [this forum post](https://forum.qiime2.org/t/phylogenetic-tree-effect-on-downstream-analysis/19127)
+contains example commands for performing these filtering steps. Be sure to
+make use of the (free!) [QIIME 2 Forum](https://forum.qiime2.org) - there are
+loads of valuable information there that can help you improve your analysis.
+```
+
+## Filtering samples with low sequence counts
 
 You may have noticed when looking at feature table summaries earlier that some
 of the samples contained very few ASV sequences. These often represent samples
 which didn't amplify or sequence well, and when we start visualizing our data
-low numbers of sequences can cause misleading results, because the the
+low numbers of sequences can cause misleading results, because the
 observed composition of the sample may not be reflective of the sample's
 actual composition. For this reason it can be helpful to exclude samples with
 low ASV sequence counts from our samples. Here, we'll filter out samples from
 which we have obtained fewer than 10,000 sequences.
 
-**TODO** discuss the 10k threshold.
+```{note}
+The threshold of 10,000 sequences applied here is not strongly evidence based.
+Rather it's applied based on reviewing summaries of the feature tables that
+have been generated to this point, and selecting a value that retains most of
+the samples. We'll explore this threshold in more detail, including assessing
+whether 10,000 sequences leads to stable summaries of the microbiome samples
+used in this tutorial, later in the workshop.
+```
 
 ```{usage}
-filtered_table_5, = use.action(
+filtered_table_4, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_samples'),
-    use.UsageInputs(table=filtered_table_4, min_frequency=10000),
-    use.UsageOutputNames(filtered_table='filtered_table_5')
+    use.UsageInputs(table=filtered_table_3, min_frequency=10000),
+    use.UsageOutputNames(filtered_table='filtered_table_4')
     )
 ```
 
@@ -141,7 +170,7 @@ required, but can help to speed up some downstream steps.
 ```{usage}
 filtered_sequences_2, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_seqs'),
-    use.UsageInputs(data=feature_sequences, table=filtered_table_5),
+    use.UsageInputs(data=feature_sequences, table=filtered_table_4),
     use.UsageOutputNames(filtered_data='filtered_sequences_2')
     )
 ```
@@ -153,8 +182,8 @@ round of filtering. Expand this box if you need help.
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='feature_table', action_id='summarize'),
-    use.UsageInputs(table=filtered_table_5, sample_metadata=sample_metadata),
-    use.UsageOutputNames(visualization='filtered_table_5_summ_exercise'),
+    use.UsageInputs(table=filtered_table_4, sample_metadata=sample_metadata),
+    use.UsageOutputNames(visualization='filtered_table_4_summ_exercise'),
 )
 ```
 ````
@@ -167,7 +196,7 @@ using a taxonomic barplot. This can be generated with the following command.
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='taxa', action_id='barplot'),
-    use.UsageInputs(table=filtered_table_5, taxonomy=taxonomy,
+    use.UsageInputs(table=filtered_table_4, taxonomy=taxonomy,
                     metadata=sample_metadata),
     use.UsageOutputNames(visualization='taxa_bar_plots_1'),
 )

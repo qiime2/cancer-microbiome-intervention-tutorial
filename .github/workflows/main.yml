@@ -53,7 +53,13 @@ jobs:
         conda activate ./test-env
         pip install -r book/requirements.txt
 
-    - name: build book
+    - name: build book preview
+      shell: bash -l {0}
+      run: |
+        conda activate ./test-env
+        make build_preview
+
+    - name: build full book
       shell: bash -l {0}
       env:
         Q2DOC_HTML_BASEURL: https://qiime2-workshops.s3.us-west-2.amazonaws.com/faes-jan2022/

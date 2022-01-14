@@ -65,7 +65,7 @@ jobs:
         Q2DOC_HTML_BASEURL: https://qiime2-workshops.s3.us-west-2.amazonaws.com/faes-jan2022/
       run: |
         conda activate ./test-env
-        make build
+        make build_full
 
     - name: deploy to s3
       uses: jakejarvis/s3-sync-action@master

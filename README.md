@@ -3,10 +3,10 @@
 This repository contains the source for the Jan 30 - Feb 4 2022 _Microbiome
 Bioinformatics with QIIME 2_ workshop tutorial at FAES.
 
-This content is presented as a [JupyterBook](https://jupyterbook.org) at
-**insert URL when available**. You shouldn't need to access this source
-repository if you're interested in following the tutorial or reading other
-parts of the JupyterBook.
+This content is presented as a [JupyterBook](https://jupyterbook.org)
+[here](https://qiime2-workshops.s3.us-west-2.amazonaws.com/faes-jan2022/index.html).
+You shouldn't need to access this source repository if you're interested in
+following the tutorial or reading other parts of the JupyterBook.
 
 If you're interested in building this JupyerBook on your own computer, or in
 building other QIIME 2 Usage-enabled JupyterBooks, instructions follow below.

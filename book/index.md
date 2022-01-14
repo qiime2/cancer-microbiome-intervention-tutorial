@@ -12,9 +12,6 @@ Please review the
 before beginning your participation in this event. All workshop instructors
 agree to abide by these community expectations.
 
-**TODO** all sections on this page are just stubs - fill these out and add
-whatever else should be front-and-center.
-
 ## We recommend the following readings before you arrive
 
 These aren't essential, but they'll help get you ready for the workshop (listed
@@ -41,7 +38,6 @@ in priority order).
 
 ## Workshop links and protocols
 
-* Zoom link
 * Schedule
 * Galaxy link
 * Etc.

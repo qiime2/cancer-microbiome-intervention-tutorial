@@ -1,3 +1,17 @@
+---
+substitutions:
+  q1: Which column or columns in the metadata could be used to identify
+      samples that were included in the autoFMT study?
+
+  q2: How many samples and features are in this feature table after
+      filtering? How does that compare to the feature table prior to
+      filtering?
+
+  q3: Generate a summary of this latest filtered feature table on your own
+      (expand this box for help if necessary). How many samples and features
+      are in this feature table?
+---
+
 # Filtering feature tables
 
 ```{usage-scope}
@@ -73,7 +87,6 @@ use.action(
 ```
 ````
 
-
 ## Generate summaries of full table and sequence data
 
 Next, it's useful to generate summaries of the feature table and sequence data.
@@ -95,9 +108,8 @@ use.action(
 )
 ```
 
-```{admonition} Which column or columns in the metadata could be used to
+```{admonition} {{ q1 }}
 :class: question, dropdown
-identify samples that were included in the autoFMT study?
 
 Several columns contain this information, such as autoFmtGroup which contains
 the value "treatment" if the subject was in the treatment group, "control" if
@@ -137,10 +149,13 @@ use.action(
 )
 ```
 
-```{admonition} How many samples and features are in this feature table after
-filtering? How does that compare to the feature table prior to filtering?
+```{admonition} {{ q2 }}
 :class: question, dropdown
-**TODO**: Fill this in!
+Aftering filtering there are 556 samples and 4,256 features represented in the
+feature table.
+
+Prior to filtering to just the autoFMT study, there were 12,546 samples and
+17,865 features represented in the feature table.
 ```
 
 ## Perform additional filtering steps on feature table
@@ -176,7 +191,8 @@ filtered_table_2, = use.action(
     )
 ```
 
-We can then generate and review another feature table summary.
+````{admonition} {{ q3 }}
+:class: question, dropdown
 
 ```{usage}
 use.action(
@@ -186,12 +202,11 @@ use.action(
 )
 ```
 
-```{admonition} How many samples and features are in the feature table after
-this latest filtering? How does that compare to the prior feature tables?
-:class: question, dropdown
+The final feature table resulting from this series of steps contains 406
+samples and 2,458 features. Approximately 23,000,000 sequences are represented
+in this feature table.
 
-**TODO**: Fill this in!
-```
+````
 
 ## Filter features from sequence data to reduce runtime of feature annotation
 

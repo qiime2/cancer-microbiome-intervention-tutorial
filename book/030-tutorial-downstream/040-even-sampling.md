@@ -63,5 +63,3 @@ use.action(
                     metadata=sample_metadata),
     use.UsageOutputNames(visualization='braycurtis_rarefaction_plot'))
 ```
-
-**TODO**: Should we plug q2-srs? has anyone used this yet?

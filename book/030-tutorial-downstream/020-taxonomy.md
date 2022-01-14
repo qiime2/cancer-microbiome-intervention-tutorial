@@ -1,3 +1,9 @@
+---
+substitutions:
+  q1: Try summarizing the feature table that was created by this round of
+      filtering. Expand this box if you need help.
+---
+
 # Taxonomic annotation of observed sequences
 
 ```{usage-scope}
@@ -175,8 +181,7 @@ filtered_sequences_2, = use.action(
     )
 ```
 
-````{admonition} Try summarizing the feature table that was created by this
-round of filtering. Expand this box if you need help.
+````{admonition} {{ q1 }}
 :class: question, dropdown
 
 ```{usage}
@@ -202,4 +207,10 @@ use.action(
 )
 ```
 
-**TODO** plug the q2-krona plugin
+```{tip}
+A third party plugin, [available on the QIIME 2
+Library](https://library.qiime2.org/plugins/q2-krona/39/), allows users to
+generated multi-taxonomic-level krona plots using QIIME 2. These are very
+useful for generating interactive microbiome composition summaries on a per-
+sample basis.
+```

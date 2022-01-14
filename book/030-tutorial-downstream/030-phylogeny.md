@@ -45,7 +45,3 @@ _, _, _, rooted_tree = use.action(
                          tree='unrooted_tree', rooted_tree='rooted_tree'),
 )
 ```
-
-**TODO**: add visualization with empress? I haven't used this a lot, but I'd
-love input from the instructor interested in this section on what would be
-cool to do here.

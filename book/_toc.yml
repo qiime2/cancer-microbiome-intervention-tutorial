@@ -6,13 +6,13 @@ root: index
 parts:
   - caption: Getting started with QIIME 2
     chapters:
-    - file: 010-intro/index.md
-    - file: 010-intro/deploying.md
-    - file: 010-intro/archives.md
-    - file: 010-intro/plugins-and-actions.md
-    - file: 010-intro/types.md
-    - file: 010-intro/q2view.md
-    - file: 010-intro/importing.md
+    - file: 010-intro/010-index.md
+    - file: 010-intro/020-deploying.md
+    - file: 010-intro/030-archives.md
+    - file: 010-intro/040-plugins-and-actions.md
+    - file: 010-intro/050-types.md
+    - file: 010-intro/060-q2view.md
+    - file: 010-intro/070-importing.md
   - caption: Upstream tutorial
     chapters:
     - file: 020-tutorial-upstream/010-study-background.md

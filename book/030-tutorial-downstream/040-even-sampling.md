@@ -1,5 +1,17 @@
 # Identifying an even sampling depth for use in diversity metrics
 
+```{usage-scope}
+---
+name: tutorial
+---
+```
+
+```{usage-selector}
+---
+default-interface: galaxy-usage
+---
+```
+
 As we begin performing more analyses of the samples in our faeture table, an
 important parameter that needs to be define is the even sampling (i.e.
 rarefaction) depth that diversity metrics need to be computed at. Because most
@@ -13,15 +25,6 @@ dropped from the downstream analyses. Choosing this value is tricky. We
 recommend making your choice by reviewing the information presented in the
 feature table summary file. Choose a value that is as high as possible (so you
 retain more sequences per sample) while excluding as few samples as possible.
-
-```{usage-scope}
----
-name: tutorial
----
-```
-
-```{usage-selector}
-```
 
 ## Generate a feature table summary
 
@@ -63,5 +66,3 @@ use.action(
                     metadata=sample_metadata),
     use.UsageOutputNames(visualization='braycurtis_rarefaction_plot'))
 ```
-
-**TODO**: Should we plug q2-srs? has anyone used this yet?

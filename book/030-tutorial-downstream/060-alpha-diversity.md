@@ -7,8 +7,7 @@ name: tutorial
 ```
 
 ```{usage-selector}
+---
+default-interface: galaxy-usage
+---
 ```
-
-**TODO** link out to alpha-group-significance examples and alpha-correlation
-examples. Those may not be possible to apply in a meaningful way with these
-data.

@@ -7,6 +7,9 @@ name: tutorial
 ```
 
 ```{usage-selector}
+---
+default-interface: galaxy-usage
+---
 ```
 
 The next step that we'll work through is computing a series of common diversity

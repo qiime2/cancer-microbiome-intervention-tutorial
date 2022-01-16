@@ -7,6 +7,9 @@ name: tutorial
 ```
 
 ```{usage-selector}
+---
+default-interface: galaxy-usage
+---
 ```
 
 ## Performing sequence quality control (i.e., denoising)

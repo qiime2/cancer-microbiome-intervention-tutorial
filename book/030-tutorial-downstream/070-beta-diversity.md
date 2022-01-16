@@ -7,6 +7,9 @@ name: tutorial
 ```
 
 ```{usage-selector}
+---
+default-interface: galaxy-usage
+---
 ```
 
 ## Generating and exploring ordination plots
@@ -123,6 +126,24 @@ diversity metrics (weighted and unweighted UniFrac) and two different
 ordination techniques (PCoA and umap). View these plots and consider what is
 similar and different about each.
 
-**TODO** link out to beta-group-significance examples and beta-correlation
-examples. Those may not be possible to apply in a meaningful way with these
-data.
+```{tip}
+QIIME 2's [q2-diversity](https://docs.qiime2.org/2021.11/plugins/available/diversity/)
+plugin provides visualizations for assessing whether
+microbiome composition [differs across groups of independent
+samples](https://docs.qiime2.org/2021.11/plugins/available/diversity/beta-group-significance/)
+(for example, individuals with a certain disease state and healthy controls)
+and for assessing whether [differences in microbiome composition are correlated
+with differences in a continuous
+variable](https://docs.qiime2.org/2021.11/plugins/available/diversity/beta-correlation/)
+(for example, subjects' body mass index). These tools assume that all samples
+are independent of one another,
+and therefore aren't applicable to the data used in this tutorial where
+multiple samples are obtained from the same individual. We therefore don't
+illustrate the use of these visualizations on this data, but you learn about
+these approaches and view examples in the [_Moving Pictures_
+tutorial](https://docs.qiime2.org/2021.11/tutorials/moving-pictures-usage/).
+The Moving Pictures tutorial contains example data and commands, like this
+tutorial does, so you can experiment with generating these visualizations on
+your own.
+```
+

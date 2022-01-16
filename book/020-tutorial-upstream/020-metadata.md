@@ -7,6 +7,9 @@ name: tutorial
 ```
 
 ```{usage-selector}
+---
+default-interface: galaxy-usage
+---
 ```
 
 ## Access the study metadata

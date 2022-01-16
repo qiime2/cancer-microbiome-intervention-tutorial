@@ -1,25 +1,22 @@
-# 2022.1 QIIME 2 FAES Workshop tutorial
+# 2022.1 QIIME 2 FAES Workshop tutorial source
 
 This repository contains the source for the Jan 30 - Feb 4 2022 _Microbiome
-Bioinformatics with QIIME 2_ workshop tutorial at FAES.
+Bioinformatics with QIIME 2_ workshop tutorial at FAES. This content is
+presented as a [Jupyter Book](https://jupyterbook.org)
+[here](https://qiime2-workshops.s3.us-west-2.amazonaws.com/faes-jan2022/index.html).
 
-This content is presented as a [JupyterBook](https://jupyterbook.org) at
-**insert URL when available**. You shouldn't need to access this source
-repository if you're interested in following the tutorial or reading other
-parts of the JupyterBook.
+You shouldn't need to access this source repository if you're interested in
+following the tutorial or reading other parts of the Jupyter Book.
 
-If you're interested in building this JupyerBook on your own computer, or in
-building other QIIME 2 Usage-enabled JupyterBooks, instructions follow below.
+## About QIIME 2 Usage API enabled Jupyter Books
 
-## QIIME 2 Usage API enabled JupyterBooks
+QIIME 2 Usage API enabled Jupyter Books allow for the development of
+Jupyter Books that can illustrate QIIME 2 workflows as steps in different QIIME
+2 interfaces.
 
-QIIME 2 Usage API enabled JupyterBooks allow for the development of
-JupyterBooks that can illustrate QIIME 2 workflows as steps in different QIIME
-2 interfaces. This README.md illustrates how to build this particular QIIME 2
-Usage API enabled JupyterBooks, and since this is first of these, it also
-illustrates how to build your own QIIME 2 Usage API enabled JupyterBook.
+## For developers and tutorial authors
 
-### Building this Jupyter Book on your own computer
+### Building this Jupyter Book
 
 1. Install the most recent development version of QIIME 2.
    1. macOS
@@ -35,7 +32,7 @@ illustrates how to build your own QIIME 2 Usage API enabled JupyterBook.
       conda activate 2022-faes-jb
       ```
 
-1. Obtain JupyterBook content by cloning this repository and changing into the
+1. Obtain Jupyter Book content by cloning this repository and changing into the
    new directory that is created:
    ```{code-block}
    git clone git@github.com:gregcaporaso/2022.1-faes-tutorial.git

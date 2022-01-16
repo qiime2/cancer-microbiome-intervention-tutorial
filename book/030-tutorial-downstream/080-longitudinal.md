@@ -7,6 +7,9 @@ name: tutorial
 ```
 
 ```{usage-selector}
+---
+default-interface: galaxy-usage
+---
 ```
 
 In this section of the tutorial we'll perform several analyses using QIIME 2's

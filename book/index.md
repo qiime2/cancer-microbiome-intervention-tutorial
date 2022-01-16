@@ -5,15 +5,13 @@ We have a lot of exciting things planned for this week!
 * The new QIIME 2 [Galaxy](https://usegalaxy.org/) interface!
 * New tutorial data!
 * Core functionality and the latest plugins and tools!
-* q2usage-enabled [JupyterBooks](https://jupyterbook.org/intro.html)!
+* Multi-interface QIIME 2 command examples!
+* [Jupyter Book](https://jupyterbook.org/intro.html) tutorial documentation!
 
 Please review the
 [QIIME 2 Community Code of Conduct](https://forum.qiime2.org/t/qiime-2-community-code-of-conduct/9057)
 before beginning your participation in this event. All workshop instructors
 agree to abide by these community expectations.
-
-**TODO** all sections on this page are just stubs - fill these out and add
-whatever else should be front-and-center.
 
 ## We recommend the following readings before you arrive
 
@@ -41,7 +39,6 @@ in priority order).
 
 ## Workshop links and protocols
 
-* Zoom link
 * Schedule
 * Galaxy link
 * Etc.
@@ -64,7 +61,7 @@ The QIIME 2 project is funded in part by:
      Prevention](https://in.nau.edu/nacp/) (U54CA143925 and U54CA143924)
 * Chan-Zuckerberg Initiative Essential Open Source Software for Science
 
-[JupyterBook](https://jupyterbook.org) is funded by the Alfred P. Sloan
+[Jupyter Book](https://jupyterbook.org) is funded by the Alfred P. Sloan
 Foundation.
 
 ## Other resources for learning QIIME 2

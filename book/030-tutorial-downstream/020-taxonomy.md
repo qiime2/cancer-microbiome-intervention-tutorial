@@ -13,6 +13,9 @@ name: tutorial
 ```
 
 ```{usage-selector}
+---
+default-interface: galaxy-usage
+---
 ```
 
 In this chapter we'll perform annotation of the features that were observed in

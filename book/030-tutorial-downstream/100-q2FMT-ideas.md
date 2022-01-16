@@ -7,5 +7,7 @@ name: tutorial
 ```
 
 ```{usage-selector}
+---
+default-interface: python3-usage
+---
 ```
-

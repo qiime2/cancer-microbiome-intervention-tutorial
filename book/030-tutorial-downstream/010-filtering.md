@@ -21,6 +21,9 @@ name: tutorial
 ```
 
 ```{usage-selector}
+---
+default-interface: galaxy-usage
+---
 ```
 
 We'll next obtain a much larger feature table representing all of the samples

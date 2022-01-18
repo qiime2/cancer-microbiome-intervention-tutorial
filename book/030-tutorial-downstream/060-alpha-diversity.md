@@ -53,7 +53,7 @@ all patients recieved a bone-marrow transplant which may be a stronger effect.
 We will use a more advanced statistical model to interpret this question.
 
 
-# Linear Mixed Effects
+## Linear Mixed Effects
 
 In order to manage the repeated measures, we will use a linear
 mixed-effects model. In a mixed-effects model, we combine fixed-effects (your

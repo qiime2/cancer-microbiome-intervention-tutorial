@@ -35,4 +35,5 @@ parts:
     chapters:
     - file: 040-appendices/convert-and-import-artifacts.ipynb
     - file: 040-appendices/sample-and-patient-metadata.ipynb
+    - file: 040-appendices/human-read-fastq-filter.ipynb
     - file: 040-appendices/citations.md

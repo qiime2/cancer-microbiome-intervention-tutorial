@@ -36,8 +36,8 @@ Spend a couple of minutes reviewing the quality score plots and think about
 where you might want to truncate the forward and reverse reads, and if you'd
 like to trim any bases from the beginnings.
 
-```{admonition} Expand this box for some guidance on choosing these values.
-:class: dropdown
+````{margin}
+```{admonition} Greg's guidance on choosing these values
 
 I typically try to apply some objective criteria when selecting these values.
 For example, in reviewing the quality score plots, I noticed that the
@@ -45,11 +45,12 @@ twenty-fifth percentile quality score drops below 30 at position 204 in the
 forward reads and 205 in the reverse reads. I chose to use those values for
 the required truncation lengths.
 
-Since first base of the reverse reads is
+Since the first base of the reverse reads is
 slightly lower than those that follow, I choose to trim that first base in the
 reverse reads, but apply no trimming to the forward reads. This trimming is
 probably unnecessary here, but is useful here for illustrating how this works.
 ```
+````
 
 ```{usage}
 asv_sequences_0, feature_table_0, dada2_stats = use.action(
@@ -104,9 +105,9 @@ use.action(
 ```
 
 ```{note}
-We've now reached the end of the upstream tutorial. When we begin working on
-the downstream tutorial, we'll work with larger feature table and feature data
-artifacts representing many more samples. The samples that we worked with in
-this tutorial are a small subset of what we'll work with in the downstream
-tutorial.
+We've now reached the end of the **upstream** tutorial. When we begin working
+on the **downstream** tutorial, we'll work with larger feature table and
+feature data artifacts representing many more samples. The samples that we
+worked with in this tutorial are a small subset of what we'll work with in the
+**downstream** tutorial.
 ```

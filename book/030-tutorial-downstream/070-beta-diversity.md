@@ -13,6 +13,7 @@ default-interface: galaxy-usage
 ```
 
 ## Generating and exploring ordination plots
+
 umap is an ordination method that can be used in place of PCoA and has been
 shown to better resolve differences between microbiome samples in ordination
 plots. Like PCoA, umap operates on distance matrices. We'll compute this on our
@@ -34,8 +35,8 @@ wu_umap, = use.action(
 )
 ```
 
-A useful feature of QIIME 2 is that you can integrate data that is computed per
-sample as "metadata" in other visualizations. For example, alpha diversity
+A useful feature of QIIME 2 is that you can integrate data that is
+per-sample as "metadata" in other visualizations. For example, alpha diversity
 values such as Faith's Phylogenetic Diversity, are computed on a per-sample
 basis and thus can be viewed or used as QIIME 2 sample metadata. Since beta
 diversity metrics such as UniFrac are computed on pairs of samples, they're not
@@ -83,6 +84,29 @@ use.action(
 )
 ```
 
+````{margin}
+```{tip}
+QIIME 2's [q2-diversity](https://docs.qiime2.org/2021.11/plugins/available/diversity/)
+plugin provides visualizations for assessing whether
+microbiome composition [differs across groups of independent
+samples](https://docs.qiime2.org/2021.11/plugins/available/diversity/beta-group-significance/)
+(for example, individuals with a certain disease state and healthy controls)
+and for assessing whether [differences in microbiome composition are correlated
+with differences in a continuous
+variable](https://docs.qiime2.org/2021.11/plugins/available/diversity/beta-correlation/)
+(for example, subjects' body mass index). These tools assume that all samples
+are independent of one another,
+and therefore aren't applicable to the data used in this tutorial where
+multiple samples are obtained from the same individual. We therefore don't
+illustrate the use of these visualizations on this data, but you learn about
+these approaches and view examples in the [_Moving Pictures_
+tutorial](https://docs.qiime2.org/2021.11/tutorials/moving-pictures-usage/).
+The Moving Pictures tutorial contains example data and commands, like this
+tutorial does, so you can experiment with generating these visualizations on
+your own.
+```
+````
+
 We'll start by integrating these values as metadata in our ordination plots.
 We'll also customize these plots in another way: in addition to plotting the
 ordination axes, we'll add an explicit time axis to these plots. This is often
@@ -125,25 +149,3 @@ You have now generated ordination plots all combinations of two different
 diversity metrics (weighted and unweighted UniFrac) and two different
 ordination techniques (PCoA and umap). View these plots and consider what is
 similar and different about each.
-
-```{tip}
-QIIME 2's [q2-diversity](https://docs.qiime2.org/2021.11/plugins/available/diversity/)
-plugin provides visualizations for assessing whether
-microbiome composition [differs across groups of independent
-samples](https://docs.qiime2.org/2021.11/plugins/available/diversity/beta-group-significance/)
-(for example, individuals with a certain disease state and healthy controls)
-and for assessing whether [differences in microbiome composition are correlated
-with differences in a continuous
-variable](https://docs.qiime2.org/2021.11/plugins/available/diversity/beta-correlation/)
-(for example, subjects' body mass index). These tools assume that all samples
-are independent of one another,
-and therefore aren't applicable to the data used in this tutorial where
-multiple samples are obtained from the same individual. We therefore don't
-illustrate the use of these visualizations on this data, but you learn about
-these approaches and view examples in the [_Moving Pictures_
-tutorial](https://docs.qiime2.org/2021.11/tutorials/moving-pictures-usage/).
-The Moving Pictures tutorial contains example data and commands, like this
-tutorial does, so you can experiment with generating these visualizations on
-your own.
-```
-

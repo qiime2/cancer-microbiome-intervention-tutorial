@@ -57,7 +57,7 @@ demultiplexed_sequences = use.import_from_format(
 
 ## Generating and viewing a summary of the imported data
 
-After your import is complete, you can generate a summary of the imported
+After the import is complete, you can generate a summary of the imported
 artifact. This summary contains several important pieces of information.
 
 First, it tells you how many sequences were obtained for each of the samples.

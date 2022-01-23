@@ -47,7 +47,7 @@ Jupyter Books that can illustrate QIIME 2 workflows as steps in different QIIME
 1. Build the book and initiate http server to host the book content:
 
     ```{code-block}
-    make build_full
+    make
     ```
 
 1. Open `http://localhost:8000` in your web browser.

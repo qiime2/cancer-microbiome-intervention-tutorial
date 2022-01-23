@@ -1,10 +1,3 @@
----
-substitutions:
-  q1: How would you test the above models with a different diversity index,
-      such as Faith's Phylogenetic Diversity? (Expand this box for help if
-      necessary.)
----
-
 # Alpha diversity visualizations
 
 ```{usage-scope}
@@ -179,10 +172,15 @@ regression plot which can condition on other terms to show some effect in
 "isolation". This is not currently implemented in QIIME 2.
 ```
 
+```{exercise}
+:label: q5
+How would you test the above models with a different diversity index, such as
+Faith's Phylogenetic Diversity?
+```
 
-
-````{admonition} {{ q1 }}
-:class: question, dropdown
+````{solution} q5
+:label: q5-solution
+:class: dropdown
 
 **Group Significance:**
 ```{usage}

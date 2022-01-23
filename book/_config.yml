@@ -35,5 +35,6 @@ sphinx:
   extra_extensions:
     - q2doc.usage
     - q2doc.external_links
+    - sphinx_exercise
   config:
     html_baseurl: http://localhost:8000

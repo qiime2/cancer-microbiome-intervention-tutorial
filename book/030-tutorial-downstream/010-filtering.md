@@ -1,17 +1,3 @@
----
-substitutions:
-  q1: Which column or columns in the metadata could be used to identify
-      samples that were included in the autoFMT study?
-
-  q2: How many samples and features are in this feature table after
-      filtering? How does that compare to the feature table prior to
-      filtering?
-
-  q3: Generate a summary of this latest filtered feature table on your own
-      (expand this box for help if necessary). How many samples and features
-      are in this feature table?
----
-
 # Filtering feature tables
 
 ```{usage-scope}
@@ -74,9 +60,9 @@ feature_sequences = use.init_artifact(
 
 ## View the metadata
 
-We'll again take a quick look at the study metadata as QIIME 2 sees it to
-refresh ourselves. Either review the summary that you previously generated, or
-generate another one.
+We'll take a quick look at the QIIME 2-formatted study metadata to refresh our
+memories. Either review the summary that you previously generated, or generate
+another one.
 
 ````{admonition} Expand this box for help generating a metadata summary.
 :class: dropdown
@@ -111,8 +97,16 @@ use.action(
 )
 ```
 
-```{admonition} {{ q1 }}
-:class: question, dropdown
+```{exercise}
+:label: q1
+
+Which column or columns in the metadata could be used to identify samples that
+were included in the autoFMT study?
+```
+
+```{solution} q1
+:label: q1-solution
+:class: dropdown
 
 Several columns contain this information, such as autoFmtGroup which contains
 the value "treatment" if the subject was in the treatment group, "control" if
@@ -128,9 +122,9 @@ steps applied to both the feature table and the sequences to select only
 features and samples that are relevant to that study.
 
 First, we'll remove samples that are not part of the autoFMT study from the
-feature table. We identify these samples using the metadata: specifically,
-samples that do not contain a value in the autoFmtGroup column in the metadata
-are filtered with this step.
+feature table. We identify these samples using the metadata. Specifically, this
+step filters samples that do not contain a value in the autoFmtGroup column in
+the metadata.
 
 ```{usage}
 autofmt_table, = use.action(
@@ -142,7 +136,7 @@ autofmt_table, = use.action(
 ```
 
 We can now summarize the feature table again to observe how it changed as a
-result of this filtering.
+result of this first filtering step.
 
 ```{usage}
 use.action(
@@ -152,8 +146,17 @@ use.action(
 )
 ```
 
-```{admonition} {{ q2 }}
-:class: question, dropdown
+```{exercise}
+:label: q2
+
+How many samples and features are in this feature table after filtering? How
+does that compare to the feature table prior to filtering?
+```
+
+```{solution} q2
+:label: q2-solution
+:class: dropdown
+
 Aftering filtering there are 556 samples and 4,256 features represented in the
 feature table.
 
@@ -165,11 +168,11 @@ Prior to filtering to just the autoFMT study, there were 12,546 samples and
 
 Before we proceed with the analysis, we'll apply a few more filtering steps.
 
-First, we're going to focus in on a specific window of timely - mainly the
-period of ten days prior to the patients cell transplant through seventy days
-following the transplant. Some of the subjects in this study have very long
-term microbiota data, but since many don't it helps to just focus our analysis
-on the temporal range that is most relevant to this analysis.
+First, we're going to focus in on a specific window of time - mainly the
+ten days prior to the patients cell transplant through seventy days
+following the transplant. Some of the subjects in this study have very
+long-term microbiota data, but since many don't it helps to just focus our
+analysis on the temporal range that is most relevant to this analysis.
 
 ```{usage}
 filtered_table_1, = use.action(
@@ -185,7 +188,6 @@ least two samples. This filter is used here primarily to reduce the runtime of
 some of the downstream steps for the purpose of this tutorial. This filter
 isn't necessary to run in your own analyses.
 
-
 ```{usage}
 filtered_table_2, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_features'),
@@ -194,8 +196,17 @@ filtered_table_2, = use.action(
     )
 ```
 
-````{admonition} {{ q3 }}
-:class: question, dropdown
+```{exercise}
+:label: q3
+
+Generate a summary of this latest filtered feature table on your own (expand
+this box for help if necessary). How many samples and features are in this
+feature table?
+```
+
+````{solution} q3
+:label: q3-solution
+:class: dropdown
 
 ```{usage}
 use.action(
@@ -208,7 +219,6 @@ use.action(
 The final feature table resulting from this series of steps contains 406
 samples and 2,458 features. Approximately 23,000,000 sequences are represented
 in this feature table.
-
 ````
 
 ## Filter features from sequence data to reduce runtime of feature annotation

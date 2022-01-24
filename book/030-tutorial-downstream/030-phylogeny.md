@@ -27,11 +27,12 @@ reduce the number of steps that users have to take. Pipelines are used in the
 same way as other actions.
 
 This particular pipeline performs four distinct steps steps:
-    1. perform a multiple sequence alignment using mafft;
-    2. filter highly variable positions from the alignment (these positions
-       tend to introduce noise into the phylogenetic tree);
-    3. build an unrooted phylogenetic tree;
-    4. add a root to the unrooted tree.
+
+1. perform a multiple sequence alignment using mafft
+2. filter highly variable positions from the alignment (these positions
+   tend to introduce noise into the phylogenetic tree)
+3. build an unrooted phylogenetic tree
+4. add a root to the unrooted tree
 
 The final unrooted phylogenetic tree will be used for analyses that we perform
 next - specifically for computing phylogenetically aware diversity metrics.

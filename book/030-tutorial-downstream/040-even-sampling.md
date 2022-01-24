@@ -12,7 +12,7 @@ default-interface: galaxy-usage
 ---
 ```
 
-As we begin performing more analyses of the samples in our faeture table, an
+As we begin performing more analyses of the samples in our feature table, an
 important parameter that needs to be define is the even sampling (i.e.
 rarefaction) depth that diversity metrics need to be computed at. Because most
 diversity metrics are sensitive to different sampling depths across different

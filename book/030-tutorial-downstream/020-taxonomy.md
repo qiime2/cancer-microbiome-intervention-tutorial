@@ -1,9 +1,3 @@
----
-substitutions:
-  q1: Try summarizing the feature table that was created by this round of
-      filtering. Expand this box if you need help.
----
-
 # Taxonomic annotation of observed sequences
 
 ```{usage-scope}
@@ -25,18 +19,11 @@ observed in this study.
 
 ## Taxonomy assignment
 
-We'll start with taxonomic classification. In this step we'll use a pre-trained
-Naive Bayes taxonomic classifier. This particular classifier was trained on the
-Greengenes 13-8 database, where sequences were trimmed to represent only the
-region between the 515F / 806R primers.
-
-You can download pre-trained classifiers from the QIIME 2 documentation
-[Data Resources](https://docs.qiime2.org/2021.11/data-resources/) page.
-
+````{margin}
 ```{tip}
 If you don't find a relevant classifier for your analysis, or you prefer to use
 a  reference database that we currently do not provide taxonomy classifiers
-for, it's also straight-forward to train your own taxonomy classifiers. This is
+for, it's also straightforward to train your own taxonomy classifiers. This is
 covered in the QIIME 2 documentation
 [here](https://docs.qiime2.org/2021.11/tutorials/feature-classifier/).
 
@@ -44,6 +31,25 @@ The [RESCRIPt QIIME 2 plugin](https://journals.plos.org/ploscompbiol/article/aut
 {cite:p}`robeson-rescript-2021` provides functionality that can help you create
 your own taxonomy reference resources.
 ```
+````
+
+````{margin}
+```{tip}
+Environment-aware taxonomy classifiers can help you obtain higher resolution
+taxonomic assignments (for example, species-level where only genus-level
+assignments were previously obtainable). To learn more, see the [q2-clawback
+QIIME 2 plugin](https://library.qiime2.org/plugins/q2-clawback/7/)
+{cite:p}`kaehler-clawback-2019`.
+```
+````
+
+We'll start with taxonomic classification. In this step we'll use a pre-trained
+Naive Bayes taxonomic classifier. This particular classifier was trained on the
+Greengenes 13-8 database, where sequences were trimmed to represent only the
+region between the 515F / 806R primers.
+
+You can download pre-trained classifiers from the QIIME 2 documentation
+[Data Resources](https://docs.qiime2.org/2021.11/data-resources/) page.
 
 First, obtain the taxonomic classifier.
 
@@ -82,14 +88,6 @@ use.action(
 )
 ```
 
-```{tip}
-Environment-aware taxonomy classifiers can help you obtain higher resolution
-taxonomic assignments (for example, species-level where only genus-level
-assignments were previously obtainable). To learn more, see the q2-clawback
-QIIME 2 plugin](https://library.qiime2.org/plugins/q2-clawback/7/)
-{cite:p}`kaehler-clawback-2019`.
-```
-
 ## Filtering filters based on their taxonomy
 
 Taxonomic annotations provide useful information that can also be used in
@@ -102,8 +100,21 @@ genome sequence that were unintentionally sequences.
 ```{note}
 If you need to filter human genome reads from your sequence data, for example
 before depositing sequences into a public repository, you should use a filter
-that specifically detects and removes human reads. This can be acheived in QIIME 2 using
-the [`q2-quality-control` plugin's `exclude-seqs` action](https://docs.qiime2.org/2021.11/plugins/available/quality-control/exclude-seqs/).
+that specifically detects and removes human reads. This can be acheived in
+QIIME 2 using the [`q2-quality-control` plugin's `exclude-seqs`
+action](https://docs.qiime2.org/2021.11/plugins/available/quality-control/exclude-seqs/).
+```
+````
+
+````{margin}
+```{tip}
+Depending on the reference taxonomy that you're using, it may be useful to
+apply filters excluding other labels. For example, filtering `Eukaryota` is a
+good idea if you're sequencing 16S data and annotating your sequences with
+the Silva database (since eukaryotes contain the 18S rather than 16S variant
+of the small subunit rRNA, you shouldn't expect to observe them in a 16S
+survey). It can also be useful to filter uninformative taxonomic assignments,
+such as `Unassigned` and `Unclassified`.
 ```
 ````
 
@@ -126,23 +137,18 @@ filtered_table_3, = use.action(
 )
 ```
 
-```{tip} Other taxonomy-based filters
-Depending on the reference taxonomy that you're using, it may be useful to
-apply filters excluding other labels. For example, filtering `Eukaryota` is a
-good idea if you're sequencing 16S data and annotating your sequences with
-the Silva database (since eukaryotes contain the 18S rather than 16S variant
-of the small subunit rRNA, you shouldn't expect to observe them in a 16S
-survey). It can also be useful to filter uninformative taxonomic assignments,
-such as `Unassigned` and `Unclassified`.
-
-You can often find helpful tips for your analyses on the QIIME 2 Forum. For
-example, [this forum post](https://forum.qiime2.org/t/phylogenetic-tree-effect-on-downstream-analysis/19127)
-contains example commands for performing these filtering steps. Be sure to
-make use of the (free!) [QIIME 2 Forum](https://forum.qiime2.org) - there are
-loads of valuable information there that can help you improve your analysis.
-```
-
 ## Filtering samples with low sequence counts
+
+````{margin}
+```{note}
+The threshold of 10,000 sequences applied here is not strongly evidence-based.
+Rather it's applied based on reviewing summaries of the feature tables that
+have been generated to this point, and selecting a value that retains most of
+the samples. We'll explore this threshold in more detail, including assessing
+whether 10,000 sequences leads to stable summaries of the microbiome samples
+used in this tutorial, later in the workshop.
+```
+````
 
 You may have noticed when looking at feature table summaries earlier that some
 of the samples contained very few ASV sequences. These often represent samples
@@ -153,15 +159,6 @@ actual composition. For this reason it can be helpful to exclude samples with
 low ASV sequence counts from our samples. Here, we'll filter out samples from
 which we have obtained fewer than 10,000 sequences.
 
-```{note}
-The threshold of 10,000 sequences applied here is not strongly evidence based.
-Rather it's applied based on reviewing summaries of the feature tables that
-have been generated to this point, and selecting a value that retains most of
-the samples. We'll explore this threshold in more detail, including assessing
-whether 10,000 sequences leads to stable summaries of the microbiome samples
-used in this tutorial, later in the workshop.
-```
-
 ```{usage}
 filtered_table_4, = use.action(
     use.UsageAction(plugin_id='feature_table', action_id='filter_samples'),
@@ -169,6 +166,18 @@ filtered_table_4, = use.action(
     use.UsageOutputNames(filtered_table='filtered_table_4')
     )
 ```
+
+````{margin}
+```{tip}
+You can often find helpful tips for your analyses on the QIIME 2 Forum. For
+example, [this forum post](https://forum.qiime2.org/t/phylogenetic-tree-effect-on-downstream-analysis/19127)
+contains example commands for performing taxonomy-based filtering steps for
+removing features with uninformative or unexpected taxonomic assignments. Be
+sure to make use of the (free!) [QIIME 2 Forum](https://forum.qiime2.org) -
+there are loads of valuable information there that can help you improve your
+analysis.
+```
+````
 
 After filtering ASVs that were not assigned a phylum, and filtering samples
 with low ASV sequence counts, we can remove ASV sequences that are no longer
@@ -184,8 +193,16 @@ filtered_sequences_2, = use.action(
     )
 ```
 
-````{admonition} {{ q1 }}
-:class: question, dropdown
+```{exercise}
+:label: q4
+
+Try summarizing the feature table that was created by this round of filtering.
+Expand this box if you need help.
+```
+
+````{solution} q4
+:label: q4-solution
+:class: dropdown
 
 ```{usage}
 use.action(
@@ -198,6 +215,16 @@ use.action(
 
 ## Generate taxonomic composition barplots
 
+````{margin}
+```{tip}
+A third party plugin, [available on the QIIME 2
+Library](https://library.qiime2.org/plugins/q2-krona/39/), allows users to
+generated multi-taxonomic-level Krona plots {cite:p}`ondov-krona-2011` using
+QIIME 2. These are very useful for generating interactive microbiome
+composition summaries on a per-sample basis.
+```
+````
+
 We'll now get one of our first views of our microbiome sample compositions
 using a taxonomic barplot. This can be generated with the following command.
 
@@ -208,12 +235,4 @@ use.action(
                     metadata=sample_metadata),
     use.UsageOutputNames(visualization='taxa_bar_plots_1'),
 )
-```
-
-```{tip}
-A third party plugin, [available on the QIIME 2
-Library](https://library.qiime2.org/plugins/q2-krona/39/), allows users to
-generated multi-taxonomic-level krona plots using QIIME 2. These are very
-useful for generating interactive microbiome composition summaries on a per-
-sample basis.
 ```

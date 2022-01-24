@@ -69,6 +69,10 @@ The QIIME 2 project is funded in part by:
 [Jupyter Book](https://jupyterbook.org) is funded by the Alfred P. Sloan
 Foundation.
 
+The preparation and dissemination of the data used in this tutorial was funded
+in part by the National Institutes of Health (NIH) grants U01 AI124275, R01
+AI137269 and U54 CA209975 to Joao B. Xavier.
+
 ## QIIME 2 resources
 
 * [Project homepage](https://qiime2.org)

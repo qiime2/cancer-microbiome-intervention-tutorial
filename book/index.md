@@ -47,6 +47,7 @@ in priority order).
 * [Workshop chat](https://workshop-chat.qiime2.org)
 * [QIIME 2 Community Code of Conduct](https://forum.qiime2.org/t/qiime-2-community-code-of-conduct/9057)
 * [Workshop tutorial](https://bit.ly/342k9A3)
+* [Workshop slides](https://bit.ly/3GZaMjt)
 
 ## Thank you to our hosts
 

@@ -38,13 +38,19 @@ genus_table, = use.action(
 ```
 
 Then, to focus on the genera that are likely to display the most interesting
-patterns over time, we will perform even more filtering. This time we'll
-apply prevalence and abudnance based filtering. Specifically, we'll require
-that a genera's overall abundance is at least 1%, and that a genera is present
-in at least 10% of the samples. This is fairly stringent filtering, and in your
-own analyses (when you have more time to allow analyses to run and to explore
-the results) you may want to experiment with relaxed settings of these
-parameters.
+patterns over time (and to reduce the runtime of the steps that come next), we
+will perform even more filtering. This time we'll apply prevalence and
+abudnance based filtering. Specifically, we'll require that a genus's abundance
+is at least 1% in at least 10% of the samples.
+
+````{margin}
+```{note}
+The prevalence-based filtering applied here is fairly stringent. In your
+own analyses you may want to experiment with relaxed settings of these
+parameters. Because we need the commands below to run quickly, stringent
+filtering is helpful for the workshop.
+```
+````
 
 ```{usage}
 filtered_genus_table, = use.action(
@@ -67,9 +73,9 @@ genus_rf_table, = use.action(
 
 ## Volatility plots
 
-The first plots we'll generate are control charts that are referred to as
-called volatility plots. We'll generate these using two different time
-variables. First, we'll plot based on  `week-relative-to-hct`.
+The first plots we'll generate are volatility plots. We'll generate these using
+two different time variables. First, we'll plot based on
+`week-relative-to-hct`.
 
 ```{usage}
 use.action(
@@ -81,12 +87,12 @@ use.action(
 )
 ```
 
-Next, we'll plot based on `day-relative-to-fmt`.
+Next, we'll plot based on `week-relative-to-fmt`.
 
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='longitudinal', action_id='volatility'),
-    use.UsageInputs(table=genus_rf_table, state_column='day-relative-to-fmt',
+    use.UsageInputs(table=genus_rf_table, state_column='week-relative-to-fmt',
                     metadata=expanded_sample_metadata, individual_id_column='PatientID',
                     default_group_column='autoFmtGroup'),
     use.UsageOutputNames(visualization='volatility_plot_2'),
@@ -95,10 +101,10 @@ use.action(
 
 ## Feature volatility
 
-The next plots we'll generate result will come from a QIIME 2 pipeline called
-`feature-volatility`. These use supervised regression to identify features
-that are most associated with changes over time, and add plotting of those
-features to a volatility control chart.
+The last plots we'll generate in this section will come from a QIIME 2 pipeline
+called `feature-volatility`. These use supervised regression to identify
+features that are most associated with changes over time, and add plotting of
+those features to a volatility control chart.
 
 Again, we'll generate the same plots but using two different time variables on
 the x-axes. First, we'll plot based on  `week-relative-to-hct`.
@@ -116,13 +122,13 @@ use.action(
 )
 ```
 
-Next, we'll plot based on `day-relative-to-fmt`.
+Next, we'll plot based on `week-relative-to-fmt`.
 
 ```{usage}
 use.action(
     use.UsageAction(plugin_id='longitudinal', action_id='feature_volatility'),
     use.UsageInputs(table=filtered_genus_table, metadata=expanded_sample_metadata,
-                    state_column='day-relative-to-fmt', individual_id_column='PatientID'),
+                    state_column='week-relative-to-fmt', individual_id_column='PatientID'),
     use.UsageOutputNames(filtered_table='important_genera_table_2',
                          feature_importance='genus_importances_2',
                          volatility_plot='genus_volatility_plot_2',

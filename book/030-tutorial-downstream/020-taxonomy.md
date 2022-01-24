@@ -141,7 +141,7 @@ filtered_table_3, = use.action(
 
 ````{margin}
 ```{note}
-The threshold of 10,000 sequences applied here is not strongly evidence based.
+The threshold of 10,000 sequences applied here is not strongly evidence-based.
 Rather it's applied based on reviewing summaries of the feature tables that
 have been generated to this point, and selecting a value that retains most of
 the samples. We'll explore this threshold in more detail, including assessing
@@ -171,9 +171,11 @@ filtered_table_4, = use.action(
 ```{tip}
 You can often find helpful tips for your analyses on the QIIME 2 Forum. For
 example, [this forum post](https://forum.qiime2.org/t/phylogenetic-tree-effect-on-downstream-analysis/19127)
-contains example commands for performing these filtering steps. Be sure to
-make use of the (free!) [QIIME 2 Forum](https://forum.qiime2.org) - there are
-loads of valuable information there that can help you improve your analysis.
+contains example commands for performing taxonomy-based filtering steps for
+removing features with uninformative or unexpected taxonomic assignments. Be
+sure to make use of the (free!) [QIIME 2 Forum](https://forum.qiime2.org) -
+there are loads of valuable information there that can help you improve your
+analysis.
 ```
 ````
 
@@ -217,9 +219,9 @@ use.action(
 ```{tip}
 A third party plugin, [available on the QIIME 2
 Library](https://library.qiime2.org/plugins/q2-krona/39/), allows users to
-generated multi-taxonomic-level krona plots using QIIME 2. These are very
-useful for generating interactive microbiome composition summaries on a per-
-sample basis.
+generated multi-taxonomic-level Krona plots {cite:p}`ondov-krona-2011` using
+QIIME 2. These are very useful for generating interactive microbiome
+composition summaries on a per-sample basis.
 ```
 ````
 

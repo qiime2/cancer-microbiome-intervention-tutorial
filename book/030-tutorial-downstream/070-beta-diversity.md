@@ -98,8 +98,8 @@ variable](https://docs.qiime2.org/2021.11/plugins/available/diversity/beta-corre
 are independent of one another,
 and therefore aren't applicable to the data used in this tutorial where
 multiple samples are obtained from the same individual. We therefore don't
-illustrate the use of these visualizations on this data, but you learn about
-these approaches and view examples in the [_Moving Pictures_
+illustrate the use of these visualizations on this data, but you can learn
+about these approaches and view examples in the [_Moving Pictures_
 tutorial](https://docs.qiime2.org/2021.11/tutorials/moving-pictures-usage/).
 The Moving Pictures tutorial contains example data and commands, like this
 tutorial does, so you can experiment with generating these visualizations on

@@ -13,9 +13,10 @@ default-interface: galaxy-usage
 ```
 
 In this section of the tutorial we'll perform several analyses using QIIME 2's
-`q2-longitudinal` plugin. These will allow us to track microbiome changes
-across time on a per-subject basis - something that was harder to do in the
-ordination plots that we viewed earlier in this tutorial.
+`q2-longitudinal` {cite:p}`bokulich-q2long-2018` plugin. These will allow us
+to track microbiome changes across time on a per-subject basis - something
+that was harder to do in the ordination plots that we viewed earlier in this
+tutorial.
 
 ## Preparing our feature table for longitudinal analysis
 

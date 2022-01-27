@@ -16,7 +16,8 @@ default-interface: galaxy-usage
 
 umap is an ordination method that can be used in place of PCoA and has been
 shown to better resolve differences between microbiome samples in ordination
-plots. Like PCoA, umap operates on distance matrices. We'll compute this on our
+plots {cite:p}`armstrong-umap-2021`. Like PCoA, umap operates on distance
+matrices. We'll compute this on our
 weighted and unweighted UniFrac distance matrices. For the moment, there won't
 be anything to visualize as a result of these steps: we'll come back to
 visualization of these results shortly.

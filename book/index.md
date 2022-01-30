@@ -55,24 +55,103 @@ in priority order).
 
 ## Thank you to our instruction team
 
-List of all contributors and their preferred contact info (GH, email, web, ...)
+```{list-table}
+:header-rows: 1
+
+* - Name
+  - Affiliation(s)
+* - Aeriel Belk
+  - Joint Institute for Food Safety and Applied Nutrition, United States Food
+    and Drug Administration and the University of Maryland, USA
+* - Nicholas A. Bokulich
+  - Laboratory of Food Systems Biotechnology, Institute of Food, Nutrition,
+    and Health, ETH Zürich, Switzerland
+* - Evan Bolyen
+  - Center for Applied Microbiome Sciences, Pathogen and Microbiome Institute,
+    Northern Arizona University, USA
+* - Emily Borsom
+  - Center for Applied Microbiome Sciences, Pathogen and Microbiome Institute,
+    Northern Arizona University, USA
+* - J. Gregory Caporaso
+  - Center for Applied Microbiome Sciences, Pathogen and Microbiome Institute,
+    Northern Arizona University, USA
+* - Colin J. Brislawn
+  - Contamination Source Identification / Independent Investigator, USA
+* - Kalen Cantrell
+  - University of California San Diego, USA
+* - Justine Debelius
+  - Department of Epidemiology, Johns Hopkins School of Public Health, USA;
+    Centre for Translational Microbiome Research, Department of Microbiology,
+    Tumor, and Cell Biology, Karolinska Institutet, Sweden
+* - Matthew Dillon
+  - Center for Applied Microbiome Sciences, Pathogen and Microbiome Institute,
+    Northern Arizona University, USA
+* - Mehrbod Estaki
+  - International Microbiome Centre (IMC), University of Calgary
+* - Keegan Evans
+  - Center for Applied Microbiome Sciences, Pathogen and Microbiome Institute,
+    Northern Arizona University, USA
+* - Marcus Fedarko
+  - Department of Computer Science and Engineering, University of California
+    San Diego, USA
+* - Lena Floerl
+  - Laboratory of Food Systems Biotechnology, Institute of Food, Nutrition,
+    and Health, ETH Zürich, Switzerland
+* - Elizabeth Gehret
+  - Center for Applied Microbiome Sciences, Pathogen and Microbiome Institute,
+    Northern Arizona University, USA
+* - Chloe Herman
+  - Center for Applied Microbiome Sciences, Pathogen and Microbiome Institute,
+    Northern Arizona University, USA
+* - Ben Kaehler
+  - School of Science, University of New South Wales, Canberra, Australia
+* - Chris Keefe
+  - Center for Applied Microbiome Sciences, Pathogen and Microbiome Institute,
+    Northern Arizona University, USA
+* - Lina Kim
+  - Laboratory of Food Systems Biotechnology, Institute of Food, Nutrition,
+    and Health, ETH Zürich, Switzerland
+* - Luca Lenzi
+  - Centre for Genomic Research, University of Liverpool, United Kingdom
+* - Chen Liao
+  - Program for Computational and Systems Biology, Memorial Sloan-Kettering
+    Cancer Center, New York, NY, USA
+* - Huang Lin
+  - Biostatistics and Bioinformatics Branch, Eunice Kennedy Shriver National
+    Institute of Child Health and Human Development (NICHD), USA
+* - Jeff Meilander
+  - Center for Applied Microbiome Sciences, Pathogen and Microbiome Institute,
+    Northern Arizona University, USA
+* - Michael S. Robeson II, Ph.D.
+  - Department of Biomedical Informatics, University of Arkansas for Medical
+    Sciences, USA
+* - Anthony Simard
+  - Center for Applied Microbiome Sciences, Pathogen and Microbiome Institute,
+    Northern Arizona University, USA
+* - Yoshiki Vazquez-Baeza
+  - BiomeSense, USA
+```
 
 ## Thank you to our funders
 
 The QIIME 2 project is funded in part by:
 * The National Cancer Institute:
   * [Informatics Technology for Cancer Reserach](https://itcr.cancer.gov/)
-    (1U24CA248454-01)
+    (1U24CA248454-01) to JGC
   * [The Partnership for Native American Cancer
-     Prevention](https://in.nau.edu/nacp/) (U54CA143925 and U54CA143924)
-* Chan-Zuckerberg Initiative Essential Open Source Software for Science
+     Prevention](https://in.nau.edu/nacp/) (U54CA143925 and U54CA143924) to JGC
+* Chan-Zuckerberg Initiative Essential Open Source Software for Science to JGC
 
-[Jupyter Book](https://jupyterbook.org) is funded by the Alfred P. Sloan
+[Jupyter Book](https://jupyterbook.org) is funded by the Alfred P. Sloan to JGC
 Foundation.
 
 The preparation and dissemination of the data used in this tutorial was funded
 in part by the National Institutes of Health (NIH) grants U01 AI124275, R01
 AI137269 and U54 CA209975 to Joao B. Xavier.
+
+QIIME 2 was initially developed with support from the National Science
+Foundation
+([1565100](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1565100)) to JGC.
 
 ## QIIME 2 resources
 

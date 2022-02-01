@@ -15,6 +15,15 @@ Please review the
 we hope you will too.
 ```
 
+## Workshop links and protocols
+
+* [Schedule](https://bit.ly/3IkRQfg)
+* [Workshop Galaxy server](https://workshop-server.qiime2.org)
+* [Workshop chat](https://workshop-chat.qiime2.org)
+* [QIIME 2 Community Code of Conduct](https://forum.qiime2.org/t/qiime-2-community-code-of-conduct/9057)
+* [Workshop tutorial](https://bit.ly/342k9A3)
+* [Workshop slides](https://bit.ly/3GZaMjt)
+
 ## We recommend reading the following before you arrive
 
 These aren't essential, but they'll help get you ready for the workshop (listed
@@ -39,15 +48,6 @@ in priority order).
     Data_](http://dx.doi.org/10.1128/mSystems.00219-18)
    ({cite:t}`bokulich-q2long-2018`)
 6. [Getting started with QIIME 2](./010-intro/010-index.md)
-
-## Workshop links and protocols
-
-* [Schedule](https://bit.ly/3IkRQfg)
-* [Workshop Galaxy server](https://workshop-server.qiime2.org)
-* [Workshop chat](https://workshop-chat.qiime2.org)
-* [QIIME 2 Community Code of Conduct](https://forum.qiime2.org/t/qiime-2-community-code-of-conduct/9057)
-* [Workshop tutorial](https://bit.ly/342k9A3)
-* [Workshop slides](https://bit.ly/3GZaMjt)
 
 ## Thank you to our hosts
 

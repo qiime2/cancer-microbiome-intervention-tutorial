@@ -62,19 +62,7 @@ jobs:
     - name: build full book
       shell: bash -l {0}
       env:
-        Q2DOC_HTML_BASEURL: https://qiime2-workshops.s3.us-west-2.amazonaws.com/faes-jan2022/
+        Q2DOC_HTML_BASEURL: https://docs.qiime2.org/jupyterbook/liao-et-al/
       run: |
         conda activate ./test-env
         make build_full
-
-    - name: deploy to s3
-      uses: jakejarvis/s3-sync-action@master
-      if: ${{ github.ref == 'refs/heads/main' }}
-      with:
-        args: --acl public-read --follow-symlinks --delete
-      env:
-        AWS_S3_BUCKET: qiime2-workshops
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        SOURCE_DIR: 'book/_build/html'
-        DEST_DIR: 'faes-jan2022'

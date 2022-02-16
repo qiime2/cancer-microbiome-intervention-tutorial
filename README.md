@@ -1,9 +1,8 @@
-# 2022.1 QIIME 2 FAES Workshop tutorial source
+# QIIME 2 Cancer Microbiome Intervention Tutorial
 
-This repository contains the source for the Jan 30 - Feb 4 2022 _Microbiome
-Bioinformatics with QIIME 2_ workshop tutorial at FAES. This content is
-presented as a [Jupyter Book](https://jupyterbook.org)
-[here](https://qiime2-workshops.s3.us-west-2.amazonaws.com/faes-jan2022/index.html).
+This repository contains the source for the QIIME 2 Cancer Microbiome
+Intervention Tutorial. This content is presented as a [Jupyter Book](https://jupyterbook.org)
+[here](https://docs.qiime2.org/jupyterbook/cancer-microbiome-intervention-tutorial/).
 
 You shouldn't need to access this source repository if you're interested in
 following the tutorial or reading other parts of the Jupyter Book.
@@ -22,21 +21,21 @@ Jupyter Books that can illustrate QIIME 2 workflows as steps in different QIIME
    1. macOS
       ```{code-block}
       wget https://raw.githubusercontent.com/qiime2/environment-files/master/latest/staging/qiime2-latest-py38-osx-conda.yml
-      conda env create -n 2022-faes-jb --file qiime2-latest-py38-osx-conda.yml
-      conda activate 2022-faes-jb
+      conda env create -n q2-jb --file qiime2-latest-py38-osx-conda.yml
+      conda activate q2-jb
       ```
    1. Linux
       ```{code-block}
       wget https://raw.githubusercontent.com/qiime2/environment-files/master/latest/staging/qiime2-latest-py38-linux-conda.yml
-      conda env create -n 2022-faes-jb --file qiime2-latest-py38-linux-conda.yml
-      conda activate 2022-faes-jb
+      conda env create -n q2-jb --file qiime2-latest-py38-linux-conda.yml
+      conda activate q2-jb
       ```
 
 1. Obtain Jupyter Book content by cloning this repository and changing into the
    new directory that is created:
    ```{code-block}
-   git clone git@github.com:gregcaporaso/2022.1-faes-tutorial.git
-   cd 2022.1-faes-tutorial
+   git clone git@github.com:qiime2/cancer-microbiome-intervention-tutorial.git
+   cd cancer-microbiome-intervention-tutorial
    ```
 
 1. Install additional dependencies:

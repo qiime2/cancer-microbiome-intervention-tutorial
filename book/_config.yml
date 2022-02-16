@@ -21,7 +21,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/gregcaporaso/2022.1-faes-tutorial  # Online location of your book
+  url: https://github.com/qiime2/cancer-microbiome-intervention-tutorial  # Online location of your book
   path_to_book: book  # Optional path to your book, relative to the repository root
   branch: main  # Which branch of the repository should be used when creating links (optional)
 

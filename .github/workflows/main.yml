@@ -62,7 +62,18 @@ jobs:
     - name: build full book
       shell: bash -l {0}
       env:
-        Q2DOC_HTML_BASEURL: https://docs.qiime2.org/jupyterbook/liao-et-al/
+        Q2DOC_HTML_BASEURL: https://docs.qiime2.org/jupyterbooks/cancer-microbiome-intervention-tutorial/
       run: |
         conda activate ./test-env
         make build_full
+
+   - name: deploy to docs
+      uses: burnett01/rsync-deployments@5.2
+      if: ${{ github.ref == 'refs/heads/main' }}
+      with:
+        switches: -avzr --delete
+        path: book/_build/html/
+        remote_path: ${{ secrets.STATIC_SITE_WWW }}
+        remote_host: ${{ secrets.STATIC_SITE_HOST }}
+        remote_user: ${{ secrets.STATIC_SITE_USER }}
+        remote_key: ${{ secrets.STATIC_SITE_PEM }}

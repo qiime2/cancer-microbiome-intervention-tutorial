@@ -1,59 +1,80 @@
-# Welcome to the QIIME 2 FAES January, 2022 workshop
+# QIIME 2 Cancer Microbiome Intervention Tutorial
 
-We have a lot of exciting things planned for this week!
+This tutorial was originally developed for the 2022 NIH Foundation for
+Advanced Education in the Sciences Microbiome Bioinformatics with QIIME 2
+workshop, taught online January 31 - February 4, 2022. It is now being
+publicly released with [corresponding video content](https://youtube.com/playlist?list=PLbVDKwGpb3XmvnTrU40zHRT7NZWWVNUpt)
+on the [QIIME 2 YouTube channel](https://youtube.com/qiime2).
 
-* The new QIIME 2 [Galaxy](https://usegalaxy.org/) interface!
-* New tutorial data!
-* Core functionality and the latest plugins and tools!
-* Multi-interface QIIME 2 command examples!
-* [Jupyter Book](https://jupyterbook.org/intro.html) tutorial documentation!
+This tutorial is intended to be read like a book, from beginning to end.
+
+This tutorial and the correspnding videos present many new features of QIIME 2
+and our education and documentation ecosystem, including:
+
+* The new QIIME 2 [Galaxy](https://usegalaxy.org/)-based graphical user
+  interface;
+* New tutorial data;
+* Our new QIIME 2 documentation system, which illustrates how to use QIIME 2
+  with different user interfaces, including Galaxy, the QIIME 2 command line
+  interface, and the QIIME 2 Python 3 API. You can choose to use whichever of
+  these interfaces you're most comfortable with, or user different interfaces
+  for different steps;
+* Our first [Jupyter Book](https://jupyterbook.org/intro.html)-based QIIME 2
+  tutorial.
 
 ```{admonition} Important!
 Please review the
 [QIIME 2 Community Code of Conduct](https://forum.qiime2.org/t/qiime-2-community-code-of-conduct/9057)
-. All workshop instructors agree to abide by these community expectations and
-we hope you will too.
+. All workshop instructors agreed to abide by these community expectations and
+we hope you will too and you become involved in the QIIME 2 community.
 ```
 
-## Workshop links and protocols
+## Relevant links and protocols
 
-* [Schedule](https://bit.ly/3IkRQfg)
-* [Workshop Galaxy server](https://workshop-server.qiime2.org)
-* [Workshop chat](https://workshop-chat.qiime2.org)
-* [QIIME 2 Community Code of Conduct](https://forum.qiime2.org/t/qiime-2-community-code-of-conduct/9057)
-* [Workshop tutorial](https://bit.ly/342k9A3)
+* [Workshop video playlist](https://youtube.com/playlist?list=PLbVDKwGpb3XmvnTrU40zHRT7NZWWVNUpt)
 * [Workshop slides](https://bit.ly/3GZaMjt)
+* [Project homepage](https://qiime2.org)
+* [Support and Discussion Forum](https://forum.qiime2.org) (go here for help)
+* [YouTube channel](https://youtube.com/qiime2)
+* [User Documentation](https://docs.qiime2.org)
+* [Developer Documentation](https://dev.qiime2.org)
+* [Library](https://library.qiime2.org)
+* [@qiime2 on Twitter](https://twitter.com/qiime2) (project announcements)
+* [Workshop announcements](https://workshops.qiime2.org)
 
-## We recommend reading the following before you arrive
+## Recommended readings
 
-These aren't essential, but they'll help get you ready for the workshop (listed
-in priority order).
+The following readings will provide background information for this tutorial.
+These are presented in priority order.
 
 1. [_Reconstitution of the gut microbiota of antibiotic-treated patients by
     autologous fecal microbiota transplant_](
     https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6468978/)
-   ({cite:t}`taur-autofmt-2018`)
-2. [_Experiences and lessons learned from two virtual, hands-on microbiome
-    bioinformatics workshops_](
-    https://doi.org/10.1371/journal.pcbi.1009056)
-   ({cite:t}`dillon-workshops-2021`)
-3. [_Compilation of longitudinal microbiota data and hospitalome from
+    ({cite:t}`taur-autofmt-2018`)
+1. [_Compilation of longitudinal microbiota data and hospitalome from
     hematopoietic cell transplantation patients_](
     https://www.nature.com/articles/s41597-021-00860-8)
    ({cite:t}`liao-data-2021`)
-4. [_Reproducible, interactive, scalable and extensible microbiome data science
+1. [_Reproducible, interactive, scalable and extensible microbiome data science
     using QIIME 2_](https://doi.org/10.1038/s41587-019-0209-9)
    ({cite:t}`bolyen-qiime2-2019`)
-5. [_q2-longitudinal: Longitudinal and Paired-Sample Analyses of Microbiome
+1. [_q2-longitudinal: Longitudinal and Paired-Sample Analyses of Microbiome
     Data_](http://dx.doi.org/10.1128/mSystems.00219-18)
    ({cite:t}`bokulich-q2long-2018`)
-6. [Getting started with QIIME 2](./010-intro/010-index.md)
+1. [Getting started with QIIME 2](https://gregcaporaso.github.io/q2book/using/getting-started.html)
+1. [_Experiences and lessons learned from two virtual, hands-on microbiome
+    bioinformatics workshops_](
+    https://doi.org/10.1371/journal.pcbi.1009056)
+   ({cite:t}`dillon-workshops-2021`)
 
-## Thank you to our hosts
+## Thank you to our hosts and our instruction team
 
-[Foundation for Advanced Education in the Sciences (FAES)](https://faes.org/)
+We thank our hosts, the [Foundation for Advanced Education in the Sciences
+(FAES)](https://faes.org/) for their support of the initial workshop for which
+these materials were developed.
 
-## Thank you to our instruction team
+We thank the many instructors who were involved in preparing this content,
+including the data set and the written and video tutorials.
 
 ```{list-table}
 :header-rows: 1
@@ -153,12 +174,3 @@ QIIME 2 was initially developed with support from the National Science
 Foundation
 ([1565100](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1565100)) to JGC.
 
-## QIIME 2 resources
-
-* [Project homepage](https://qiime2.org)
-* [Support Forum](https://forum.qiime2.org)
-* [YouTube channel](https://youtube.com/qiime2)
-* [User Documentation](https://docs.qiime2.org)
-* [Developer Documentation](https://dev.qiime2.org)
-* [Library](https://library.qiime2.org)
-* [@qiime2 on Twitter](https://twitter.com/qiime2) (project announcements)

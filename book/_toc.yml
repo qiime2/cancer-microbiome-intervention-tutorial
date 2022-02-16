@@ -7,12 +7,6 @@ parts:
   - caption: Getting started with QIIME 2
     chapters:
     - file: 010-intro/010-index.md
-    - file: 010-intro/020-deploying.md
-    - file: 010-intro/030-archives.md
-    - file: 010-intro/040-plugins-and-actions.md
-    - file: 010-intro/050-types.md
-    - file: 010-intro/060-q2view.md
-    - file: 010-intro/070-importing.md
   - caption: Upstream tutorial
     chapters:
     - file: 020-tutorial-upstream/010-study-background.md
@@ -29,7 +23,6 @@ parts:
     - file: 030-tutorial-downstream/060-alpha-diversity.md
     - file: 030-tutorial-downstream/070-beta-diversity.md
     - file: 030-tutorial-downstream/080-longitudinal.md
-    - file: 030-tutorial-downstream/100-q2FMT-ideas.md
   - caption: Appendices
     chapters:
     - file: 040-appendices/convert-and-import-artifacts.ipynb

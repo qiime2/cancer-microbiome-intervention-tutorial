@@ -141,7 +141,7 @@ if we were to perform model testing it may not prove significant.
 In any case, we can ask a more targeted question to identify if the FMT was
 useful in recovering richness.
 
-By adding the ``autoFmtGroup`` to our linear model, we can see if the there is
+By adding the ``autoFmtGroup`` to our linear model, we can see if there
 are different slopes for the two groups, based on an *interaction term*.
 
 

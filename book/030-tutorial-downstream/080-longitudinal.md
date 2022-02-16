@@ -47,8 +47,8 @@ is at least 1% in at least 10% of the samples.
 ```{note}
 The prevalence-based filtering applied here is fairly stringent. In your
 own analyses you may want to experiment with relaxed settings of these
-parameters. Because we need the commands below to run quickly, stringent
-filtering is helpful for the workshop.
+parameters. Because we want the commands below to run quickly, stringent
+filtering is helpful for the tutorial.
 ```
 ````
 

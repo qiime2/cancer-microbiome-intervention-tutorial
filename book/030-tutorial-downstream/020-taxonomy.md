@@ -146,7 +146,7 @@ Rather it's applied based on reviewing summaries of the feature tables that
 have been generated to this point, and selecting a value that retains most of
 the samples. We'll explore this threshold in more detail, including assessing
 whether 10,000 sequences leads to stable summaries of the microbiome samples
-used in this tutorial, later in the workshop.
+used in this tutorial, later in the tutorial.
 ```
 ````
 

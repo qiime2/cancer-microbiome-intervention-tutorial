@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: QIIME 2 FAES Workshop Tutorial, January 2022
+title: QIIME 2 Cancer Microbiome Intervention Tutorial
 author: The QIIME 2 Developers
 logo: logo.png
 copyright: "2022"

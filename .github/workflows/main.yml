@@ -67,7 +67,7 @@ jobs:
         conda activate ./test-env
         make build_full
 
-   - name: deploy to docs
+    - name: deploy to docs
       uses: burnett01/rsync-deployments@5.2
       if: ${{ github.ref == 'refs/heads/main' }}
       with:

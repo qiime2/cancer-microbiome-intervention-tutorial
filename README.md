@@ -2,7 +2,7 @@
 
 This repository contains the source for the QIIME 2 Cancer Microbiome
 Intervention Tutorial. This content is presented as a [Jupyter Book](https://jupyterbook.org)
-[here](https://docs.qiime2.org/jupyterbook/cancer-microbiome-intervention-tutorial/).
+[here](https://docs.qiime2.org/jupyterbooks/cancer-microbiome-intervention-tutorial/).
 
 You shouldn't need to access this source repository if you're interested in
 following the tutorial or reading other parts of the Jupyter Book.

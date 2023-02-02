@@ -102,7 +102,7 @@ If you need to filter human genome reads from your sequence data, for example
 before depositing sequences into a public repository, you should use a filter
 that specifically detects and removes human reads. This can be acheived in
 QIIME 2 using the [`q2-quality-control` plugin's `exclude-seqs`
-action](https://docs.qiime2.org/2021.11/plugins/available/quality-control/exclude-seqs/).
+action](https://docs.qiime2.org/2022.11/plugins/available/quality-control/exclude-seqs/).
 ```
 ````
 

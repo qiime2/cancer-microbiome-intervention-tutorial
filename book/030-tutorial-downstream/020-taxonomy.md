@@ -25,7 +25,7 @@ If you don't find a relevant classifier for your analysis, or you prefer to use
 a  reference database that we currently do not provide taxonomy classifiers
 for, it's also straightforward to train your own taxonomy classifiers. This is
 covered in the QIIME 2 documentation
-[here](https://docs.qiime2.org/2021.11/tutorials/feature-classifier/).
+[here](https://docs.qiime2.org/2022.11/tutorials/feature-classifier/).
 
 The [RESCRIPt QIIME 2 plugin](https://journals.plos.org/ploscompbiol/article/authors?id=10.1371/journal.pcbi.1009581)
 {cite:p}`robeson-rescript-2021` provides functionality that can help you create
@@ -49,7 +49,7 @@ Greengenes 13-8 database, where sequences were trimmed to represent only the
 region between the 515F / 806R primers.
 
 You can download pre-trained classifiers from the QIIME 2 documentation
-[Data Resources](https://docs.qiime2.org/2021.11/data-resources/) page.
+[Data Resources](https://docs.qiime2.org/2022.11/data-resources/) page.
 
 First, obtain the taxonomic classifier.
 
@@ -58,12 +58,12 @@ def classifier_factory():
     from urllib import request
     from qiime2 import Artifact
     fp, _ = request.urlretrieve(
-        'https://data.qiime2.org/2021.11/common/gg-13-8-99-515-806-nb-classifier.qza',
+        'https://data.qiime2.org/2022.11/common/gg-13-8-99-nb-classifier.qza',
     )
 
     return Artifact.load(fp)
 
-classifier = use.init_artifact('gg-13-8-99-515-806-nb-classifier', classifier_factory)
+classifier = use.init_artifact('gg-13-8-99-nb-classifier', classifier_factory)
 ```
 
 Next, use that classifier to assign taxonomic information to the ASV sequences.
@@ -102,7 +102,7 @@ If you need to filter human genome reads from your sequence data, for example
 before depositing sequences into a public repository, you should use a filter
 that specifically detects and removes human reads. This can be acheived in
 QIIME 2 using the [`q2-quality-control` plugin's `exclude-seqs`
-action](https://docs.qiime2.org/2021.11/plugins/available/quality-control/exclude-seqs/).
+action](https://docs.qiime2.org/2022.11/plugins/available/quality-control/exclude-seqs/).
 ```
 ````
 

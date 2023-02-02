@@ -35,8 +35,8 @@ jobs:
 
     - name: install latest QIIME 2 core distro (staging)
       run: |
-        envFile=qiime2-latest-py38-linux-conda.yml
-        wget https://raw.githubusercontent.com/qiime2/environment-files/master/latest/staging/$envFile
+        envFile=qiime2-2022.11-py38-linux-conda.yml
+        wget https://data.qiime2.org/distro/core/$envFile
         conda env create -q -p ./test-env --file $envFile
 
     - name: install dependencies
@@ -71,7 +71,7 @@ jobs:
       uses: burnett01/rsync-deployments@5.2
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
-        switches: -avzr --delete
+        switches: -avzr --delete --chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r
         path: book/_build/html/
         remote_path: ${{ secrets.STATIC_SITE_WWW }}
         remote_host: ${{ secrets.STATIC_SITE_HOST }}

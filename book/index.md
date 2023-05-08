@@ -8,7 +8,7 @@ on the [QIIME 2 YouTube channel](https://youtube.com/qiime2).
 
 This tutorial is intended to be read like a book, from beginning to end.
 
-This tutorial and the correspnding videos present many new features of QIIME 2
+This tutorial and the corresponding videos present many new features of QIIME 2
 and our education and documentation ecosystem, including:
 
 * The new QIIME 2 [Galaxy](https://usegalaxy.org/)-based graphical user
@@ -157,7 +157,7 @@ including the data set and the written and video tutorials.
 
 The QIIME 2 project is funded in part by:
 * The National Cancer Institute:
-  * [Informatics Technology for Cancer Reserach](https://itcr.cancer.gov/)
+  * [Informatics Technology for Cancer Research](https://itcr.cancer.gov/)
     (1U24CA248454-01) to JGC
   * [The Partnership for Native American Cancer
      Prevention](https://in.nau.edu/nacp/) (U54CA143925 and U54CA143924) to JGC

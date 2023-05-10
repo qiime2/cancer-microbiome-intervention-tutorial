@@ -40,7 +40,7 @@ genus_table, = use.action(
 Then, to focus on the genera that are likely to display the most interesting
 patterns over time (and to reduce the runtime of the steps that come next), we
 will perform even more filtering. This time we'll apply prevalence and
-abudnance based filtering. Specifically, we'll require that a genus's abundance
+abundance based filtering. Specifically, we'll require that a genus's abundance
 is at least 1% in at least 10% of the samples.
 
 ````{margin}

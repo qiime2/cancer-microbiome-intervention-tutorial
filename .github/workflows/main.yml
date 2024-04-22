@@ -3,6 +3,7 @@ name: main
 on:
   # build on all PRs, but only trigger push builds on `main`
   pull_request:
+  workflow_dispatch:
   push:
     branches:
       - main

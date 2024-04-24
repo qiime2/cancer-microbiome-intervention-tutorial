@@ -16,9 +16,9 @@ and our education and documentation ecosystem, including:
 * New tutorial data;
 * Our new QIIME 2 documentation system, which illustrates how to use QIIME 2
   with different user interfaces, including Galaxy, the QIIME 2 command line
-  interface, and the QIIME 2 Python 3 API. You can choose to use whichever of
-  these interfaces you're most comfortable with, or user different interfaces
-  for different steps;
+  interface, the QIIME 2 Python 3 API, and the R API (via reticulate). You can
+  choose to use whichever of these interfaces you're most comfortable with, or
+  use different interfaces for different steps;
 * Our first [Jupyter Book](https://jupyterbook.org/intro.html)-based QIIME 2
   tutorial.
 
@@ -173,4 +173,3 @@ AI137269 and U54 CA209975 to Joao B. Xavier.
 QIIME 2 was initially developed with support from the National Science
 Foundation
 ([1565100](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1565100)) to JGC.
-

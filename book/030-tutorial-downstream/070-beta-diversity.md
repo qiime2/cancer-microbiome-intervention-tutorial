@@ -87,21 +87,21 @@ use.action(
 
 ````{margin}
 ```{tip}
-QIIME 2's [q2-diversity](https://docs.qiime2.org/2022.11/plugins/available/diversity/)
+QIIME 2's [q2-diversity](https://docs.qiime2.org/2024.5/plugins/available/diversity/)
 plugin provides visualizations for assessing whether
 microbiome composition [differs across groups of independent
-samples](https://docs.qiime2.org/2022.11/plugins/available/diversity/beta-group-significance/)
+samples](https://docs.qiime2.org/2024.5/plugins/available/diversity/beta-group-significance/)
 (for example, individuals with a certain disease state and healthy controls)
 and for assessing whether [differences in microbiome composition are correlated
 with differences in a continuous
-variable](https://docs.qiime2.org/2022.11/plugins/available/diversity/beta-correlation/)
+variable](https://docs.qiime2.org/2024.5/plugins/available/diversity/beta-correlation/)
 (for example, subjects' body mass index). These tools assume that all samples
 are independent of one another,
 and therefore aren't applicable to the data used in this tutorial where
 multiple samples are obtained from the same individual. We therefore don't
 illustrate the use of these visualizations on this data, but you can learn
 about these approaches and view examples in the [_Moving Pictures_
-tutorial](https://docs.qiime2.org/2022.11/tutorials/moving-pictures-usage/).
+tutorial](https://docs.qiime2.org/2024.5/tutorials/moving-pictures-usage/).
 The Moving Pictures tutorial contains example data and commands, like this
 tutorial does, so you can experiment with generating these visualizations on
 your own.

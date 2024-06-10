@@ -25,7 +25,7 @@ that you define by filtering.
 First, download the full feature table.
 
 ```{usage}
-feature_table_url = 'https://data.qiime2.org/2022.2/tutorials/liao/full-feature-table.qza'
+feature_table_url = 'https://data.qiime2.org/2024.5/tutorials/liao/full-feature-table.qza'
 
 def artifact_from_url(url):
     def factory():
@@ -51,7 +51,7 @@ feature_table = use.init_artifact(
 Next, download the ASV sequences.
 
 ```{usage}
-seqs_url = 'https://data.qiime2.org/2022.2/tutorials/liao/rep-seqs.qza'
+seqs_url = 'https://data.qiime2.org/2024.5/tutorials/liao/rep-seqs.qza'
 
 feature_sequences = use.init_artifact(
     'rep-seqs',

@@ -30,7 +30,7 @@ def casava_directory_factory():
     from q2_types.per_sample_sequences import \
         CasavaOneEightSingleLanePerSampleDirFmt
 
-    sequence_data_url = 'https://data.qiime2.org/2022.2/tutorials/liao/fastq-casava.zip'
+    sequence_data_url = 'https://data.qiime2.org/2024.5/tutorials/liao/fastq-casava.zip'
     data = requests.get(sequence_data_url)
     with tempfile.NamedTemporaryFile(mode='w+b') as f:
         f.write(data.content)

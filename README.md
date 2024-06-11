@@ -20,14 +20,14 @@ Jupyter Books that can illustrate QIIME 2 workflows as steps in different QIIME
 1. Install the most recent development version of QIIME 2.
    1. macOS
       ```{code-block}
-      wget https://raw.githubusercontent.com/qiime2/environment-files/master/latest/staging/qiime2-latest-py38-osx-conda.yml
-      conda env create -n q2-jb --file qiime2-latest-py38-osx-conda.yml
+      wget https://raw.githubusercontent.com/qiime2/distributions/dev/latest/passed/qiime2-amplicon-macos-latest-conda.yml
+      conda env create -n q2-jb --file qiime2-amplicon-macos-latest-conda.yml
       conda activate q2-jb
       ```
    1. Linux
       ```{code-block}
-      wget https://raw.githubusercontent.com/qiime2/environment-files/master/latest/staging/qiime2-latest-py38-linux-conda.yml
-      conda env create -n q2-jb --file qiime2-latest-py38-linux-conda.yml
+      wget https://raw.githubusercontent.com/qiime2/distributions/dev/latest/passed/qiime2-amplicon-ubuntu-latest-conda.yml
+      conda env create -n q2-jb --file qiime2-amplicon-ubuntu-latest-conda.yml
       conda activate q2-jb
       ```
 

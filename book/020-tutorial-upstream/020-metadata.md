@@ -31,7 +31,7 @@ def partial_metadata_factory():
 
     import qiime2
 
-    sample_metadata_url = 'https://data.qiime2.org/2022.2/tutorials/liao/sample-metadata.tsv'
+    sample_metadata_url = 'https://data.qiime2.org/2024.5/tutorials/liao/sample-metadata.tsv'
     data = requests.get(sample_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)
@@ -41,7 +41,7 @@ def partial_metadata_factory():
         patient_sample_counts[sample_metadata['PatientID']].values
 
 
-    transplant_metadata_url = 'https://data.qiime2.org/2022.2/tutorials/liao/transplant-metadata.tsv'
+    transplant_metadata_url = 'https://data.qiime2.org/2024.5/tutorials/liao/transplant-metadata.tsv'
     data = requests.get(transplant_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)
@@ -96,7 +96,7 @@ def fmt_metadata_factory():
 
     import qiime2
 
-    fmt_metadata_url = 'https://data.qiime2.org/2022.2/tutorials/liao/fmt-metadata.tsv'
+    fmt_metadata_url = 'https://data.qiime2.org/2024.5/tutorials/liao/fmt-metadata.tsv'
     data = requests.get(fmt_metadata_url)
     with tempfile.NamedTemporaryFile() as f:
         f.write(data.content)

@@ -23,6 +23,8 @@ parts:
     - file: 030-tutorial-downstream/060-alpha-diversity.md
     - file: 030-tutorial-downstream/070-beta-diversity.md
     - file: 030-tutorial-downstream/080-longitudinal.md
+    - file: 030-tutorial-downstream/090-provenance.md
+
   - caption: Appendices
     chapters:
     - file: 040-appendices/convert-and-import-artifacts.ipynb

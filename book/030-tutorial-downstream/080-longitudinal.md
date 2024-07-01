@@ -136,5 +136,3 @@ use.action(
                          sample_estimator='sample_estimator_2')
 )
 ```
-
-

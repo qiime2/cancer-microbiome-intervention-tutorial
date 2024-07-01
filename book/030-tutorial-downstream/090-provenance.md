@@ -1,4 +1,4 @@
-# Provenance in Qiime2 
+# Provenance in Qiime2
 
 ```{usage-scope}
 ---
@@ -11,6 +11,7 @@ name: tutorial
 default-interface: cli-usage
 ---
 ```
+
 ## Wrapping up: what did you do five days ago?
 
 ```{exercise}

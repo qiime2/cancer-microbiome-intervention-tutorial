@@ -1,4 +1,4 @@
-# Provenance in Qiime2
+# Provenance in QIIME 2
 
 ```{usage-scope}
 ---

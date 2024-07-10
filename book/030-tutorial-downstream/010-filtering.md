@@ -8,7 +8,7 @@ name: tutorial
 
 ```{usage-selector}
 ---
-default-interface: galaxy-usage
+default-interface: cli-usage
 ---
 ```
 

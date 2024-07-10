@@ -8,7 +8,7 @@ name: tutorial
 
 ```{usage-selector}
 ---
-default-interface: galaxy-usage
+default-interface: cli-usage
 ---
 ```
 
@@ -58,12 +58,12 @@ def classifier_factory():
     from urllib import request
     from qiime2 import Artifact
     fp, _ = request.urlretrieve(
-        'https://data.qiime2.org/2024.5/common/gg-13-8-99-515-806-nb-classifier.qza',
+        'https://data.qiime2.org/classifiers/sklearn-1.4.2/greengenes/gg-13-8-99-515-806-nb-classifier.qza',
     )
 
     return Artifact.load(fp)
 
-classifier = use.init_artifact('gg-13-8-99-515-806-nb-classifier.qza', classifier_factory)
+classifier = use.init_artifact('gg-13-8-99-515-806-nb-classifier', classifier_factory)
 ```
 
 Next, use that classifier to assign taxonomic information to the ASV sequences.

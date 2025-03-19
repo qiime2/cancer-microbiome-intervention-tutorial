@@ -69,7 +69,8 @@ jobs:
         make build_full
 
     - name: deploy to docs
-      uses: burnett01/rsync-deployments@5.2
+      # Replaces burnett01/rsync-deployments@5.2
+      uses: qiime2-cutlery/rsync-deployments@master
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
         switches: -avzr --delete --chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r

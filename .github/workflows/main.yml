@@ -71,7 +71,7 @@ jobs:
 
     - name: deploy to docs
       # Replaces burnett01/rsync-deployments@5.2
-      uses: qiime2-cutlery/rsync-deployments@master
+      uses: qiime2-cutlery/rsync-deployments@5.2
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
         switches: -avzr --delete --chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r
